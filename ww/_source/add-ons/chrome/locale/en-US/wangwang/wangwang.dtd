@@ -1,0 +1,7 @@
+﻿<!ENTITY panel.title "WangWang-Related Protocols">
+<!ENTITY WangWang.name "Taobao WangWang">
+<!ENTITY AliIM.name "Ali WangWang">
+<!ENTITY AliTalk.name "Ali Talk">
+<!ENTITY directory.label "Application Path">
+<!ENTITY directory.browse "Browse">
+<!ENTITY protocol.register "Register">

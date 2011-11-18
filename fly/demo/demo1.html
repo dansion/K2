@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+<head>
+	<title>点菜啊点菜</title>  
+	<link href="../../button/button.css" rel="stylesheet">
+    <style type="text/css">    
+        body{margin:0px; padding:0px;font-size:12px;}
+        ul{margin:0px; padding:0px; list-style-type:none;}
+        li{}
+        h3{margin:0px; padding:0px;}
+        
+        .main{width:865px; margin:auto;}
+        .menu{float:left; width:660px; border:solid 1px #ccc}
+        .menu ul{}
+        .menu ul li{float:left;margin:5px;border:solid 1px #ddd}        
+        .menu ul li img{ width:150px;display:block; border-width:0px;}        
+        .menu ul li h3{display:inline; font-weight:normal; font-size:12px;}
+        .menu ul li .btn-order{}
+        
+        .order{float:right; width:200px; border:solid 1px #ddd;margin-top:200px;}
+        .order ul{}
+        .order ul li{height:18px;line-height:18px;}
+        .order h3{border:solid 1px #7f7f7f; background-color:#49a9f3; }
+        
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="menu">
+            <ul>
+                <li>
+                    <img src="../assets/menu1.jpg" class="img-animate">
+                    <h3>挺好吃的菜</h3><input type="button" value="点了" class="btn-order" />
+                </li>
+                <li>
+                    <img src="../assets/menu1.jpg" class="img-animate">
+                    <h3>不好吃的菜</h3><input type="button" value="点了" class="btn-order" />
+                </li>
+                <li>
+                    <img src="../assets/menu1.jpg" class="img-animate">
+                    <h3>挺好吃的菜</h3><input type="button" value="点了" class="btn-order" />
+                </li>
+                <li>
+                    <img src="../assets/menu1.jpg" class="img-animate">
+                    <h3>不好吃的菜</h3><input type="button" value="点了" class="btn-order" />
+                </li>                
+                <li>
+                    <img src="../assets/menu1.jpg" class="img-animate">
+                    <h3>挺好吃的菜</h3><input type="button" value="点了" class="btn-order" />
+                </li>
+                <li>
+                    <img src="../assets/menu1.jpg" class="img-animate">
+                    <h3>不好吃的菜</h3><input type="button" value="点了" class="btn-order" />
+                </li>                
+                <li>
+                    <img src="../assets/menu1.jpg" class="img-animate">
+                    <h3>挺好吃的菜</h3><input type="button" value="点了" class="btn-order" />
+                </li>
+                <li>
+                    <img src="../assets/menu1.jpg" class="img-animate">
+                    <h3>不好吃的菜</h3><input type="button" value="点了" class="btn-order" />
+                </li>                
+                <li>
+                    <img src="../assets/menu1.jpg" class="img-animate">
+                    <h3>挺好吃的菜</h3><input type="button" value="点了" class="btn-order" />
+                </li>
+                <li>
+                    <img src="../assets/menu1.jpg" class="img-animate">
+                    <h3>不好吃的菜</h3><input type="button" value="点了" class="btn-order" />
+                </li>                
+                <li>
+                    <img src="../assets/menu1.jpg" class="img-animate">
+                    <h3>挺好吃的菜</h3><input type="button" value="点了" class="btn-order" />
+                </li>
+                <li>
+                    <img src="../assets/menu1.jpg" class="img-animate">
+                    <h3>不好吃的菜</h3><input type="button" value="点了" class="btn-order" />
+                </li>      
+             </ul>
+         </div>
+         <div class="order">
+            <h3>已点</h3>
+            <ul class="target" id="target">
+                <li>菜品1</li>
+                <li>菜品2</li>
+            </ul>
+         </div>
+     </div>
+          
+     <script charset="utf-8" src="/k2/seed/seed.js"></script>
+     <script type="text/javascript" src="../fly.js"></script>
+     <script type="text/javascript">
+     YUI().use('k2-fly',function(Y){     
+        var imgs = Y.all(".btn-order"),
+            target = Y.one("#target");
+        imgs.on("click", function(node){
+            var elem = Y.one(node.currentTarget).get('parentNode').one(".img-animate");
+            Y.k2fly(elem,target,0.4,function(){                
+                    var newLi = Y.Node.create("<li />");
+                    newLi.set("text","菜品new");
+                    Y.one("#target li").insert(newLi,"before");
+                },
+            {target_offsetX: 30,target_offsetY:10,ele_offsetX:-5,ele_offsetY:5});
+            
+        });
+     });
+    </script>
+</body>
+</html>

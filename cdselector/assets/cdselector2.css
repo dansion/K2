@@ -1,0 +1,132 @@
+/*!
+ * Copyright (c)2008, ued.koubei.com All rights reserved.
+ * @file cdselector.css
+ * @author stauren
+ * @revision:
+ * @version:1_0_4
+ */
+
+/* start: yk-validate-category selector */
+.k2-validate-category {
+  zoom:1;
+  clear:both;
+  -moz-user-select : none;
+    border:1px solid #7F9DB9;
+}
+.k2-validate-cateogy:after {
+  content:".";
+  display:block;
+  height:0;
+  clear:both;
+  visibility:hidden;
+}
+.k2-validate-category ul {
+	background-color:#FFFFFF;
+	float:left;
+	height:230px;
+	width:100px;
+	margin:0 2px 0 0;
+	overflow:auto;
+	overflow-x:hidden;
+	overflow-y:hidden;
+	padding:4px 0;
+}
+.k2-validate-category ul li{
+	border:1px solid #FFFFFF;
+	color:#444444;
+	cursor:default;
+	height:20px;
+	line-height:20px;
+	margin:0pt 1px;
+	padding:0pt;
+	text-indent:3px;
+	width:80px;
+	*width:70px;
+}
+.k2-validate-category ul li.k2-validate-category-selected {
+	color:#444;
+	background-color:#ffdfe0;
+	border-color:#ff8081;
+}
+
+
+.k2-validate-category ul li a{
+	display: block;
+	cursor: default;
+	color: #316AC5;
+	 text-decoration:none;
+	 width: 50px;
+	 height: 20px;
+	 padding-left: 12px;
+}
+.k2-validate-category ul li a:hover{
+	color: #316AC5;
+	background: #0F3E89;
+
+}
+.k2-validate-category ul.qian{ 
+	text-align:left;
+	background: #F1F7FE;
+	margin: 0;
+
+}
+
+
+.k2-validate-category ul.qian li{ 
+	padding-left: 12px;
+	border:none; 
+	margin:0;
+	width: 90px;
+	margin-left: 10px;
+}
+.k2-validate-category ul.qian li.k2-validate-category-selected { 
+	background: url(li.png);
+}
+.k2-validate-category ul.shen{ 
+	text-align:left;
+	background: #CFE3FD;
+	margin: 0;
+}
+.k2-validate-category ul.shen li{ 
+	padding-left: 12px;
+	border:none; 
+	margin:0;
+	width: 90px;
+	margin-left: 10px;
+}
+.k2-validate-category ul.shen li.k2-validate-category-selected { 
+	background: url(si.png);
+}
+
+
+
+.k2-validate-category ul.k2-validate-category-level0 {}
+.k2-validate-category select {
+  margin-right : .5em;
+ }
+.k2-validate-category span.k2-validate-bts {
+  margin-right : .5em;
+}
+.k2-validate-category .k2-cds-multi-ctn {
+  margin-top : 5px;
+}
+.k2-validate-category .k2-cds-multi-ctn ul {
+  float : none;
+  height : auto;
+  width : auto;
+  overflow : auto;
+  padding : 0;
+  zoom:1;
+}
+.k2-validate-category .k2-cds-multi-ctn ul li {
+  float : left;
+  width : auto;
+}
+.k2-validate-category .k2-cds-multi-ctn ul li input {
+  vertical-align : middle;
+  margin : 0 3px 3px 0;
+}
+.k2-validate-category .k2-cds-multi-ctn ul li label {
+  padding-right : 5px;
+}
+/* end: k2-validate-category selector */

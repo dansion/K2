@@ -1,0 +1,28 @@
+body{
+  padding:1em 2em;
+  text-align:left;  
+}
+h1{
+  font-size:24px;  
+}
+h2{
+  padding:1em 0;  
+  color:green;
+}
+ol{
+  margin:10px 0 10px 2em;  
+}
+ol li{
+  list-style:decimal;  
+  line-height:1.8;
+}
+th,
+td{
+  border:1px solid #ddd;
+  padding:2px 5px;
+  font-size:12px;
+}
+th{
+  font-weight:bold;
+  background:#eee;
+}

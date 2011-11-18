@@ -1,0 +1,367 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+  <link rel="Stylesheet" type="text/css" href="/k2/css/reset.css" />
+  <link rel="Stylesheet" type="text/css" href="/k2/_assets/demo.css" />
+  <link rel="Stylesheet" type="text/css" href="theme-vim.css" />
+	<title>K2 Switch 使用文档</title>
+</head>
+<body>
+  <div class="contents">
+  
+
+<h1 id="toc_1">1 K2 Switchable</h1>
+
+<p>
+在我所做的项目中多次使用到K2-Switchable，总体而言感觉不错，节约很多
+开发时间，而且做的效果也很不错。最大的问题就没有文档，每次使用都需
+要重新看饺子的<a href="http://kxt.koubei.com/k2/switch/demo/demo.html">Demo地址</a> 很是浪费时间。
+</p>
+
+<h1 id="toc_2">2 组件构成</h1>
+
+<p>
+K2-Switchable现在包括Tabs，Slide，Carousel三个大块构成，三者都基于Switch
+类。Tabs只做页面的简单切换，Slide幻灯片切换效果，通常附带淡入淡出效果，
+它们两这都由两个基本组件构成，nav和content。Carousel多了两个触发按钮<code>prevBtn,nextBtn</code>
+更多的细节可以直接看代码，或者咨询饺子。
+</p>
+
+<p>
+注意: siwitchable在seed-1-2-13可以使用，更老的seed可能无法使用。
+</p>
+
+<h2 id="toc_2.1">2.1 参数</h2>
+
+<p>
+基本html构成
+</p>
+
+<pre class="brush:html">
+  <div id="tab">
+    &lt;ul class="content"&gt;
+      &lt;li&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  </div>
+</pre>
+
+<p>
+使用基本方式
+</p>
+
+<pre class="brush:javascript">
+  var tab = new Tabs('#tab',{
+      contentCls: 'content'
+  });
+</pre>
+
+<h3 id="toc_2.1.1">2.1.1 Prototype</h3>
+
+<table>
+<tr>
+<th>param</th>
+<th>type</th>
+<th>description</th>
+</tr>
+<tr>
+<td>activeIndex</td>
+<td>{Number}</td>
+<td>处于活动状态tab对应的node的索引，从0开始</td>
+</tr>
+<tr>
+<td>container</td>
+<td>{Node}</td>
+<td>组件的容器，Switch所有元素都在container中，构造参数第一个参数传入选择器</td>
+</tr>
+<tr>
+<td>config</td>
+<td>{Object}</td>
+<td>配置参数，通过构造函数第二个参数传入</td>
+</tr>
+<tr>
+<td>length</td>
+<td>{Number}</td>
+<td>等于content的长度</td>
+</tr>
+<tr>
+<td>content</td>
+<td>{Node}</td>
+<td>处于运动轮播的内容,从dom结构看，content是container的子节点，上例中的<code>.content</code></td>
+</tr>
+<tr>
+<td>panels</td>
+<td>{HTMLCollection}</td>
+<td>content的子节点集合</td>
+</tr>
+<tr>
+<td>triggers</td>
+<td>{Nodelist}</td>
+<td>nav结合，如果在container中没有此节点，会自动生triggers<code>ul&gt;li*{this.length}</code></td>
+</tr>
+<tr>
+<td>viewSize</td>
+<td>{Array}</td>
+<td>视图大小，可以自由配置 <code>[宽度,长度]</code>,默认情况下会自动计算得出</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>Carousel类新属性</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>nextBtn</td>
+<td>{Node}</td>
+<td>触发轮播的节点</td>
+</tr>
+<tr>
+<td>prevBtn</td>
+<td>{Node}</td>
+<td>触发轮播的节点</td>
+</tr>
+</table>
+
+<p>
+其他属性我就不大清楚了，有待饺子哥的补充与指正啦
+</p>
+
+<h3 id="toc_2.1.2">2.1.2 参数配置</h3>
+
+<p>
+Tabs,Carousel,Slide三者差异不大。主要在于配置不同，Carousel增加了触发轮播的botton。
+</p>
+
+<table>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Default</th>
+<th>Acceptable Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>contentCls</td>
+<td>{String}</td>
+<td><code>ks-switchable-content</code></td>
+<td>&nbsp;</td>
+<td><code>this.content</code>的类名</td>
+</tr>
+<tr>
+<td>navCls</td>
+<td>{String}</td>
+<td><code>ks-switchable-nav</code></td>
+<td>&nbsp;</td>
+<td><code>this.triggers</code>的类名)</td>
+</tr>
+<tr>
+<td>markupType</td>
+<td>{Number}</td>
+<td>0</td>
+<td>[0,1,2]</td>
+<td>0 - 默认结构：通过 nav,content 来获取 triggers 和 panels</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>1 - 适度灵活：通过(triggerCls和panelCls) 来获取triggers和panels</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>2 - 完全自由：直接传入(Nodelist)triggers 和 panels</td>
+</tr>
+<tr>
+<td>triggerType</td>
+<td>{String}</td>
+<td><code>mouse</code></td>
+<td>[<code>mouse</code>,<code>click</code>]</td>
+<td>触发类型</td>
+</tr>
+<tr>
+<td>delay</td>
+<td>{Number}</td>
+<td>0.1</td>
+<td>&nbsp;</td>
+<td>触发延迟时间，秒为单位</td>
+</tr>
+<tr>
+<td>steps</td>
+<td>{Number}</td>
+<td>1</td>
+<td>&nbsp;</td>
+<td>可见视图中出现多少个pannel</td>
+</tr>
+<tr>
+<td>viewSize</td>
+<td>{Array}</td>
+<td>[]</td>
+<td>&nbsp;</td>
+<td>默认自动计算pannel的高度与宽度</td>
+</tr>
+<tr>
+<td>circular</td>
+<td>{Bool}</td>
+<td>Slide,Carousel <code>true</code></td>
+<td>[<code>true</code>,<code>false</code>]</td>
+<td>如果为true，轮播到最后一个自动到第一个</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>effect</td>
+<td>{String}</td>
+<td>&nbsp;</td>
+<td>[<code>fade</code>,<code>scrollx</code>,<code>scrolly</code>]</td>
+<td>需要增加k2-switch-efffec模块</td>
+</tr>
+<tr>
+<td>easing</td>
+<td>{String}</td>
+<td>&nbsp;</td>
+<td>YUI.Anim.Easing</td>
+<td>YUI.Anim.Easing</td>
+</tr>
+<tr>
+<td>duration</td>
+<td>{Number}</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>autoplay</td>
+<td>{Bool}</td>
+<td>Slide <code>true</code></td>
+<td>[<code>true</code>,<code>false</code>]</td>
+<td>自动播放,需要增加k2-switch-autoplay模块</td>
+</tr>
+</table>
+
+<p>
+Carousel还有三个属性配置，prevBtnCls,nextBtnCls,disableBtnCls,分别对应
+Carousel中prevBtn,nextBtn的类名。默认值为ks-switchable-prev-btn,
+ks-switchable-next-btn,ks-switchable-disable-btn
+</p>
+
+<h3 id="toc_2.1.3">2.1.3 Event</h3>
+
+<p>
+自定义事件传入的事件对象是一个简单的Object，this指向YUI引用
+</p>
+
+<p>
+beforeSwitch
+</p>
+
+<p>
+使用：
+</p>
+
+<pre class="brush:javascript">
+  tabs.addCustomEvent('beforeSwitch',function (e) { 
+    
+  });
+</pre>
+
+<p>
+参数：
+</p>
+
+<ul>
+<li>
+fromIndex
+</li>
+<li>
+toIndex
+</li>
+</ul>
+
+<p>
+switch
+</p>
+
+<p>
+使用同上
+</p>
+
+<p>
+参数：
+</p>
+
+<ul>
+<li>
+currentIndex
+</li>
+</ul>
+
+<h2 id="toc_2.2">2.2 实践中的例子</h2>
+
+<ul>
+<li>
+<a href="http://kxt.koubei.com/promotion/2010/12/shanghu/index.html">最简单的Tabs应用</a> 
+</li>
+<li>
+<a href="http://kxt.koubei.com/promotion/2011/01/dianpu/index.html">Tabs应用2</a>
+</li>
+<li>
+<a href="http://kxt.koubei.com/promotion/2011/01/tuijian/last.html">上海专题slide</a>
+</li>
+<li>
+<a href="http://promotion.koubei.com/s/hy/hzzt/zhuantihui.html">Carousel使用</a>由于beforeSwitch时间没有阻止事件运行的功能，只能
+  使用return false阻止时间继续运行
+</li>
+<li>
+<a href="http://promotion.koubei.com/s/beijing/waimai.html">北京外卖</a>
+</li>
+</ul>
+
+<h2 id="toc_2.3">2.3 下一版增进意见</h2>
+
+<ul>
+<li>
+Carousel模块可能不存在nav，Carousel可以增加一个不自动生成nav的功能
+</li>
+<li>
+Carousel模块需要封装自动判断末尾的功能
+</li>
+<li>
+Switch也许可以添加一个show all的功能
+</li>
+<li>
+与钨龙的shutter整合
+</li>
+<li>
+自定义事件beforeSwitch无法阻止事件运行,需要增加halt方法
+</li>
+</ul>
+
+  </div>
+  <script src="/k2/seed/seed.js"></script>
+  <script src="/k2/_assets/config-vim.js"></script>
+</body>
+</html>

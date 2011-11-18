@@ -1,0 +1,66 @@
+﻿<?xml version="1.0"?> 
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+
+<!--
+	by Kong Wei (Qu Chao) @ Taobao UED Team
+	http://ued.taobao.com
+	Chappell.Wat{at}Gmail{dot}com
+-->
+
+<!DOCTYPE prefwindow [
+	<!ENTITY % wangwangDTD SYSTEM "chrome://wangwang/locale/wangwang.dtd">
+	%wangwangDTD;
+]>
+
+<dialog xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" buttons="accept" id="optWangWang" title="&panel.title;" onload="WangWang.Setting.init();" ondialogaccept="return WangWang.Setting.quit();" persist="screenX screenY">
+	<script type="application/x-javascript" src="wangwangOverlay.js" />
+	<script type="application/x-javascript" src="wangwangSetting.js" />
+	<tabbox id="tbWangWang" flex="1" >
+		<tabs>
+			<tab label="&WangWang.name;" id="tabWangWang" />
+			<tab label="&AliIM.name;" id="tabAliIM" />
+			<tab label="&AliTalk.name;" id="tabAliTalk" />
+		</tabs>
+		<tabpanels flex="1">
+			<tabpanel flex="1">
+				<vbox flex="1">
+					<label class="header" value="&directory.label;" />
+					<hbox align="center">
+						<textbox id="pthWangWang" readonly="true" flex="1"/>
+						<button id="brsWangWang" label="&directory.browse;" oncommand="WangWang.Setting.detect('WangWang');" />
+					</hbox>
+					<hbox align="center">
+						<spacer flex="1" />
+						<button id="regWangWang" label="&protocol.register;" oncommand="WangWang.Setting.toggleReg('WangWang');" disabled="true" />
+					</hbox>
+				</vbox>
+			</tabpanel>
+			<tabpanel flex="1">
+				<vbox flex="1">
+					<label class="header" value="&directory.label;" />
+					<hbox align="center">
+						<textbox id="pthAliIM" readonly="true" flex="1"/>
+						<button id="brsAliIM" label="&directory.browse;" oncommand="WangWang.Setting.detect('AliIM');" />
+					</hbox>
+					<hbox align="center">
+						<spacer flex="1" />
+						<button id="regAliIM" label="&protocol.register;" oncommand="WangWang.Setting.toggleReg('AliIM');" disabled="true" />
+					</hbox>
+				</vbox>
+			</tabpanel>
+			<tabpanel flex="1">
+				<vbox flex="1">
+					<label class="header" value="&directory.label;" />
+					<hbox align="center">
+						<textbox id="pthAliTalk" readonly="true" flex="1"/>
+						<button id="brsAliTalk" label="&directory.browse;" oncommand="WangWang.Setting.detect('AliTalk');" />
+					</hbox>
+					<hbox align="center">
+						<spacer flex="1" />
+						<button id="regAliTalk" label="&protocol.register;" oncommand="WangWang.Setting.toggleReg('AliTalk');" disabled="true" />
+					</hbox>
+				</vbox>
+			</tabpanel>
+		</tabpanels>
+	</tabbox>
+</dialog>

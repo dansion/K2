@@ -1,0 +1,185 @@
+/*!
+ * @revision:
+ */
+/*
+ * @author: <a href="youxiao@taobao.com">youxiao</a>
+ * @version:1-0-3
+ */
+.k2-icon-bg-m,
+.k2-icon-node-m,
+.k2-icon-bg-m li{ background-repeat:no-repeat; }
+.k2-icon-node-m{
+  width:16px;
+  height:16px;
+  margin-right:5px;
+  background-position:center center;
+}
+.k2-icon-bg-m{
+  padding-left:21px;
+  background-position:left center;
+}
+.k2-icon-bg-m li{
+  padding-left:8px;
+  background-position:0 0.67em;
+}
+ul.k2-icon-bg-m,
+ol.k2-icon-bg-m{
+  padding-left:0;
+  background:none;
+}
+.k2-icon-node-m{
+  display:-moz-inline-stack;
+  display:inline-block;
+ *display:inline;
+ *zoom:1;
+  vertical-align:middle;
+  font-size:0;
+  line-height:9999px;
+  *line-height:1.5;
+  overflow:hidden;
+  position:relative;
+ *position:static;
+}
+.k2-icon-mail{
+  background-image:url(k2-icon-mail.png);
+}
+.k2-icon-kb-card{
+  background-image:url(k2-icon-kb-card.png);
+  width:14px;
+  padding-left:19px;
+}
+.k2-icon-recommend{
+  background-image:url(k2-icon-recommend.png);
+  width:21px;
+  padding-left:26px;
+}
+.k2-icon-recommend-m{
+  background-image:url(k2-icon-recommend-m.png);
+  width:45px;
+  height:17px;
+  padding-left:50px;
+}
+.k2-icon-recommend-l{
+  background-image:url(k2-icon-recommend-l.png);
+  width:54px;
+  height:19px;
+  padding-left:59px;
+}
+.k2-icon-pic{
+  background-image:url(k2-icon-pic.png);
+  width:13px;
+  padding-left:18px;
+}
+.k2-icon-success{
+  background-image:url(k2-icon-success.png);
+}
+.k2-icon-error{
+  background-image:url(k2-icon-error.png);
+  width:12px;
+  padding-left:17px;
+}
+.k2-icon-fang{
+  background-image:url(k2-icon-fang.png);
+}
+.k2-icon-alipay{
+  background-image:url(k2-icon-alipay.png);
+  width:12px;
+  padding-left:17px;
+}
+.k2-icon-clock{
+  background-image:url(k2-icon-clock.png);
+}
+.k2-icon-tip{
+  background-image:url(k2-icon-tip.png);
+  width:9px;
+  padding-left:14px;
+}
+.k2-icon-say{
+  background-image:url(k2-icon-say.png);
+}
+.k2-icon-tk-card{
+  background-image:url(k2-icon-tk-card.png);
+}
+.k2-icon-mphone{
+  background-image:url(k2-icon-mphone.png);
+  width:11px;
+  padding-left:16px;
+}
+.k2-icon-vip-1,
+.k2-icon-vip-2,
+.k2-icon-vip-3,
+.k2-icon-vip-w1,
+.k2-icon-vip-w2,
+.k2-icon-vip-w3{
+  height:17px;
+  vertical-align:baseline;
+  margin:0 0 0 2px;
+}
+.k2-icon-vip-1{
+  background-image:url(k2-icon-vip-1.gif);
+  width:20px;
+  padding-left:22px;
+}
+.k2-icon-vip-2{
+  background-image:url(k2-icon-vip-2.gif);
+  width:25px;
+  padding-left:27px;
+}
+.k2-icon-vip-3{
+  background-image:url(k2-icon-vip-3.gif);
+  width:32px;
+  padding-left:34px;
+}
+.k2-icon-vip-w1{
+  background-image:url(k2-icon-vip-w1.gif);
+  width:52px;
+}
+.k2-icon-vip-w2{
+  background-image:url(k2-icon-vip-w2.gif);
+  width:57px;
+}
+.k2-icon-vip-w3{
+  background-image:url(k2-icon-vip-w3.gif);
+  width:64px;
+}
+.k2-icon-notice{
+  background-image:url(k2-icon-notice.png);
+  width:11px;
+  padding-left:16px;
+}
+.k2-icon-tuan{
+  background-image:url(k2-icon-tuan.png);
+  width:14px;
+  padding-left:19px;
+}
+.k2-icon-bill{
+  background-image:url(k2-icon-bill.png);
+}
+/*follow*/
+.k2-icon-follow-wide{
+  background-image:url(k2-icon-follow-wide.png);
+  width:66px;
+}
+.k2-icon-followed-wide{
+  background-image:url(k2-icon-followed-wide.png);
+  width:66px;
+  cursor:default;
+}
+/*li list-style*/
+.k2-icon-dot li{
+  background-image:url(k2-icon-dot.png);
+}
+.k2-icon-square li{
+  background-image:url(k2-icon-square.png);
+}
+.k2-icon-square-ccc li{
+  background-image:url(k2-icon-square-ccc.png);
+}
+/*rewrite*/
+.k2-icon-bg-m{
+  width:auto;
+  height:auto;
+}
+.k2-icon-node-m{
+  padding-left:0;
+}

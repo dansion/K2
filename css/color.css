@@ -1,0 +1,34 @@
+/*!
+ * @revision:
+ */
+/*
+ * @author: sanqi 
+ * @version:1-0-2
+ */
+
+body, legend { /* because legend doesn't inherit in IE */
+  color:#333;
+}
+a:link,
+a:visited{
+  color:#1166BB;
+}
+/*这里的av是a visited的缩写，是用来控制链接显示访问后颜色的类，目前我们默认链接颜射和访问后的颜色是一直的，但是在列表页一般需要使用访问后的颜色，这个时候可以使用k2-av这个类*/
+a:hover,
+a:active,
+a.k2-av:hover, 
+a.k2-av:active,
+.k2-av a:hover,
+.k2-av a:active,
+a.k2-highlight,
+.k2-highlight{
+  color:#f60;
+}
+a.k2-av:visited,
+.k2-av a:visited {
+  color:#800080;
+}
+.k2-lowlight{
+  color:#999;
+}
+

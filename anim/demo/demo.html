@@ -1,0 +1,219 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>CSS3 Animation Library</title>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<link href="http://k.kbcdn.com/k2/css/reset-1-0-0.css" rel="stylesheet">
+<link href="http://k.kbcdn.com/k2/css/common-1-0-0.css" rel="stylesheet">
+<link href="../anim.css" rel="stylesheet">
+<style>
+.yui3-overlay {
+    background: #fff;
+    padding: 20px 10px 10px;
+    text-align:left;
+    border:1px solid #838383;
+    -webkit-box-shadow:3px 3px 0 rgba(0,0,0,0.12);
+    -moz-box-shadow:3px 3px 0 rgba(0,0,0,0.12);
+    -box-shadow:3px 3px 0 rgba(0,0,0,0.12);
+}
+.yui3-overlay .syntaxhighlighter{
+  margin-top:0 !important;
+}
+.yui3-overlay #overlay-close-btn{
+  	position:absolute;
+    right:2px;
+    top:2px;
+    text-decoration:underline;
+    height:16px;
+    width:16px;
+    cursor:pointer;
+    text-align:center;
+    line-height:16px;
+    font-style:normal;
+}
+.yui3-overlay #overlay-close-btn:after{
+    content:"X";
+}
+.yui3-overlay .yui3-widget-content-expanded{
+  overflow:auto;
+}
+
+h1 {
+    font-family: Georgia,"Times New Roman",Times,serif;
+    font-size: 80px;
+    color: #ddd;
+    font-weight: normal;
+    font-style: italic;
+}
+a:link{
+    text-decoration:underline;
+}
+button{
+    padding: 4px 30px;
+}
+select,
+input {
+    padding: 4px;
+}
+#speed {
+    padding: 3px 4px;
+    width:60px;
+}
+#stage {
+    padding: 100px;
+}
+#actor {
+    width: 350px;
+    height: 100px;
+    line-height: 100px;
+    font-size: 20px;
+    margin: 0 auto;
+    border: 1px solid#ddd;
+    background-color: #eee;
+}
+#copyRights{
+    color:#666;
+}
+</style>
+</head>
+<body>
+<h1>CSS3 Animation Library</h1>
+<form>
+    <select id="effect">
+        <optgroup label="Entrance">
+            <option value="k2-anim-fadeIn">fadeIn</option>
+            <option value="k2-anim-spinIn">spinIn</option>
+            <option value="k2-anim-zoomIn">zoomIn</option>
+            <option value="k2-anim-swivelIn">swivelIn</option>
+			<option value="k2-anim-floatTopIn">floatTopIn</option>
+			<option value="k2-anim-floatBottomIn">floatBottomIn</option>
+			<option value="k2-anim-floatLeftIn">floatLeftIn</option>
+			<option value="k2-anim-floatRightIn">floatRightIn</option>
+			<option value="k2-anim-growIn">growIn</option>
+			<option value="k2-anim-popIn">popIn</option>
+			<option value="k2-anim-fallIn">fallIn</option>
+        </optgroup >
+        <optgroup label="Exit">
+            <option value="k2-anim-fadeOut">fadeOut</option>
+            <option value="k2-anim-spinOut">spinOut</option >
+            <option value="k2-anim-zoomOut">zoomOut</option>
+            <option value="k2-anim-swivelOut">swivelOut</option>
+			<option value="k2-anim-floatTopOut">floatTopOut</option>
+			<option value="k2-anim-floatBottomOut">floatBottomOut</option>
+			<option value="k2-anim-floatLeftOut">floatLeftOut</option>
+			<option value="k2-anim-floatRightOut">floatRightOut</option>
+            <option value="k2-anim-growOut">growOut</option>
+        </optgroup >
+        <optgroup label="Other">
+            <option value="k2-anim-teeter">teeter</option>
+            <option value="k2-anim-pulse">pulse</option>
+			<option value="k2-anim-breathe">breathe</option>
+			<option value="k2-anim-shine">shine</option>
+        </optgroup>
+    </select>
+    <select id="easing">
+        <optgroup label="defaults">
+            <option value="linear">linear</option>
+            <option value="ease">ease</option>
+            <option value="ease-in">ease-in</option>
+            <option value="ease-out">ease-out</option>
+            <option value="ease-in-out">ease-in-out</option>
+        </optgroup >
+        <optgroup label="Penner Equations">
+            <option value="0.550, 0.085, 0.680, 0.530">easeInQuad</option>
+            <option value="0.550, 0.055, 0.675, 0.190">easeInCubic</option>
+            <option value="0.895, 0.030, 0.685, 0.220">easeInQuart</option>
+            <option value="0.755, 0.050, 0.855, 0.060">easeInQuint</option>
+            <option value="0.470, 0.000, 0.745, 0.715">easeInSine</option>
+            <option value="0.950, 0.050, 0.795, 0.035">easeInExpo</option>
+            <option value="0.600, 0.040, 0.980, 0.335">easeInCirc</option>
+            <option value="0.250, 0.460, 0.450, 0.940">easeOutQuad</option>
+            <option value="0.215, 0.610, 0.355, 1.000">easeOutCubic</option>
+            <option value="0.165, 0.840, 0.440, 1.000">easeOutQuart</option>
+            <option value="0.230, 1.000, 0.320, 1.000">easeOutQuint</option>
+            <option value="0.390, 0.575, 0.565, 1.000">easeOutSine</option>
+            <option value="0.190, 1.000, 0.220, 1.000">easeOutExpo</option>
+            <option value="0.075, 0.820, 0.165, 1.000">easeOutCirc</option>
+            <option value="0.455, 0.030, 0.515, 0.955">easeInOutQuad</option>
+            <option value="0.645, 0.045, 0.355, 1.000">easeInOutCubic</option>
+            <option value="0.770, 0.000, 0.175, 1.000">easeInOutQuart</option>
+            <option value="0.860, 0.000, 0.070, 1.000">easeInOutQuint</option>
+            <option value="0.445, 0.050, 0.550, 0.950">easeInOutSine</option>
+            <option value="1.000, 0.000, 0.000, 1.000">easeInOutExpo</option>
+            <option value="0.785, 0.135, 0.150, 0.860">easeInOutCirc</option>
+        </optgroup></select>
+    <input type="number" value="1" step="0.1" id="speed">
+    <select id="count">
+        <option value="1">1 time</option>
+        <option value="2">2 times</option>
+        <option value="3">3 times</option>
+        <option value="4">4 times</option>
+        <option value="5">5 times</option>
+        <option value="6">6 times</option>
+        <option value="7">7 times</option>
+        <option value="8">8 times</option>
+        <option value="9">9 times</option>
+        <option value="10">10 times</option>
+        <option value="infinite">infinite</option>
+    </select>
+    <button id="play">Play It</button>
+    <button id="getCode">Get Code</button>
+</form>
+<div id="stage">
+    <div id="actor">I'm an actor.</div>
+</div>
+<div id="copyRights">
+    <p>Copyright (c)2010 koubei.com All rights reserved.</p>
+    <p>The "<code>timing-function</code>" is powered by <a href="http://matthewlein.com/ceaser/">matthewlein</a>.</p>
+</div>
+<script src="http://yui.yahooapis.com/3.3.0/build/yui/yui-min.js" charset="utf-8"></script>
+<script>
+YUI().use("node-base", "node-style", "overlay", function(Y) {
+    //showCode overlay
+    var Overlay = new Y.Overlay({
+        visible: false,
+        zIndex: 9999,
+        width: '700px',
+        height: '40px',
+        headerContent: '<i id="overlay-close-btn" title="close"></i>'
+    }).render(document.body);
+    Y.one("#overlay-close-btn").on("click", function(e) {
+        Overlay.set("visible", false);
+    });
+
+    var actor = Y.one('#actor'),
+        effect = Y.one('#effect'),
+        speed = Y.one('#speed'),
+        easing = Y.one('#easing'),
+        count = Y.one('#count'),
+        getCode = function(){
+            var easeing = easing.get('value');
+            easeing = /\,/.test(easeing)?'cubic-bezier(' + easing.get('value') + ')':easeing;
+            return effect.get('value') + ' ' + easeing + ' ' + speed.get('value') + 's ' + count.get('value');
+        };
+    Y.on('click', function(e) {
+        e.preventDefault();
+        var code = getCode();
+        actor.setStyles({
+            'webkitAnimation': '',
+            'MozAnimation': ''
+        });
+        setTimeout(function(){
+            actor.setStyles({
+                'webkitAnimation': code,
+                'MozAnimation': code
+            });
+        },0);
+    }, '#play');
+    
+    Y.one("#getCode").on("click",function(e){
+        e.preventDefault();
+        var code = getCode();
+        Overlay.set("bodyContent", '<pre class="brush:css">-webkit-animation:' + code + ';\r\n-moz-animation:' + code + ';</pre>');
+        Overlay.set("visible", true);
+        Overlay.set("centered", true);
+    });
+});
+</script>
+</html >

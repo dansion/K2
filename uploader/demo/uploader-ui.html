@@ -1,0 +1,546 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>K2 Components | Image Uploader UI Docs</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+	<link href="http://k.kbcdn.com/min/f=k2/css/reset-1-0-0.css,k2/css/grids-1-0-0.css,/product/common/header/v20100816/header-1-0-34.css,/k2/button/btn-1-0-2.css,/k2/icon/icon-1-0-5.css" rel="stylesheet">
+	<link href="../uploader-ui-style.css" rel="stylesheet">
+  	<base target="_blank" />
+<style>
+body {
+	font: normal 11px auto "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+	color: #4f6b72;
+	text-align:left;
+}
+h1{
+	padding:10px 0;
+	color:#333;
+	font-size:28px;
+	text-shadow: #eef 1px 1px; 
+}
+h2{
+	padding:10px 0 0 0;
+	margin:0;
+	font-weight:bold;
+	color:#FF33CC;
+}
+pre{
+	background:#F2F2F2;
+	padding:2px;
+}
+#swf-uploader{
+	width:101px;
+	height:30px;
+}
+.demo-column{
+	margin-top:20px;
+	border:#C1DAD7 1px solid;
+}
+.demo-column h3{
+	font-size:14px;
+	font-weight:bold;
+	background:#C1DAD7;
+	color:#4f6b72;
+	padding:5px;
+}
+.demo-column .demo-canvas{
+	
+	padding:10px;
+	border:#C1DAD7 8px solid;
+}
+#upload-drop-zone{
+	font-size:108px;
+	position:absolute;
+	right:0;
+	opacity:0;
+}
+p{
+	margin:5px 0;
+}
+ol{
+	padding-left:10px;
+}
+ol em{
+	font-weight:bold;
+	margin-right:5px;
+}
+
+
+a {
+	color: #c75f3e;
+}
+
+
+table, caption {
+	width: 100%;	 
+}
+caption{
+	padding: 10px 0 0 0;
+	
+}
+tr{
+	border-left: 1px solid #C1DAD7;
+}
+th {
+	
+	color: #4f6b72;
+	border-right: 1px solid #C1DAD7;
+	border-bottom: 1px solid #C1DAD7;
+	border-top: 1px solid #C1DAD7;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	text-align: left;
+	padding: 6px 6px 6px 12px;
+	background: #CAE8EA;
+}
+
+th.nobg {
+	border-top: 0;
+	border-left: 0;
+	border-right: 1px solid #C1DAD7;
+	background: none;
+}
+
+td {
+	border-right: 1px solid #C1DAD7;
+	border-bottom: 1px solid #C1DAD7;
+	background: #fff;
+	padding: 6px 6px 6px 12px;
+	color: #4f6b72;
+}
+
+
+td.alt {
+	background: #F5FAFA;
+	color: #797268;
+}
+
+th.spec {
+	border-left: 1px solid #C1DAD7;
+	border-top: 0;
+	background: #fff url(images/bullet1.gif) no-repeat;
+	font: bold 10px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+}
+
+th.specalt {
+	border-left: 1px solid #C1DAD7;
+	border-top: 0;
+	background: #f5fafa url(images/bullet2.gif) no-repeat;
+	font: bold 10px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+	color: #797268;
+}
+</style>
+</head>
+<body>
+	<div class="k2-single k2-w48">
+		<h1>K2 Uploader UI docs</h1>
+
+<h2>简介</h2>
+<p>UploaderUI多Uploader组件封装过的UI组件，集成了用户操作，HTTP请求和图片展示一系列操作。如果没有特殊需要，基本上不需要调用它的任何方法。UploaderUI支持一个关联的input隐藏域，在需要表单验证时，可以借助这个隐藏域做验证。在图片被上传完毕，或者被删除时都会触发change事件。一般来说，只需要监听change事件就行了。</p>
+<pre>
+YUI().use('k2-uploader-ui', function(Y){
+	var uploaderUI = new Y.UploaderUI({
+		container: '#myUploaderUI"
+	});
+	uploaderUI.on('change', function(e){
+		Y.log(e.value);  // 返回String, 一段由中括号包含的JSON串
+		Y.log(e.target.getValue()) //返回数组，数组元素是String类型的JSON串
+	});
+});
+</pre>
+<p class='summary'>
+</p>
+
+
+
+<h2>版本</h2>
+<ol>
+	<li>
+		<h3>最新版本 1.0.0</h3>
+	</li>
+</ol>
+<h2>参数，事件和方法</h2>
+<div class='params'>
+	<table>
+		<caption>构造函数参数</caption>
+		<thead>
+			<tr>
+				<th>参数名</th>
+				<th>参数类型</th>
+				<th>参数说明</th>
+				<th>默认值</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>container</td>
+				<td>String或者YUI Node</td>
+				<td>DOM节点或CSS选择器</td>
+				<td>null</td>
+			</tr>
+			<tr>
+				<td>label</td>
+				<td>Object</td>
+				<td>文案配置</td>
+				<td>
+				  {
+					 "select": "上传图片",
+					 "selectContinue": "继续上传",
+					"reselect": "重新上传",
+					 "multiFilesTip": "可选中多张图片一起上传"
+				  }
+				</td>
+			</tr>
+			<tr>
+				<td>action</td>
+				<td>String</td>
+				<td>文件传输时，HTTP的请求地址</td>
+				<td>/common/marlineup.html</td>
+			</tr>
+			<tr>
+				<td>method</td>
+				<td>String</td>
+				<td>文件传输时，HTTP的请求方法</td>
+				<td>POST</td>
+			</tr>
+			<tr>
+				<td>swfURL</td>
+				<td>String</td>
+				<td>Flash URL</td>
+				<td>http://k.kbcdn.com/k2/uploader/skinnable-uploader.swf</td>
+			</tr>
+			<tr>
+				<td>buttonSkin</td>
+				<td>String</td>
+				<td>Button URL for Flash</td>
+				<td>http://k.kbcdn.com/k2/uploader/asset/skin/uploader-ui-swf-sprites.png</td>
+			</tr>
+			<tr>
+				<td>imageDomain</td>
+				<td>Number</td>
+				<td>多少毫秒后，HTTP请求超时，超时后uploadtimeout事件会触发</td>
+				<td>http://img1.kbcdn.com/?</td>
+			</tr>
+			<tr>
+				<td>width</td>
+				<td>Number</td>
+				<td>多少毫秒后，HTTP请求超时，超时后uploadtimeout事件会触发</td>
+				<td>96</td>
+			</tr>
+			<tr>
+				<td>height</td>
+				<td>Number</td>
+				<td>多少毫秒后，HTTP请求超时，超时后uploadtimeout事件会触发</td>
+				<td>70</td>
+			</tr>
+			<tr>
+				<td>multiFiles</td>
+				<td>Boolean</td>
+				<td>是否允许一次选择多张图片</td>
+				<td>false</td>
+			</tr>
+			<tr>
+				<td>multiFilesAvailable</td>
+				<td>Boolean</td>
+				<td>只读，是否支持多文件选择</td>
+				<td>只读</td>
+			</tr>
+			<tr>
+				<td>maxPreview</td>
+				<td>Number</td>
+				<td>最多上传个数{初始化设置}</td>
+				<td>2</td>
+			</tr>
+			
+			<tr>
+				<td>maxSize</td>
+				<td>Number</td>
+				<td>文件size上限</td>
+				<td>1024 * 1024 * 3 {Number类型}(3M)</td>
+			</tr>
+			
+			<tr>
+				<td>allowedExtension</td>
+				<td>Number</td>
+				<td>上传文件类型过滤</td>
+				<td>[{description:"Images", extensions:"*.jpg;*.png;*.gif"}]</td>
+			</tr>
+			<tr>
+				<td>previewData</td>
+				<td>Array, Function, String</td>
+				<td>预览数据，大多用于表单回填 {初始化设置}</td>
+				<td>null</td>
+			</tr>
+			<tr>
+				<td>relativedInput</td>
+				<td>Element, element selector</td>
+				<td>隐藏域，用来保存上传过的图片</td>
+				<td>null</td>
+			</tr>
+			<tr>
+				<td>hiddenInputName</td>
+				<td>String</td>
+				<td>relativedInput的name值, 如果relativedInput被显示赋值，则改属性无效</td>
+				<td>null</td>
+			</tr>
+			<tr>
+				<td>noAlert</td>
+				<td>Boolean</td>
+				<td>如果单图上传出错，默认会以alert的方式提示出错。如果要禁用alert提示，这个选项应该设置为true</td>
+				<td>false</td>
+			</tr>
+			<tr>
+				<td>fileName</td>
+				<td>String</td>
+				<td>图片上传用到的参数标识符，默认uploadFile</td>
+				<td>uploadFile</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<div class='events'>
+	<table>
+		<caption>支持的事件</caption>
+		<thead>
+			<tr>
+				<th>事件名</th>
+				<th>事件说明</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>ready</td>
+				<td>组件初始化完成</td>
+			</tr>
+			<tr>
+				<td>imageUploaded</td>
+				<td>文件上传完毕</td>
+			</tr>
+			<tr>
+				<td>error</td>
+				<td>文件上传出错，可能文件过大，类型不匹配，网络传输问题，服务器处理问题。</td>
+			</tr>
+			<tr>
+				<td>cancel</td>
+				<td>上传中途被取消。</td>
+			</tr>
+			<tr>
+				<td>delete</td>
+				<td>上传完成后被删除。</td>
+			</tr>
+			<tr>
+				<td>enable</td>
+				<td>选择按钮可用。</td>
+			</tr>
+			<tr>
+				<td>disable</td>
+				<td>选择按钮失效。</td>
+			</tr>
+			<tr>
+				<td>change</td>
+				<td>input选择框值有变化时抛出该事件</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+
+<h2>示例</h2>
+
+<!-- uploader by uploader-html5 module -->		
+<div class='demo-column'>
+	<h3>使用Y.UploaderUI上传图片， 单图上传</h3>
+	<div class='demo-canvas'>
+		<div id='uploader-view1'></div>
+	</div>
+<pre>var uploader1 = new Y.UploaderUI({
+	container: '#uploader-view1',
+	maxPreview: 1,
+	action: '/k2/uploader/demo/upload_simple.php'
+});</pre>
+</div>
+<div class='demo-column'>
+	<h3>使用Y.UploaderUI上传图片，多图上传，限制8张</h3>
+	<div class='demo-canvas'>
+		<div id='uploader-view2'></div>
+	</div>
+<pre>var uploader2 = new Y.UploaderUI({
+	container: '#uploader-view2',
+	multiFiles: true,
+	maxPreview: 8,
+	action: '/k2/uploader/demo/upload_simple.php'
+});</pre>
+</div>
+<div class='demo-column'>
+	<h3>使用Y.UploaderUI上传图片，单图上传，初始化有预览</h3>
+	<div class='demo-canvas'>
+		<div id='uploader-view3'></div>
+	</div>
+<pre>var uploader3 = new Y.UploaderUI({
+	container: '#uploader-view3',
+	maxPreview: 5,
+	previewData:[
+	{"code":200, "message":"sucess", "id":"bi30ab0bbea1344d3adbd718fadd8c3074d6", "n":"n03", "m":"a", "t":"image/jpeg"},
+	{"code":200, "message":"sucess", "id":"bi30ab0bbea1344d3adbd718fadd8c3074d6", "n":"n03", "m":"a", "t":"image/jpeg"},
+	'{"code":200, "message":"sucess", "id":"bi30ab0bbea1344d3adbd718fadd8c3074d6", "n":"n03", "m":"a", "t":"image/jpeg"}'],
+	action: '/k2/uploader/demo/upload_simple.php'
+});</pre>
+</div>
+<div class='demo-column'>
+	<h3>使用Y.UploaderUI上传图片，多图上传，初始化有预览， 绑定到一个表单input隐藏域。</h3>
+	<div class='demo-canvas'>
+		<input id="myInput" type="hidden" value='[{"code":200, "message":"sucess", "id":"bi30ab0bbea1344d3adbd718fadd8c3074d6", "n":"n03", "m":"a", "t":"image/jpeg"},
+		{"code":200, "message":"sucess", "id":"bi30ab0bbea1344d3adbd718fadd8c3074d6", "n":"n03", "m":"a", "t":"image/jpeg"},
+		{"code":200, "message":"sucess", "id":"bi30ab0bbea1344d3adbd718fadd8c3074d6", "n":"n03", "m":"a", "t":"image/jpeg"}]'/>
+		<div id='uploader-view4'></div>
+		<textarea id='uploader4-ta' style='width:400px;height:120px;margin-top:10px'></textarea>
+	</div>
+<pre>
+&lt;input id="myInput" type="hidden" value='[{"code":200, "message":"sucess", 
+"id":"bi30ab0bbea1344d3adbd718fadd8c3074d6", "n":"n03", "m":"a", "t":"image/jpeg"},
+{"code":200, "message":"sucess", "id":"bi30ab0bbea1344d3adbd718fadd8c3074d6", "n":"n03", "m":"a", "t":"image/jpeg"},
+{"code":200, "message":"sucess", "id":"bi30ab0bbea1344d3adbd718fadd8c3074d6", "n":"n03", "m":"a", "t":"image/jpeg"}]'/>
+
+var uploader4 = new Y.UploaderUI({
+	container: '#uploader-view4',
+	multiFiles: true,
+	maxPreview: 8,
+	relativedInput: "#myInput"
+});
+uploader4.on("change", function(e){
+	Y.one("#uploader4-ta").set('value', e.value);
+});</pre>
+</div>
+
+
+<div class='demo-column'>
+	<h3>使用Y.UploaderUI上传图片，强制使用Flash方式上传</h3>
+	<div class='demo-canvas'>
+		<div id='uploader-view5'></div>
+	</div>
+<pre>var uploader5 = new Y.UploaderUI({
+	container: '#uploader-view5',
+	multiFiles: true,
+	maxPreview: 8,
+	adpaterClass: Y.UploaderFlash,
+	/**
+	 * label: {
+	 *		 "select": "上传图片",
+	 *		 "selectContinue": "继续上传",
+	 *		 "reselect": "重新上传",
+	 *		 "multiFilesTip": "可选中多张图片一起上传"
+	 *	 }
+	 */
+	label:{
+		"select": "select image"
+	},
+	action: '/k2/uploader/demo/upload_simple.php'
+});</pre>
+</div>
+
+<div class='demo-column'>
+	<h3>使用Y.UploaderUI上传图片，强制使用iframe方式上传</h3>
+	<div class='demo-canvas'>
+		<div id='uploader-view6'></div>
+		<textarea id='uploader6-ta' style='width:400px;height:120px;margin-top:10px'></textarea>
+	</div>
+<pre>var uploader6 = new Y.UploaderUI({
+	container: '#uploader-view6',
+	multiFiles: true,
+	maxPreview: 8,
+	adpaterClass: Y.UploaderIO,
+	action: '/k2/uploader/demo/upload_simple.php'
+});
+uploader6.on('change', function(e){
+	Y.one('#uploader6-ta').set('value', e.value);
+});</pre>
+</div>
+
+</div>
+<script>
+//仅用于开发环境
+if(typeof K2_config === 'undefined'){
+  var K2_config = {
+    noCombine : true,//是否使用combo功能，开发环境下支持combo需要配置minfy，默认使用
+    noCache : true,//是否在js或css文件尾部增加随机函数来防止浏览器缓存，默认使用
+    console : true,//是否使用通用的console控制台，这样就可以在页面显示Y.log内容，默认使用
+                   //失效时，请查看对应的YUI实例需要使用event-custom-base模块
+    noVersion : true,//是否使用不带版本号的文件，这样就可以直接调用本地开发文件，因为这些文件都是不带版本号的，默认使用
+    syntaxHighlight : true,//是否格式化代码显示，默认使用
+    local : true //是否使用本地路径，即类似/k2/seed/seed.js这样的绝对路径，这样无论你是什么本地域名都可以使用，
+                 //否则使用类似http://k.kbcdn.com/k2/seed/seed.js这样的绝对路径，默认使用
+  }  
+}
+</script>
+<script src='/k2/seed/seed.js' charset='utf-8'></script>
+<script src="/k2/_assets/config.js" charset="utf-8"></script>
+<script>
+YUI().use('k2-uploader-ui', function(Y){
+		
+	var uploader1 = new Y.UploaderUI({
+		container: '#uploader-view1',
+		maxPreview: 1,
+		fileName: 'customFileField',
+		action: '/k2/uploader/demo/upload_simple.php'
+	});
+
+	var uploader2 = new Y.UploaderUI({
+		container: '#uploader-view2',
+		multiFiles: true,
+		maxPreview: 8,
+		uploaderUIButton: new Y.UploaderK2Button(),
+		action: '/k2/uploader/demo/upload_simple.php'
+	});
+
+	var uploader3 = new Y.UploaderUI({
+		container: '#uploader-view3',
+		maxPreview: 5,
+		previewData:[{"code":200, "message":"sucess", "id":"bi30ab0bbea1344d3adbd718fadd8c3074d6", "n":"n03", "m":"a", "t":"image/jpeg"},
+		{"code":200, "message":"sucess", "id":"bi30ab0bbea1344d3adbd718fadd8c3074d6", "n":"n03", "m":"a", "t":"image/jpeg"},
+		'{"code":200, "message":"sucess", "id":"bi30ab0bbea1344d3adbd718fadd8c3074d6", "n":"n03", "m":"a", "t":"image/jpeg"}'],
+		action: '/k2/uploader/demo/upload_simple.php'
+	});
+
+	var uploader4 = new Y.UploaderUI({
+		container: '#uploader-view4',
+		multiFiles: true,
+		maxPreview: 8,
+		relativedInput: "#myInput",
+		action: '/k2/uploader/demo/upload_simple.php'
+	});
+	uploader4.on("change", function(e){
+		Y.one("#uploader4-ta").set('value', e.value);
+	});
+
+	var uploader5 = new Y.UploaderUI({
+		container: '#uploader-view5',
+		multiFiles: true,
+		maxPreview: 5,
+		adapterClass: Y.UploaderFlash,
+		uploaderUIButton: new Y.UploaderK2Button({
+			template:'<a href="#" class="k2-button k2-button-xl k2-button-style-a"><i></i><s><span class="k2-icon-bg-m k2-icon-tuan">{label}</span></s><b></b></a>'
+		}),
+		label:{
+			select: 'select image'
+		},
+		maxSize: 1024 * 1024 * 10,
+		action: 'http://www.koubei.com/common/marlineup.html'
+	});
+
+	var uploader6 = new Y.UploaderUI({
+		container: '#uploader-view6',
+		multiFiles: true,
+		maxPreview: 8,
+		hiddenInputName: 'uploader6-input',
+		adapterClass: Y.UploaderIO,
+		action: '/k2/uploader/demo/upload_simple.php'
+	});
+	uploader6.on('change', function(e){
+		Y.one('#uploader6-ta').set('value', e.value);
+	});
+});
+</script>
+</body>
+</html>

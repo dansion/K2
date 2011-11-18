@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+<title>数字输入测试</title>
+<style type="text/css">
+    input{margin:5px;}
+</style>
+</head>
+<body>
+    数字输入测试:    
+    <hr />    
+    id:<input type="text" id="number1" /><br />
+    k2-number:<input type="text" class="k2-number" /><br />
+    class:<input type="text" class="number-class" /><br />    
+    <div id="log"></div>
+<script charset="utf-8" src="/k2/seed/seed.js"></script>
+<script charset="utf-8" src="/k2/number/number.js"></script>
+
+<script type="text/javascript">
+    YUI({
+    modules : {
+        'k2-number' : {
+            fullpath : '../number.js',
+            requires : ['node-base','event-base']
+        }
+
+    }
+}).use("k2-number","node-base","event-base","dom",function(Y){
+        Y.k2number.initOne("#number1",30,80,function(obj){alert("小了,值为" + obj.get("value"));},function(obj){alert("大了,值为" + obj.get("value"));});
+        //class:k2-number
+        Y.k2number.init(4,100);
+        
+        Y.k2number.initAll(".number-class",0,20);
+    });
+</script>
+</body>
+</html>

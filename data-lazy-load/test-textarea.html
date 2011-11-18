@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>data-lazy-load</title>
+  <link rel="stylesheet" href="http://k.kbcdn.com/min/f=k2/css/reset-1-0-0.css,k2/css/color-1-0-0.css,k2/css/common-1-0-0.css" />
+  <style>
+    html,body{
+      height:1800px;
+    }
+    .lazy-load,.lazy-load-textarea{
+      display:block;
+      visibility:hidden;
+      height:0;
+      line-height:0;
+    }
+  </style>
+</head>
+<body class="yui3-skin-sam">
+  <!--&lt;!&ndash;[if gte IE 7]>-->
+<!--  <iframe class="k2-display-none" src="?textarea=true"></iframe>-->
+  <!--<![endif]&ndash;&gt;-->
+  <div style="height:150px;background:gray">
+    <h1>头部文件</h1>
+  </div>
+  <textarea class="lazy-load">
+    <div style="height:150px;background:red">
+      <h1>红色</h1>
+    </div>
+  </textarea>
+  <textarea class="lazy-load">
+    <div style="height:150px;background:#ff4500">
+      <h1>橙色</h1>
+    </div>
+  </textarea>
+  <textarea class="lazy-load">
+    <div style="height:150px;background:orange">
+      <h1>黄色</h1>
+    </div>
+  </textarea>
+  <textarea class="lazy-load">
+    <div style="height:150px;background:green">
+      <h1>绿色</h1>
+    </div>
+  </textarea>
+  <textarea class="lazy-load">
+    <div style="height:150px;background:#2e8b57">
+      <h1>青色</h1>
+    </div>
+  </textarea>
+  <textarea class="lazy-load">
+    <div style="height:150px;background:blue">
+      <h1>蓝色</h1>
+    </div>
+  </textarea>
+  <textarea class="lazy-load">
+    <div style="height:150px;background:#9932cc">
+      <h1>紫色</h1>
+    </div>
+  </textarea>
+
+  <script charset="utf-8" src="http://kxt.koubei.com/k2/seed/seed.js"></script>
+  <script>
+    YUI({
+        combine:false,
+        filter:'raw',
+        modules:  {
+        "k2-data-lazyload-textarea": {
+          fullpath: 'data-lazyload-textarea.js',
+          requires: ['event-base','node-base','node-screen','console','io-base','event-custom-base','event-resize','base']
+        }
+      }
+    }).use('k2-data-lazyload-textarea', function(Y){
+
+      new Y.Datalazyload();
+
+      Y.on("lazyloadReady:1" , function(){
+      alert("第一个模块加载完成");
+      });
+
+      Y.on("lazyloadReady:2" , function(){
+      alert("第二个模块加载完成");
+      });
+
+      Y.on("lazyloadReady:3" , function(){
+      alert("第三个模块加载完成");
+      });
+
+      Y.on("lazyloadReady:4" , function(){
+      alert("第四个模块加载完成");
+      });
+
+      Y.on("lazyloadReady:5" , function(){
+      alert("第五个模块加载完成");
+      });
+
+      Y.on("lazyloadReady:6" , function(){
+      alert("第六个模块加载完成");
+      });
+
+      Y.on("lazyloadReady:7" , function(){
+      alert("第七个模块加载完成");
+      });
+
+    });
+  </script>
+</body>
+</html>

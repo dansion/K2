@@ -1,0 +1,370 @@
+<!doctype html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=gbk">
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<title>cdselector</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <link  href="http://k.kbcdn.com/min/f=k2/css/reset-1-0-0.css" type="text/css" rel="stylesheet">
+	<style>
+	.k2-fix-float:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+	.k2-fix-float{*zoom:1}
+	</style>
+</head>
+<body>
+	
+	<h3>使用玄武新编码</h3>
+	<div id="container">
+		<input id="jsonId" name="jsonId" type="hidden" value="" >
+	</div>
+	<div id="container-vl"></div>
+	<h3>使用老编码</h3>
+	<div id="container4"></div>
+	<div id="container4-vl"></div>
+	<h3>分类信息</h3>
+	<div id="container5"></div>
+	<div id="container5-vl"></div>
+	<h3>ul 形式老编码</h3>
+	<div id="container2" class="k2-fix-float">
+		<input type="hidden" id="container22" value="1-23-27">
+	</div>
+	<div class="opt-value"></div>
+	<h3>多选</h3>
+	<div id="container3"></div>
+	<div id="container3-vl"></div>
+    <h3>map</h3>
+	<div id="container6"></div>
+	<div id="container6-vl"></div>
+	<div id="container7" class="k2-fix-float">
+		<input type="hidden" id="container77" value="1-6" >
+	</div>
+
+	<div id="container7-vl"></div>
+	<div id="container8" class="k2-fix-float"></div>
+	<div id="container8-vl"></div>
+	<div id="container9" class="k2-fix-float"></div>
+	<div id="container9-vl"></div>
+	<div id="container10" class="k2-fix-float"></div>
+	<div id="container10-vl"></div>
+	<script charset="utf-8">
+//仅用于开发环境
+if(typeof K2_config === 'undefined'){
+  var K2_config = {
+    noCombine : true,//是否使用combo功能，开发环境下支持combo需要配置minfy，默认使用
+    noCache : true,//是否在js或css文件尾部增加随机函数来防止浏览器缓存，默认使用
+    console : false,//是否使用通用的console控制台，这样就可以在页面显示Y.log内容，默认使用
+                   //失效时，请查看对应的YUI实例需要使用event-custom-base模块
+    noVersion : true,//是否使用不带版本号的文件，这样就可以直接调用本地开发文件，因为这些文件都是不带版本号的，默认使用
+    syntaxHighlight : false,//是否格式化代码显示，默认使用
+    local : true //是否使用本地路径，即类似/k2/seed/seed.js这样的绝对路径，这样无论你是什么本地域名都可以使用，
+                 //否则使用类似http://k.kbcdn.com/k2/seed/seed.js这样的绝对路径，默认使用
+  }  
+}
+</script>
+<script charset="utf-8" src="/k2/seed/seed.js"></script>
+<script charset="utf-8" src="/k2/_assets/config.js"></script>
+<script charset="utf-8">
+/*cdselector 玄武*/
+YUI().use("k2-xuanwuCode","k2-cdselector",function(Y){
+        /*container表示容器的ID*/
+        var cdselector_a=new Y.Cdselector({
+            containerId:"container",
+            config:{
+                /*渲染模式，ul or  select*/
+                renderType:1,
+                /*显示的级联数*/
+                levelNum:3,
+                /*自动生成的jsonname 即input隐藏域的name值*/
+                inputId:"jsonId",
+                /*是否有不限选项*/
+                limitArray:[false,false,false],
+                /*改变选择值后的处理方法*/
+                afterChange:function(lv,s){Y.one("#container-vl").setContent("aa="+s.join("-"));
+					
+				Y.all("#container select").item(1).set("value","1201020000");
+				},
+				dataSource:Y.Cdselector_Base.xuanwuCode
+           }
+   
+        });
+		cdselector_a.select("3300000000-3301000000-3301020000-3301020006")
+    });
+/*cdselector 老编码*/
+   /* YUI().use("k2-regionCode","k2-cdselector",function(Y){
+        /*container表示容器的ID*/
+      /*  var cdselector_a=new Y.Cdselector({
+            containerId:"container4",
+            config:{
+                /*渲染模式，ul or  select*/
+             //   renderType:1,
+                /*显示的级联数*/
+              //  levelNum:3,
+                /*自动生成的jsonname 即input隐藏域的name值*/
+              //  jsonName:"cdselectorJson",
+                /*是否有不限选项*/
+              //  limitArray:[false,false,true],
+                /*改变选择值后的处理方法*/
+      /*          afterChange:function(lv,s){Y.one("#container4-vl").setContent("aa="+s.join("-"));},
+				dataSource:Y.Cdselector_Base.regionCode
+           }
+        });
+		cdselector_a.select("783-887-890");
+    });
+	cdselector 老编码*/
+    YUI(
+    {
+         modules:{
+         'k2-cdselector-skin':{
+                     fullpath:'/k2/cdselector/assets/cdselector.css',
+           type:'css'
+                  },
+         'k2-cdselector-base':{
+                     fullpath:'/k2/cdselector/cdselector-base.js',
+           requires:['k2-cdselector-skin',"base-base","node-base","event-base","json-parse"]
+                  },
+         'k2-cdselector':{
+                     fullpath:'/k2/cdselector/cdselector.js',
+           requires:["k2-cdselector-base"]
+         }
+         }
+    }
+
+    ).use("k2-regionCode","k2-cdselector",function(Y){
+        /*container表示容器的ID*/
+        var cdselector_a=new Y.Cdselector({
+            containerId:"container4",
+            config:{
+                /*渲染模式，ul or  select*/
+                renderType:1,
+                /*显示的级联数*/
+                levelNum:3,
+                /*自动生成的jsonname 即input隐藏域的name值*/
+                jsonName:"cdselectorJson",
+				inputId:"aaaaa",
+                /*是否有不限选项*/
+                limitArray:[false,false,false],
+                /*改变选择值后的处理方法*/
+                afterChange:function(lv,s){Y.one("#container4-vl").setContent("aa="+s.join("-"));},
+				dataSource:Y.Cdselector_Base.regionCode
+           }
+        });
+		//cdselector_a.select("0-0-0");
+    });
+/*地区多选*/
+    YUI().use("k2-xuanwuCode","k2-multiSelector",function(Y){
+        /*container表示容器的ID*/
+        var cdselector_a=new Y.MultiSelector({
+            containerId:"container3",
+            config:{
+                /*渲染模式，ul or  select*/
+                renderType:1,
+                /*显示的级联数*/
+                levelNum:4,
+                /*自动生成的jsonname 即input隐藏域的name值*/
+                jsonName:"cdselectorJson",
+                /*是否有不限选项*/
+                limitArray:[false,false],
+                /*改变选择值后的处理方法*/
+                 afterChange:function(lv,s){Y.one("#container3-vl").setContent(s.join("-"));},
+				dataSource:Y.Cdselector_Base.xuanwuCode
+           }
+        });
+		//cdselector_a.select("3300000000-3301000000-3301020000-3301020006,3301020002");
+    });
+/*cdselector 老编码*/
+
+    YUI().use("k2-regionCode","k2-cdselector-option",function(Y){
+        /*container表示容器的ID*/
+        var cdselector_a=new Y.Cdselector_Option({
+            containerId:"container2",
+            config:{
+                /*渲染模式，ul or  select*/
+                renderType:1,
+                /*显示的级联数*/
+                levelNum:3,
+                /*自动生成的jsonname 即input隐藏域的name值*/
+				inputId:"container22",
+                /*是否有不限选项*/
+                limitArray:[false,false,true],
+                /*改变选择值后的处理方法*/
+                afterChange:function(lv,s){Y.one(".opt-value").setContent("aa="+s.join("-"));},
+                dataSource:Y.Cdselector_Base.regionCode
+           }
+        });
+		//cdselector_a.select("1-43-47");
+    });
+/*cdselector 分类信息*/
+    YUI().use("k2-categoryData","k2-cdselector",function(Y){
+        var cdselector_a=new Y.Cdselector({
+            containerId:"container5",
+            config:{
+                /*渲染模式，ul or  select*/
+                renderType:1,
+                /*显示的级联数*/
+                levelNum:2,
+				 limitArray:[true,true],
+                /*自动生成的jsonname 即input隐藏域的name值*/
+                jsonName:"cdselectorJson",
+                /*改变选择值后的处理方法*/
+                 afterChange:function(lv,s){Y.one("#container5-vl").setContent("gehhh:"+s.join("-"));},
+                dataSource:Y.Cdselector_Base.categoryData
+           }
+        });
+		//cdselector_a.select("8-275");
+    });
+
+
+
+/*MapRegionSelectorNew 分类信息*/
+    YUI().use("k2-regionCode","k2-mapRegionSelectorNew",function(Y){
+        /*container表示容器的ID*/
+        var cdselector_a=new Y.MapRegionSelectorNew({
+            containerId:"container6",
+            config:{
+                /*渲染模式，ul or  select*/
+                renderType:1,
+                /*显示的级联数*/
+                levelNum:3,
+                /*自动生成的jsonname 即input隐藏域的name值*/
+                jsonName:"cdselectorJson",
+                /*是否有不限选项*/
+                limitArray:[false,false],
+                /*改变选择值后的处理方法*/
+              
+                dataSource:Y.Cdselector_Base.regionCode,
+				mapMarkUrl:'http://www.koubei.com/map/emark/emark.jsp?city='
+           }
+        });
+		cdselector_a.select("180-216-217-哈哈-a")
+    });
+
+/*cdselector 老编码*/
+
+    YUI().use("k2-regionCode","k2-cdselector-optionByStep",function(Y){
+        /*container表示容器的ID*/
+        var cdselector_a=new Y.Cdselector_OptionByStep({
+            containerId:"container7",
+            config:{
+                /*渲染模式，ul or  select*/
+                renderType:1,
+                /*显示的级联数*/
+                levelNum:4,
+                /*自动生成的jsonname 即input隐藏域的name值*/
+                jsonName:"cdselectorJson",
+				inputId:"container77",
+                /*是否有不限选项*/
+               limitArray:[false,false,true],
+                /*改变选择值后的处理方法*/
+                afterChange:function(lv,s){Y.one("#container7-vl").setContent("aa="+s.join("-"));},
+                dataSource:{
+                        data : {0:"不限",1:"多层<span class='k2-lowlight'>（1-7层）</span>",2:"发二手房",3:"求租",4:"求购",5:"住在",6:"商业地产",7:"车库",8:"住在2",9:"商业地产2",10:"车库2",11:"整租",12:"合租"},
+                          level : [
+                           {0:[1,2,3,4]},
+                           {1:[5,6,7],2:[8,9,10]},
+                           {5:[11,12]}
+                          
+                            
+                            ]
+                        }
+                  }
+                });
+               // cdselector_a.select("1-5-11");
+    });
+
+    YUI().use("k2-regionCode","k2-mulitSelector-option",function(Y){
+        /*container表示容器的ID*/
+        var cdselector_a=new Y.MulitSelector_Option({
+            containerId:"container8",
+            config:{
+                /*渲染模式，ul or  select*/
+                renderType:1,
+                /*显示的级联数*/
+                levelNum:3,
+                /*自动生成的jsonname 即input隐藏域的name值*/
+                jsonName:"cdselectorJson",
+                /*是否有不限选项*/
+                limitArray:[false,false,true],
+                /*改变选择值后的处理方法*/
+                afterChange:function(lv,s){Y.one("#container8-vl").setContent("aa="+s.join("-"));},
+                dataSource:Y.Cdselector_Base.regionCode
+           }
+        });
+		cdselector_a.select("1-43-47");
+    });
+
+
+/*
+	    YUI({
+        modules:{
+            'k2-cdselector-skin':{//默认皮肤
+              fullpath:'/k2/cdselector/assets/cdselector.css',
+              type:'css'
+            },
+           'k2-cdselector-base':{
+              fullpath:'/k2/cdselector/cdselector-base.js',
+              requires:['k2-cdselector-skin',"base","node","event","json-parse","array"]
+            },
+            'k2-mulitSelector-moreChild':{
+              fullpath:'/k2/cdselector/mulitSelector-moreChild.js',
+              requires:['k2-cdselector-skin',"k2-cdselector-base","node","event","json-parse","array"]
+            },
+            'k2-datanew':{
+                fullpath:'/k2/cdselector/data_new.js',
+                requires:['k2-cdselector-base']
+            }
+        }
+    }).use("k2-datanew","k2-mulitSelector-moreChild",function(Y){
+        /*container表示容器的ID*/
+   //     var cdselector_a=new Y.MulitSelector_MoreChild({
+         //   containerId:"container9",
+        //    config:{
+                /*渲染模式，ul or  select*/
+         //       renderType:1,
+                /*显示的级联数*/
+        //        levelNum:[3,2],
+                /*自动生成的jsonname 即input隐藏域的name值*/
+         //       jsonName:"cdselectorJson",
+                /*是否有不限选项*/
+         //       limitArray:[false,false,true],
+                /*改变选择值后的处理方法*/
+         //       afterChange:function(lv,s){Y.one("#container9-vl").setContent("aa="+s.join("-"));},
+         //       dataSource:Y.Cdselector_Base.dataNew
+        //   }
+      //  });
+   // });
+
+   
+
+YUI(
+).use("k2-cdselector-step",function(Y){
+
+    var cardType = {
+        data : {1:"内部",2:"线上申请",3:"主动派发",4:"口碑",5:"非口碑",6:"口碑线上申请",7:"淘宝店店铺兑换",8:"淘宝VIP申请",9:"广发发卡",10:"活动派发",11:"驻店发卡",12:"淘宝VIP",13:"商户拓展",14:"驻店换卡",15:"邮寄换卡",16:"内部员工",17:"商务用途",18:"内部活动",19:"预算内领卡",20:"员工卡",21:"商务用途",22:"日常线上申请",23:"活动线上申请",24:"市场",25:"运营",26:"市场",27:"运营"},
+        level : [
+            {0:[1,2,3]},
+            {1:[4,5],3:[10,11,12,13,14,15]},
+            {4:[16,17,18,19],5:[20,21],6:[22,23],10:[24,25],11:[26,27]}
+        ]
+    };
+
+   var k= new Y.Cdselector_Step({
+        containerId : "container10",
+        config:{
+                renderType : 1,
+                levelNum : 3,
+                jsonName : "cdselectorJson",
+				limitArray:[false,true,true],
+                afterChange : function(lv,s){
+                   Y.one("#container10-vl").setContent('当前值：' + s.join("-"));
+                },
+                dataSource : cardType
+        },
+		select:"3-14"
+    });
+    
+    // k.select("3-10-25");
+}); 
+</script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+/*!
+ * Copyright (c)2010 koubei.com All rights reserved.
+ * @revision:
+ */
+/*
+ * @author: <a href="youxiao@taobao.com">youxiao</a>
+ * @version:1-0-0
+ * @online-version:1-0-0
+ */
+.k2-pagination-right:after{
+  content:"\0020";
+  display:block;
+  height:0;
+  clear:both;
+}
+.k2-pagination-right{
+  *zoom:1;
+}
+.k2-pagination-right form{
+  float:right;
+}
+.k2-pagination{
+	margin:10px 0;
+	font:12px arial,san-serif;
+}
+.k2-pagination a:link,
+.k2-pagination a:visited{
+  text-decoration:none;
+  color:#0041D9;
+}
+.k2-pagination a:hover{
+  text-decoration:underline;
+  color:#f60;
+}
+.k2-pagination a,
+.k2-pagination .sum,
+.k2-pagination .current,
+.k2-pagination .more,
+.k2-pagination .jump{
+  display:inline-block;
+  *zoom:1;
+  *display:inline;
+  padding:3px 5px;
+  vertical-align:middle;
+}
+.k2-pagination .submit{
+	margin-left:5px;
+	font-size:12px;
+  padding:0 3px;
+  vertical-align:middle;
+}
+.k2-pagination .sum{
+	_font-family:\5b8b\4f53,arial,san-serif; /*vertical-align:middle导致IE6中英文混排对不齐*/
+}
+.k2-pagination .sum b{
+	font-weight:bold;
+}
+.k2-pagination a{
+	margin-right:4px;
+	border:1px solid #ddd;
+}
+.k2-pagination .pre,
+.k2-pagination .next{
+	padding:5px 6px 2px\9;
+}
+.k2-pagination .current{
+	color:#f60;
+	font-weight:bold;
+}
+.k2-pagination .more{
+	color:#999;
+	font-family:\5b8b\4f53,arial,san-serif;
+}
+.k2-pagination .jump{
+	margin-left:5px;
+	padding:0 5px;
+}	
+.k2-pagination .jump-inp{
+	width:50px;
+	margin:0 5px;
+}

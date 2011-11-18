@@ -1,0 +1,65 @@
+.k2-icon-vip-1,
+.k2-icon-vip-2,
+.k2-icon-vip-3,
+.k2-icon-vip-w1,
+.k2-icon-vip-w2,
+.k2-icon-vip-w3{
+  height:17px;
+  vertical-align:baseline;
+  margin:0 0 0 2px;
+}
+.k2-icon-vip-1{
+  background-image:url(k2-icon-vip-1.gif);
+  width:20px;
+  padding-left:22px;
+}
+.k2-icon-vip-2{
+  background-image:url(k2-icon-vip-2.gif);
+  width:25px;
+  padding-left:27px;
+}
+.k2-icon-vip-3{
+  background-image:url(k2-icon-vip-3.gif);
+  width:32px;
+  padding-left:34px;
+}
+.k2-icon-vip-w1{
+  background-image:url(k2-icon-vip-w1.gif);
+  width:52px;
+}
+.k2-icon-vip-w2{
+  background-image:url(k2-icon-vip-w2.gif);
+  width:57px;
+}
+.k2-icon-vip-w3{
+  background-image:url(k2-icon-vip-w3.gif);
+  width:64px;
+}
+/*follow*/
+.k2-icon-follow-wide{
+  background-image:url(k2-icon-follow-wide.png);
+  width:66px;
+}
+.k2-icon-followed-wide{
+  background-image:url(k2-icon-followed-wide.png);
+  width:66px;
+  cursor:default;
+}
+/*li list-style*/
+.k2-icon-dot li{
+  background-image:url(k2-icon-dot.png);
+}
+.k2-icon-square li{
+  background-image:url(k2-icon-square.png);
+}
+.k2-icon-square-ccc li{
+  background-image:url(k2-icon-square-ccc.png);
+}
+/*rewrite*/
+.k2-icon-bg-m{
+  width:auto;
+  height:auto;
+}
+.k2-icon-node-m{
+  padding-left:0;
+}

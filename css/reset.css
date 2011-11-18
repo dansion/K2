@@ -1,0 +1,87 @@
+/*!
+ * @revision:
+ */
+/*
+ * @author: <a href="sanqi@taobao.com">sanqi</a>
+ * @version:1-0-1
+ * @last edit:hesha;
+ */
+body,h1,h2,h3,h4,h5,h6,p, /* basic */
+blockquote,pre, /* formatting */ 
+form,input,textarea,button,fieldset,legend, /* forms */
+ul,ol,li,dl,dt,dd, /* lists */
+th,td, /* tables */
+div { /* styles */
+	margin:0;
+	padding:0;
+}
+body {
+  text-align:center; 
+  background:#fff; /*针对某些人设置了浏览器保护色*/
+  -webkit-text-size-adjust:none; /* fix 12px font bug in chrome */
+}
+body,
+button,input,select,textarea {
+  font: 12px/1.5 arial; 
+}
+font{
+	font-size:12px;/*屏蔽font标签作用- for hesha*/
+}
+button{
+  cursor:pointer;
+}
+table {
+	border-collapse:collapse;
+	border-spacing:0;
+}
+caption, th {
+	text-align:left;
+}
+fieldset, img {
+	border:0;
+}
+img {
+  vertical-align:middle;
+}
+/*because legend doesn't inherit in IE */
+ul, ol {
+  list-style:none;      
+}
+address, cite, dfn, em, var {
+  font-style:normal;  
+}
+code, kbd, pre, samp, tt {
+  font-family: "Courier New", Courier, monospace;
+}
+q:before, q:after {
+	content:'';
+}
+abbr, acronym {
+	border:0;
+	font-variant:normal;
+}
+h1,h2,h3,h4,h5,h6{
+	font-weight:normal;
+}
+h1 {
+  font-size:18px;
+}
+h2 {
+  font-size:16px;
+}
+h3 {
+  font-size:14px;  
+}
+h4, h5, h6 {
+  font-size:1em;  
+}
+a:link,
+a:visited{
+  text-decoration:none;
+}
+a:hover,
+a:active{
+  text-decoration:underline;
+}
+/* clear object dom outline in FF */
+object:focus{outline:none;}

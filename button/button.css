@@ -1,0 +1,206 @@
+/*!
+ * @revision:
+ */
+/*
+ * @author: <a href="youxiao@taobao.com">youxiao</a>
+ * @version:1-0-2
+ */
+.k2-btn {
+  margin:0;
+  border:0;
+  text-align:center;
+  text-decoration:none;
+  font-family:Tahoma;
+  cursor:pointer;
+  background-color:transparent;
+  font-size:12px;
+}
+button.k2-btn{
+  *overflow:visible; /*ie6\ie7 button左右存在空隙，该空隙随字数缩放*/
+  *top:2px; /*ie6\ie7 visible后向上偏移2个像素*/
+}
+button.k2-btn s {
+  *white-space:nowrap; /*ie6\ie7 inline-block和本文节点不在同一行*/
+}
+button.k2-btn .k2-icon-bg-m{
+  *zoom:1; /*ie6\ie7 设置了white-space:nowrap后k2-icon-bg-m的padding-left失效*/
+}
+button.k2-btn,
+button.k2-btn b,
+button.k2-btn s,
+button.k2-btn i {
+  *position:relative; /*visible后ie7滚动滚动条背景问题*/
+}
+.k2-btn .k2-icon-bg-m{
+  display:inline-block\0;/*ie8 中英文混排*/
+}
+.k2-btn:hover { _border:none;/*ie6 :hover后样式不恢复*/}
+.k2-btn:hover,
+.k2-btn:active{ text-decoration:none; }
+.k2-btn,
+.k2-btn b,
+.k2-btn s,
+.k2-btn i {
+  display: -moz-inline-stack;
+  display:inline-block;
+  *zoom:1;
+  *display:inline;
+  vertical-align:middle;
+}
+.k2-btn b,
+.k2-btn i { background-repeat:no-repeat; }
+.k2-btn s {
+  background-repeat:repeat-x;
+  text-decoration:none;
+  padding:0 5px;
+  text-align:center;
+  zoom:1;
+}
+/*采用k2 icon node模式时，在ie6下inline-block元素不能用行高居中（建议采用k2-icon-bg-m模式，这里只为了向下兼容）*/
+.k2-btn .k2-icon-node-m{
+  margin-right:3px;
+  _position:relative;
+}
+.k2-btn-l .k2-icon-node-m{
+  _margin-top:12px;
+  _top:-5px;
+}
+.k2-btn-m .k2-icon-node-m{
+  _margin-top:5px;
+  _top:-2px;
+}
+.k2-btn-s .k2-icon-node-m{
+  _margin-top:4px;
+  _top:-1px;
+}
+.k2-btn-xs .k2-icon-node-m{
+  _margin-top:1px;
+  _top:-1px;
+}
+/*.k2-btn-xl*/
+.k2-btn-xl {
+  font-size:16px;
+  font-weight:bold;
+}
+.k2-btn-xl i { width:35px; }
+.k2-btn-xl b { width:15px; }
+.k2-btn-xl b,
+.k2-btn-xl i,
+.k2-btn-xl s {
+  background-image:url(btn_xl_1_0_4.png);
+  height:35px;
+  line-height:35px;
+}
+/*.k2-btn-l*/
+.k2-btn-l {
+  font-size:14px;
+  font-weight:bold;
+}
+.k2-btn-l i,
+.k2-btn-l b { width:6px; }
+.k2-btn-l b,
+.k2-btn-l i,
+.k2-btn-l s {
+  background-image:url(btn_l_1_0_3.png);
+  height:30px;
+  line-height:30px;
+  _height:31px;
+  _line-height:31px;
+}
+/*.k2-btn-m*/
+.k2-btn-m i,
+.k2-btn-m b { width:6px; }
+.k2-btn-m b,
+.k2-btn-m i,
+.k2-btn-m s {
+  background-image:url(btn_m_1_0_2.png);
+  height:25px;
+  line-height:25px;
+  _height:26px;
+  _line-height:26px;
+}
+/*.k2-btn-s*/
+.k2-btn-s i,
+.k2-btn-s b { width:6px; }
+.k2-btn-s b,
+.k2-btn-s i,
+.k2-btn-s s {
+  background-image:url(btn_s_1_0_3.png);
+  height:21px;
+  line-height:21px;
+  _height:22px;
+  _line-height:22px;
+}
+/*.k2-btn-xs*/
+.k2-btn-xs i,
+.k2-btn-xs b { width:6px; }
+.k2-btn-xs b,
+.k2-btn-xs i,
+.k2-btn-xs s {
+  background-image:url(btn_xs_1_0_1.png);
+  height:17px;
+  line-height:17px;
+  _height:18px;
+  _line-height:18px;
+}
+/*k2-btn-style*/
+.k2-btn-style-a,
+.k2-btn-style-a:link,
+.k2-btn-style-a:visited,
+.k2-btn-style-b,
+.k2-btn-style-b:link,
+.k2-btn-style-b:visited { color:#fff; }
+.k2-btn-style-c,
+.k2-btn-style-c:link,
+.k2-btn-style-c:visited,
+.k2-btn-style-d,
+.k2-btn-style-d:link,
+.k2-btn-style-d:visited,
+.k2-btn-style-e,
+.k2-btn-style-e:link,
+.k2-btn-style-e:visited{ color:#111; }
+.k2-btn-style-f,
+.k2-btn-style-f:link,
+.k2-btn-style-f:visited {
+  color:#A9A9A9;
+  cursor:default;
+}
+/*k2-btn-style-a*/
+.k2-btn-style-a s { background-position:0 -40px; }
+.k2-btn-style-a i { background-position:0 0; }
+.k2-btn-style-a b { background-position:right -80px; }
+.k2-btn-style-a:hover b { background-position:right -200px; }
+.k2-btn-style-a:hover i { background-position:0 -120px; }
+.k2-btn-style-a:hover s { background-position:0 -160px; }
+/*k2-btn-style-b*/
+.k2-btn-style-b b { background-position:right -320px; }
+.k2-btn-style-b i { background-position:0 -240px; }
+.k2-btn-style-b s { background-position:0 -280px; }
+.k2-btn-style-b:hover b { background-position:right -440px; }
+.k2-btn-style-b:hover i { background-position:0 -360px; }
+.k2-btn-style-b:hover s { background-position:0 -400px; }
+/*k2-btn-style-c*/
+.k2-btn-style-c b { background-position:right -560px; }
+.k2-btn-style-c i { background-position:0 -480px; }
+.k2-btn-style-c s { background-position:0 -520px; }
+.k2-btn-style-c:hover b { background-position:right -680px; }
+.k2-btn-style-c:hover i { background-position:0 -600px; }
+.k2-btn-style-c:hover s { background-position:0 -640px; }
+/*k2-btn-style-d*/
+.k2-btn-style-d b { background-position:right -800px; }
+.k2-btn-style-d i { background-position:0 -720px; }
+.k2-btn-style-d s { background-position:0 -760px; }
+.k2-btn-style-d:hover b { background-position:right -920px; }
+.k2-btn-style-d:hover i { background-position:0 -840px; }
+.k2-btn-style-d:hover s { background-position:0 -880px; }
+/*k2-btn-style-e*/
+.k2-btn-style-e b { background-position:right -1040px; }
+.k2-btn-style-e i { background-position:0 -960px; }
+.k2-btn-style-e s { background-position:0 -1000px; }
+.k2-btn-style-e:hover b { background-position:right -1160px; }
+.k2-btn-style-e:hover i { background-position:0 -1080px; }
+.k2-btn-style-e:hover s { background-position:0 -1120px; }
+/*k2-btn-style-f*/
+.k2-btn-style-f b { background-position:right -1280px; }
+.k2-btn-style-f i { background-position:0 -1200px; }
+.k2-btn-style-f s { background-position:0 -1240px; }

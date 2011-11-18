@@ -1,0 +1,112 @@
+<!doctype html>
+<html>
+<head>
+<title>maxlength</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" charset="utf-8" href="/k2/css/reset.css">
+<link rel="stylesheet" charset="utf-8" href="/k2/_assets/demo.css">
+<style type="text/css">
+    body{line-height:30px;}
+    textarea{width:400px; height:60px;}
+    pre{line-height:20px;}
+</style>
+</head>
+<body>
+    <h1>maxlength</h1>
+    <h2>说明</h2>
+    <p>实现text和textarea的maxlength功能.</p>
+    <textarea id="textArea1">本来就有字</textarea>
+    <span id="message1"></span>
+    <br />
+    <textarea id="textArea2">中文算两个</textarea>
+    <span id="message2"></span>    
+    <h2>code</h2>
+    调用方法:
+    <pre>Y.k2maxlength.init({
+    node:textArea1,
+    maxLength:10,
+    onLengthChanged:function(params){
+        message1.set("innerHTML","剩余" + (params.maxLength - params.length));
+    },
+    onOver:function(params){
+        alert("超过了!");
+        params.node.set("value",params.preValue);
+    }
+});</pre>
+
+    <h2>配置参数:</h2>
+    <table>
+    <tr>
+        <th>参数名:</th><th>说明</th><th>其他</th>
+    </tr>
+    <tr>
+        <td>node</td>
+        <td>需要处理的节点</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>maxLength</td>
+        <td>最大长度</td>
+        <td>中文字符算作2个</td>
+    </tr> 
+    <tr>
+        <td>onLengthChanged</td>
+        <td>长度发生变化时执行的函数</td>
+        <td>
+            会给该方法传递一个object类型的参数,参数信息:<br />
+            <pre>params = {
+    node:被处理的节点,
+    value:节点的value,
+    length:当前value的长度,
+    preValue:节点内容变化前的value,
+    preLength:节点内容变化前的长度,
+    maxLength:最大允许输入的长度
+}
+</pre>
+如果该函数返回false,不论长度是否超过最大长度,都不会调用onOver函数
+        </td>
+    </tr> 
+    <tr>
+        <td>onOver</td>
+        <td>字数超过时执行的函数</td>
+        <td>在长度超过最大长度时被调用,传递给该函数的参数信息和onLengthChanged相同,如果返回false</td>
+    </tr>   
+    </table>
+<!--<script charset="utf-8" src="http://k.kbcdn.com/k2/seed/seed-1-2-4.js"></script>-->
+<script charset="utf-8" src="/k2/seed/seed.js"></script>
+<script charset="utf-8" src="../max-length.js"></script>
+
+<script type="text/javascript">
+    YUI().use("node","event","k2-max-length",function(Y){        
+        var textArea1 = Y.one("#textArea1"),
+            message1 = Y.one("#message1"),
+            textArea2 = Y.one("#textArea2"),
+            message2 = Y.one("#message2");
+            /*
+        Y.k2maxlength.init({
+            node:textArea1,
+            maxLength:20,
+            onLengthChanged:function(params){
+                message1.set("innerHTML","最多允许输入" + params.maxLength + "字,剩余" + (params.maxLength - params.length));
+            },
+            onOver:function(params){
+                params.node.set("value",params.preValue);
+            }
+        });*/
+        
+        Y.k2maxlength.init({
+            node:textArea2,
+            maxLength:20,
+            chineseAsDouble:true,
+            onLengthChanged:function(params){
+                message2.set("innerHTML","最多允许输入" + params.maxLength + "字,已输入" + params.length +",剩余" + (params.maxLength - params.length));
+            },
+            onOver:function(params){
+                params.node.set("value",params.preValue);
+            }
+        });
+
+    });
+</script>
+</body>
+</html>

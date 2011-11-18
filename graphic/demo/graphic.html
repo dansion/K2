@@ -1,0 +1,171 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>K2 Components | Graphic Docs</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+	<link href="http://k.kbcdn.com/min/f=k2/css/reset-1-0-0.css,k2/css/grids-1-0-0.css,/product/common/header/v20100816/header-1-0-34.css" rel="stylesheet">
+  	<base target="_blank" />
+<style>
+body {
+	font: normal 12px auto "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+	color: #4f6b72;
+	text-align:left;
+}
+h1{
+	padding:10px 0;
+	color:#333;
+	font-size:28px;
+	text-shadow: #eef 1px 1px; 
+}
+h2{
+	padding:10px 0 0 0;
+	margin:0;
+	font-weight:bold;
+	color:#FF33CC;
+}
+dt{
+	font-weight:bold;
+	margin:12px 0 4px 0;
+}
+</style>
+</head>
+<body>
+	<div class="k2-single k2-w48">
+		<h1>K2 Graphic docs</h1>
+
+<h2>简介</h2>
+<p class='summary'>Graphic组件用来在Web上绘制图形，为了兼容各个浏览器，它在高级浏览器上使用SVG, Canvas API，IE6-8上使用VML绘制。
+</p>
+<h2>API</h2>
+<dl>
+	<dt>lineStyle(stroke, lineColor, lineAlpha, ...)</dt>
+	<dd>设置线条色</dd>
+	<dt>beginFill(fillColor, fillAlpha)</dt>
+	<dd>设置填充色</dd>
+	<dt>moveTo(x, y)</dt>
+	<dd>重新移动画笔到某点</dd>
+	<dt>lineTo(x, y)</dt>
+	<dd>绘制直线到某点</dd>
+	<dt>curveTo(controlX1, controlY1, controlX2, controlY2, targetX, targetY)</dt>
+	<dd>绘制曲线</dd>
+	<dt>drawCircle(x, y, radius)</dt>
+	<dd>绘制圆形</dd>
+	<dt>drawRect(x, y, width, height)</dt>
+	<dd>绘制矩形</dd>
+	<dt>drawRoundRect(x, y, width, height, xRadius, yRadius)</dt>
+	<dd>绘制圆角矩形</dd>
+	<dt>drawEllipse(x, y, width, height)</dt>
+	<dd>绘制椭圆</dd>
+</dl>
+<pre><code>
+YUI().use('k2-graphic', function(Y){
+	var g = new Y.Graphic();
+	g.lineStyle(2, '#ff0000', 0.5);
+	g.beginFill('#ff6600', 0.8);
+	g.drawCircle(50, 50, 30);
+	g.render('#myGraphic');
+});
+</code></pre>
+
+
+<h2>示例</h2>
+<!-- uploader by uploader module -->		
+<div class='demo-column'>
+<div class='demo-canvas'>
+	<div id='myGraphic' style="width:200px;height:200px;position:relative;">
+	</div>
+	<div id='myGraphic2' style="height:300px;width:360px;position:relative;">
+	</div>
+	<div id='myGraphic3' style="height:100px;width:360px;position:relative;">
+	</div>
+	<div id='myGraphic4' style="height:600px;width:360px;position:relative;">
+	</div>
+</div>
+
+</div>
+
+
+
+
+</div>
+<script>
+//仅用于开发环境
+if(typeof K2_config === 'undefined'){
+  var K2_config = {
+    noCombine : true,//是否使用combo功能，开发环境下支持combo需要配置minfy，默认使用
+    noCache : true,//是否在js或css文件尾部增加随机函数来防止浏览器缓存，默认使用
+    console : true,//是否使用通用的console控制台，这样就可以在页面显示Y.log内容，默认使用
+                   //失效时，请查看对应的YUI实例需要使用event-custom-base模块
+    noVersion : true,//是否使用不带版本号的文件，这样就可以直接调用本地开发文件，因为这些文件都是不带版本号的，默认使用
+    syntaxHighlight : true,//是否格式化代码显示，默认使用
+    local : false //是否使用本地路径，即类似/k2/seed/seed.js这样的绝对路径，这样无论你是什么本地域名都可以使用，
+                 //否则使用类似http://k.kbcdn.com/k2/seed/seed.js这样的绝对路径，默认使用
+  }  
+}
+</script>
+
+<script src='/k2/seed/seed.js' charset='utf-8'></script>
+<script src="/k2/_assets/config.js" charset="utf-8"></script>
+<script src='../graphic.js' charset='utf-8'></script>
+<script>
+YUI().use('node-base', 'base-build', 'k2-graphic', function(Y){
+		
+	var graphic = new Y.Graphic();
+	graphic.lineStyle(10,'#a11111',  0.5);
+	graphic.beginFill('#0033ff', 0.5);
+	graphic.drawCircle(50, 50, 30);
+	graphic.lineStyle(10,'#779966',  0.3);
+	graphic.beginFill('#ff6600', 0.4);
+	graphic.drawRect(50, 50, 100, 100);
+	graphic.render('#myGraphic');
+
+	
+	var g2 = new Y.Graphic(),
+		w = 10,
+		h = 8,
+		px = 20,
+		py =20,
+		p = 30;
+
+	g2.lineStyle(2, '#446688');
+	for(var i =0; i <= w; i++){
+		for(var j = 0; j <= h; j++){
+			g2.moveTo(px+i*p, py);
+			g2.lineTo(px+i*p, py+h*p);
+
+			g2.moveTo(px, py+j*p);
+			g2.lineTo(px+w*p, py+j*p);
+			
+		}
+	}
+	g2.end();
+	g2.render('#myGraphic2');
+});
+
+YUI().use('node-base', 'base-build', 'k2-graphic', function(Y){
+	var g = new Y.Graphic();
+	g.lineStyle(4, '#446688');
+	g.moveTo(10, 10);
+	g.curveTo(100, 10, 10, 100, 100, 100);
+	g.moveTo(100, 10);
+	g.curveTo(10, 10, 40, 40, 10, 100);
+	g.end();
+	g.render("#myGraphic3");
+});
+
+YUI().use('node-base', 'base-build', 'k2-graphic', function(Y){
+	var g = new Y.Graphic();
+	
+	g.beginFill( '#6688ff', 0.8);
+	g.drawEllipse(150, 100, 100, 40);
+	g.beginFill( '#ff6688', 0.8);
+	g.drawRoundRect(50, 150, 200, 100, 4, 4);
+	g.lineStyle(3, '#446688');
+	g.beginFill( '#66ff88', 0.8);
+	g.drawWedge(150, 300, 30, 120,100);
+	g.render("#myGraphic4");
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+/*!
+ * Copyright koubei.com All rights reserved.
+ * @file corner.css
+ * @author <a href="mailto:zhanyan@taobao.com"zhanyan/a>
+ * @revision:
+ * @version:1-0-0
+ */
+.k2-mod-rounded-corner{
+  position:relative;
+  zoom:1; /* 修正ie6下圆角相差1px的bug */
+}
+.k2-mod-rounded-corner .k2-mod-content {
+  position:relative;
+  z-index:1;
+}
+/*.k2-x1 = top-right, x1a = top-left,.k2-x2 = bottom-right,.k2-x2a = bottom-left */
+.k2-mod-rounded-corner .k2-x1,
+.k2-mod-rounded-corner .k2-x1a, 
+.k2-mod-rounded-corner .k2-x2,
+.k2-mod-rounded-corner .k2-x2a {
+  display:block;
+  font-size:0; /* for IE6 */
+  position:relative;
+  z-index:2;
+}
+.k2-mod-rounded-corner .k2-x1,
+.k2-mod-rounded-corner .k2-x2 {
+  width:100%; /* scales with the.k2-mod-rounded-cornerule */
+  right:-1px; /* overlap borders */
+}
+.k2-mod-rounded-corner .k2-x1a,
+.k2-mod-rounded-corner .k2-x2a { /* left corners */
+  left:-2px;
+}
+.k2-mod-rounded-corner .k2-x1 {
+  top:-1px;
+}
+.k2-mod-rounded-corner .k2-x2{ /*解决IE6下宽和高为基数和偶数时边缘1px差距bug*/
+  position:relative;
+  bottom:-1px; /* overlap bottom border */
+}

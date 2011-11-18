@@ -1,0 +1,417 @@
+/*!
+ * @revision:
+ */
+/*
+ * @author: <a href="youxiao@taobao.com">youxiao</a>
+ * @version:1-0-3
+ */
+.k2-button {
+	border:0;
+	text-align:center;
+	text-decoration:none;
+	cursor:pointer;
+	background-color:transparent;
+	font-size:12px;
+	display:-moz-inline-stack;
+	display:inline-block;
+ *zoom:1;
+ *display:inline;
+	vertical-align:middle;
+	border-width:1px;
+	border-style:solid;
+	-moz-box-shadow:1px 1px 0 #ebe2dd;
+	box-shadow:1px 1px 0 #ebe2dd;
+	font-family:sans-serif;
+}
+.k2-button:hover,
+.k2-button:active{
+	text-decoration:none;
+}
+.k2-button-xxl{
+	height:37px;
+	line-height:37px;
+	font-size:21px;
+	padding:0 19px;
+	font-family:\5FAE\8F6F\96C5\9ED1, \9ED1\4F53, sans-serif;
+	-moz-border-radius:19px;
+	-webkit-border-radius:19px;
+	border-radius:19px;
+}
+.k2-button-xl{
+	height:33px;
+	line-height:33px;
+	font-size:18px;
+	padding:0 18px;
+	font-family:\5FAE\8F6F\96C5\9ED1, \9ED1\4F53, sans-serif;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+}
+.k2-button-l{
+	height:28px;
+	line-height:28px;
+	font-size:14px;
+	padding:0 18px;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	border-radius:4px;
+}
+.k2-button-m{
+	height:23px;
+	line-height:23px;
+	padding:0 12px;
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+	border-radius:3px;
+}
+.k2-button-s{
+	height:19px;
+	line-height:19px;
+	padding:0 12px;
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+	border-radius:3px;
+}
+.k2-button-xs{
+	height:17px;
+	line-height:17px;
+	padding:0 5px;
+	-moz-border-radius:2px;
+	-webkit-border-radius:2px;
+	border-radius:2px;
+}
+.k2-button-style-a,
+.k2-button-style-a:link,
+.k2-button-style-a:visited,
+.k2-button-style-a:hover{
+	color:#fff;
+}
+.k2-button-style-a {
+	background-color:#f55401;
+	background-image:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#ff8b1a), to(#f65401));
+	background-image:-moz-linear-gradient(top, #ff8b1a 0%, #f65401 100%);
+	background-image:-ms-linear-gradient(top, #ff8b1a 0%, #f65401 100%);
+	background-image:-o-linear-gradient(top, #ff8b1a 0%, #f65401 100%);
+	border-color:#eb4e00;
+}
+.k2-button-style-a:hover {
+	background-color:#ff8100;
+	background-image:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#ffa200), to(#ff8001));
+	background-image:-moz-linear-gradient(top, #ffa200 0%, #ff8100 100%);
+	background-image:-ms-linear-gradient(top, #ffa200 0%, #ff8100 100%);
+	background-image:-o-linear-gradient(top, #ffa200 0%, #ff8100 100%);
+	border-color:#f26c0b;
+}
+.k2-button-style-b,
+.k2-button-style-b:link,
+.k2-button-style-b:visited,
+.k2-button-style-b:hover{
+	color:#595959;
+}
+.k2-button-style-b {
+	background-color:#ececec;
+	background-image:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#fbfbfb), to(#ececec));
+	background-image:-moz-linear-gradient(top, #fbfbfb 0%, #ececec 100%);
+	background-image:-ms-linear-gradient(top, #fbfbfb 0%, #ececec 100%);
+	background-image:-o-linear-gradient(top, #fbfbfb 0%, #ececec 100%);
+	border-color:#c7c7c7;
+}
+.k2-button-style-b:hover {
+	background-color:#f3f3f3;
+	background-image:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#f3f3f3));
+	background-image:-moz-linear-gradient(top, #fff 0%, #f3f3f3 100%);
+	background-image:-ms-linear-gradient(top, #fff 0%, #f3f3f3 100%);
+	background-image:-o-linear-gradient(top, #fff 0%, #f3f3f3 100%);
+	border-color:#a6a6a6;
+}
+.k2-button-style-c,
+.k2-button-style-c:link,
+.k2-button-style-c:visited,
+.k2-button-style-c:hover{
+	color:#ed6f00;
+}
+.k2-button-style-c {
+	background-color:#ffe882;
+	background-image:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#fffce9), to(#fef1ab));
+	background-image:-moz-linear-gradient(top, #fffce9 0%, #fef1ab 100%);
+	background-image:-ms-linear-gradient(top, #fffce9 0%, #fef1ab 100%);
+	background-image:-o-linear-gradient(top, #fffce9 0%, #fef1ab 100%);
+	border-color:#f5ca48;
+}
+.k2-button-style-c:hover {
+	background-color:#ffefa0;
+	background-image:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#fffcd9), to(#ffefa1));
+	background-image:-moz-linear-gradient(top, #fffcd9 0%, #ffefa1 100%);
+	background-image:-ms-linear-gradient(top, #fffcd9 0%, #ffefa1 100%);
+	background-image:-o-linear-gradient(top, #fffcd9 0%, #ffefa1 100%);
+	border-color:#f1a454;
+}
+.k2-button-style-d,
+.k2-button-style-d:link,
+.k2-button-style-d:visited,
+.k2-button-style-d:hover{
+	color:#0487bf;
+}
+.k2-button-style-d {
+	background-color:#d3f0ff;
+	background-image:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#f3fdff), to(#d5effe));
+	background-image:-moz-linear-gradient(top, #f3fdff 0%, #d5effe 100%);
+	background-image:-ms-linear-gradient(top, #f3fdff 0%, #d5effe 100%);
+	background-image:-o-linear-gradient(top, #f3fdff 0%, #d5effe 100%);
+	border-color:#a2d7e7;
+}
+.k2-button-style-d:hover {
+	background-color:#d2f2ff;
+	background-image:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#eafcfe), to(#d2f2ff));
+	background-image:-moz-linear-gradient(top, #eafcfe 0%, #d2f2ff 100%);
+	background-image:-ms-linear-gradient(top, #eafcfe 0%, #d2f2ff 100%);
+	background-image:-o-linear-gradient(top, #eafcfe 0%, #d2f2ff 100%);
+	border-color:#6dbedb;
+}
+.k2-button-style-e,
+.k2-button-style-e:link,
+.k2-button-style-e:visited,
+.k2-button-style-e:hover{
+	color:#fff;
+}
+.k2-button-style-e {
+	background-color:#00acdc;
+	background-image:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#12ccf3), to(#00acdc));
+	background-image:-moz-linear-gradient(top, #12ccf3 0%, #00acdc 100%);
+	background-image:-ms-linear-gradient(top, #12ccf3 0%, #00acdc 100%);
+	background-image:-o-linear-gradient(top, #12ccf3 0%, #00acdc 100%);
+	border-color:#0aa8cb;
+}
+.k2-button-style-e:hover {
+	background-color:#02c4eb;
+	background-image:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#2fd4f4), to(#02c4ea));
+	background-image:-moz-linear-gradient(top, #2fd3f4 0%, #2fd4f4 100%);
+	background-image:-ms-linear-gradient(top, #2fd3f4 0%, #2fd4f4 100%);
+	background-image:-o-linear-gradient(top, #2fd3f4 0%, #2fd4f4 100%);
+	border-color:#20b4d8;
+}
+.k2-button-style-f,
+.k2-button-style-f:link,
+.k2-button-style-f:visited,
+.k2-button-style-f:hover{
+	color:#ccc;
+}
+.k2-button-style-f {
+	background-color:#f2f2f2;
+	border-color:#ccc;
+	cursor:default;
+	-moz-box-shadow:none;
+	box-shadow:none;
+}
+.k2-button b,
+.k2-button i { 
+	display:none;
+}
+.k2-button s{
+	text-align:center;
+  text-decoration:none;
+}
+.k2-button s,
+.k2-button .k2-icon-bg-m{
+	display:inline-block;
+	*zoom:1;
+	*display:inline;
+	height:100%;
+}
+
+
+
+
+/*for fuck ies*/
+/*
+ * TODO:ie9下button元素矮了一个像素
+ */
+.k2-button,
+.k2-button:hover{
+	padding:0\9;
+	border-style:none\9;
+	background:none\9;
+}
+:root .k2-button{
+	border-style:solid;
+}
+button.k2-button{
+  *overflow:visible; /*ie6\ie7 button左右存在空隙，该空隙随字数缩放*/
+  *top:2px; /*ie6\ie7 visible后向上偏移2个像素*/
+}
+button.k2-button s {
+  *white-space:nowrap; /*ie6\ie7 inline-block和本文节点不在同一行*/
+}
+button.k2-button .k2-icon-bg-m{
+  *zoom:1; /*ie6\ie7 设置了white-space:nowrap后k2-icon-bg-m的padding-left失效*/
+}
+button.k2-button,
+button.k2-button b,
+button.k2-button s,
+button.k2-button i {
+  *position:relative; /*visible后ie7滚动滚动条背景问题*/
+}
+.k2-button .k2-icon-bg-m{
+  display:inline-block\0;/*ie8 中英文混排*/
+}
+.k2-button b,
+.k2-button s,
+.k2-button i {
+	background-repeat:no-repeat\9;
+	display:inline-block\9;
+  *zoom:1;
+  *display:inline;
+  vertical-align:top\9;
+	height:100%\9;
+}
+.k2-button s {
+  background-repeat:repeat-x\9;
+  padding:0 5px\9;
+}
+/*k2-button-xxl*/
+.k2-button-xxl{
+	height:40px\9;
+	line-height:40px\9;
+}
+:root .k2-button-xxl{
+	height:37px\9;
+	line-height:37px\9;
+}
+.k2-button-xxl i,
+.k2-button-xxl b{ width:19px\9; }
+.k2-button-xxl b,
+.k2-button-xxl i,       
+.k2-button-xxl s {
+  background-image:url(xxl-1-0-0.png)\9;
+}
+/*k2-button-xl*/
+.k2-button-xl{
+	height:36px\9;
+	line-height:36px\9;
+}
+.k2-button-xl s{
+	padding:0 12px\9;
+}
+:root .k2-button-xl{
+	height:33px\9;
+	line-height:33px\9;
+}
+.k2-button-xl i,
+.k2-button-xl b { width:6px\9; }
+.k2-button-xl b,
+.k2-button-xl i,
+.k2-button-xl s {
+  background-image:url(xl-1-0-0.png)\9;
+}
+/*k2-button-l*/
+.k2-button-l{
+	height:31px\9;
+	line-height:31px\9;
+}
+.k2-button-l s{
+	padding:0 13px\9;
+}
+:root .k2-button-l{
+	height:28px\9;
+	line-height:28px\9;
+}
+.k2-button-l i,
+.k2-button-l b { width:5px\9; }
+.k2-button-l b,
+.k2-button-l i,
+.k2-button-l s {
+  background-image:url(l-1-0-0.png)\9;
+}
+/*k2-button-m*/
+.k2-button-m{
+	height:26px\9;
+	line-height:26px\9;
+}
+.k2-button-m s{
+	padding:0 8px\9;
+}
+:root .k2-button-m{
+	height:23px\9;
+	line-height:23px\9;
+}
+.k2-button-m i,
+.k2-button-m b { width:4px\9; }
+.k2-button-m b,
+.k2-button-m i,
+.k2-button-m s {
+  background-image:url(m-1-0-0.png)\9;
+}
+/*k2-button-s*/
+.k2-button-s{
+	height:23px\9;
+	line-height:23px\9;
+}
+.k2-button-s s{
+	padding:0 8px\9;
+}
+:root .k2-button-s{
+	height:19px\9;
+	line-height:19px\9;
+}
+.k2-button-s i,
+.k2-button-s b { width:4px\9; }
+.k2-button-s b,
+.k2-button-s i,
+.k2-button-s s {
+  background-image:url(s-1-0-0.png)\9;
+}
+/*k2-button-xs*/
+.k2-button-xs{
+	height:20px\9;
+	line-height:20px\9;
+}
+:root .k2-button-xs{
+	height:17px\9;
+	line-height:17px\9;
+}
+.k2-button-xs i,
+.k2-button-xs b { width:3px\9; }
+.k2-button-xs b,
+.k2-button-xs i,
+.k2-button-xs s {
+  background-image:url(xs-1-0-0.png)\9;
+}
+/*k2-button-style-a*/
+.k2-button-style-a i { background-position:0 0; }
+.k2-button-style-a:hover i { background-position:0 -40px; }
+.k2-button-style-a s { background-position:0 -80px; }
+.k2-button-style-a:hover s { background-position:0 -120px; }
+.k2-button-style-a b { background-position:right -160px; }
+.k2-button-style-a:hover b { background-position:right -200px; }
+/*k2-button-style-b*/
+.k2-button-style-b i { background-position:0 -240px; }
+.k2-button-style-b:hover i { background-position:0 -280px; }
+.k2-button-style-b s { background-position:0 -320px; }
+.k2-button-style-b:hover s { background-position:0 -360px; }
+.k2-button-style-b b { background-position:right -400px; }
+.k2-button-style-b:hover b { background-position:right -440px; }
+/*k2-button-style-c*/
+.k2-button-style-c i { background-position:0 -480px; }
+.k2-button-style-c:hover i { background-position:0 -520px; }
+.k2-button-style-c s { background-position:0 -560px; }
+.k2-button-style-c:hover s { background-position:0 -600px; }
+.k2-button-style-c b { background-position:right -640px; }
+.k2-button-style-c:hover b { background-position:right -680px; }
+/*k2-button-style-d*/
+.k2-button-style-d i { background-position:0 -720px; }
+.k2-button-style-d:hover i { background-position:0 -760px; }
+.k2-button-style-d s { background-position:0 -800px; }
+.k2-button-style-d:hover s { background-position:0 -840px; }
+.k2-button-style-d b { background-position:right -880px; }
+.k2-button-style-d:hover b { background-position:right -920px; }
+/*k2-button-style-e*/
+.k2-button-style-e i { background-position:0 -960px; }
+.k2-button-style-e:hover i { background-position:0 -1000px; }
+.k2-button-style-e s { background-position:0 -1040px; }
+.k2-button-style-e:hover s { background-position:0 -1080px; }
+.k2-button-style-e b { background-position:right -1120px; }
+.k2-button-style-e:hover b { background-position:right -1160px; }
+/*k2-button-style-f*/
+.k2-button-style-f i { background-position:0 -1200px; }
+.k2-button-style-f s { background-position:0 -1280px; }
+.k2-button-style-f b { background-position:right -1360px; }

@@ -1,0 +1,11 @@
+/*!
+ * @revision:
+ */
+
+/*
+ * @author  sanqi
+ * @version:1_0_0
+ */
+.k2-break-word{
+  word-wrap : break-word;/*word-break:break-all;会直接截断英文单词换行，对多行英文很不友好*/  
+}

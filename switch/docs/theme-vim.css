@@ -1,0 +1,28 @@
+body { font: 14px/1.8 微软雅黑 arial; max-width: 1000px; margin: 1em auto; background-color: #2b2b2b; color: #C0C0C0; }
+a:visited,a:link { color: SeaGreen; }
+h1, h2, h3, h4, h5, h6 { color: #888888; font-family: Comic Sans MS,serif; 1text-shadow: 0 1px 4px; font-weight: bold; }
+h1 {font-size: 1.5em; color: #a77070;}
+h2 {font-size: 1.3em; color: #779977; padding: 4px 0; }
+h3 {font-size: 1.3em; color: #555577;}
+h4 {font-size: 1.2em; color: #222244;}
+h5 {font-size: 1.1em; color: #222244;}
+h6 {font-size: 1.0em; color: #222244;}
+p, pre, blockquote, table, ul, ol, dl {margin-top: .5em; margin-bottom: 1em;}
+p { margin-top: 0; }
+ul ul, ul ol, ol ol, ol ul {margin-top: 0.5em; margin-bottom: 0.5em;}
+li {margin: 0.3em auto; list-style: circle inside;}
+ul {margin-left: 2em; padding-left: 0.5em;}
+dt {font-weight: bold;}
+img {border: none;}
+pre {border-left: 1px solid #ccc; margin-left: 2em; padding-left: 0.5em;}
+blockquote {padding: 0.4em; background-color: #f6f5eb;}
+th, td {border: 1px solid #ccc; padding: 0.3em;}
+th {background-color: #f0f0f0; color: #666; }
+hr {border: none; border-top: 1px solid #ccc; width: 100%;}
+del {text-decoration: line-through; color: #777777;}
+.toc li {}
+.todo {font-weight: bold; background-color: #f0ece8; color: #a03020;}
+.justleft {text-align: left;}
+.justright {text-align: right;}
+.justcenter {text-align: center;}
+.center {margin-left: auto; margin-right: auto;}

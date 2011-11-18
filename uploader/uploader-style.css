@@ -1,0 +1,77 @@
+/*!
+ * @revision:
+ */
+/*
+ * @author: zhengxie.lj@taobao.com
+ * @version:1-0-2
+ */
+.k2-upload-view{
+	position:relative;
+}
+.k2-upload-view .upload-button{
+	width:101px;
+	height:30px;
+	position:relative;
+}
+.k2-upload-view .upload-bar{
+	position: relative; 
+	top:1px;
+	width: 160px; 
+	height: 12px;
+	line-height:12px;
+	border: 1px solid #D4D4D4;
+	*zoom:1;
+}
+.k2-upload-view .upload-notice{
+	position:absolute;
+	left:110px;
+	top:4px;
+	padding:1px 2px;
+	width:145px;
+	background-color:#E4F5FF;
+	border:1px solid #41B2FF;
+}
+.k2-upload-view .upload-bar-container{
+	height:30px;
+	padding-top:4px;
+}
+.k2-upload-view .upload-cancel{
+	top:14px;
+}
+.k2-upload-view .upload-progress{
+	position:absolute;
+	height:12px;
+	line-height:12px;
+	font-size:0;
+	background:#FFEEBB;
+	*zoom:1;
+}
+.k2-upload-view.upload-prog-label{
+	position:absolute;
+	left:170px;
+}
+.k2-upload-view .upload-preview{
+	position:relative;
+}
+.k2-upload-view .k2-uploader-form{
+	position:relative;
+	overflow:hidden;
+	width:101px;
+	height:30px;
+	background:url(asset/skin/buttonSprite.png)
+}
+.k2-upload-view .k2-uploader-input{
+	position:absolute;
+	font-size:108px;
+	top:0;
+	right:0;
+	opacity:0;
+	filter:alpha(opacity=0);
+}
+.k2-html-type .upload-bar{
+	background:url(asset/skin/uploading.gif) no-repeat;
+	border:none;
+}
+.k2-html-type .upload-bar .upload-progress{
+	display:none;
+}

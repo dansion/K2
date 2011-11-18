@@ -1,0 +1,55 @@
+/*!
+ * @revision:
+ */
+/*
+ * @author: sanqi,youxiao@taobao.com
+ * @version:1-0-2
+ */
+.k2-font-song{ /*宋体*/
+  font-family:\5b8b\4f53,arial;  
+}
+.k2-font-hei{ /*黑体*/
+  font-family:\9ed1\4f53,arial;
+}
+.k2-fix-float:after{
+  content:"\0020";
+  display:block;
+  height:0;
+  clear:both;
+}
+.k2-fix-float{
+  *zoom:1;
+}
+.k2-display-none{
+  position:absolute;
+  visibility:hidden;
+}
+.k2-inline-block{
+  display:-moz-inline-stack;
+  display:inline-block;
+  *display:inline;
+  *zoom:1;
+  vertical-align:middle;
+  position:relative;/* 解决因为父容器{display:inline;}问题导致Firefox中li里面的链接不可点的bug */
+  _position:static;/* 解决因为IE6中因为上一行代码带来在{position:relative}容器中移位在bug */
+}
+.k2-inline-block-icon{
+  display:-moz-inline-stack;
+  display:inline-block;
+  *display:inline;
+  zoom:1;
+  padding:0;
+  vertical-align:middle;
+  font-size:0;
+  line-height:9999px;
+  overflow:hidden;
+  position:relative;
+  _position:static;
+}
+.k2-break-word{
+  word-wrap:break-word;/*word-break:break-all;会直接截断英文单词换行，对多行英文很不友好*/
+  overflow:hidden;
+}
+wbr:after{ /*用以解决使用Y.breakWord()方法时，插入的wbr标签在Opera中的影响*/
+  content:"\00200B";  
+}

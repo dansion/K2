@@ -1,0 +1,16 @@
+# the content package
+content	wangwang	jar:chrome/wangwang.jar!/content/wangwang/
+content	wangwangapi	chrome/api/
+content	wangwangapi	chrome/api/ contentaccessible=yes
+
+# language packages
+locale	wangwang	en-US	jar:chrome/wangwang.jar!/locale/en-US/wangwang/
+locale	wangwang	zh-CN	jar:chrome/wangwang.jar!/locale/zh-CN/wangwang/
+locale	wangwang	zh-TW	jar:chrome/wangwang.jar!/locale/zh-TW/wangwang/
+
+# skin packages
+skin	wangwang	classic/1.0	jar:chrome/wangwang.jar!/skin/classic/wangwang/
+
+# overlay package
+# for Firefox
+overlay	chrome://browser/content/browser.xul	chrome://wangwang/content/wangwangOverlay.xul

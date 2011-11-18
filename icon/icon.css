@@ -1,0 +1,231 @@
+/*!
+ * @revision:
+ */
+/*
+ * @author: <a href="youxiao@taobao.com">youxiao</a>
+ * @version:1-0-8
+ */
+.k2-icon-bg-m,
+.k2-icon-node-m,
+.k2-icon-bg-m li{ background-repeat:no-repeat; }
+.k2-icon-node-m{
+  width:16px;
+  height:16px;
+  margin-right:5px;
+  background-position:center center;
+}
+.k2-icon-bg-m{
+  padding-left:21px;
+  background-position:left center;
+}
+.k2-icon-bg-m li{
+  padding-left:8px;
+  background-position:0 0.67em;
+}
+ul.k2-icon-bg-m,
+ol.k2-icon-bg-m{
+  padding-left:0;
+  background:none;
+}
+.k2-icon-node-m{
+  display:-moz-inline-stack;
+  display:inline-block;
+ *display:inline;
+ *zoom:1;
+  vertical-align:middle;
+  font-size:0;
+  line-height:9999px;
+  *line-height:1.5;
+  overflow:hidden;
+  position:relative;
+ *position:static;
+}
+.k2-icon-mail{
+	background-image:url(k2-icon-mail.png?du);
+}
+.k2-icon-kb-card{
+	width:14px;
+	padding-left:19px;
+	background-image:url(k2-icon-kb-card.png?du);
+}
+.k2-icon-recommend{
+	width:21px;
+	padding-left:26px;
+	background-image:url(k2-icon-recommend.png?du);
+}
+.k2-icon-recommend-m{
+	width:45px;
+	padding-left:50px;
+	height:17px;
+	background-image:url(k2-icon-recommend-m.png?du);
+}
+.k2-icon-recommend-l{
+	width:54px;
+	padding-left:59px;
+	height:19px;
+	background-image:url(k2-icon-recommend-l.png?du);
+}
+.k2-icon-pic{
+	width:13px;
+	padding-left:18px;
+	background-image:url(k2-icon-pic.png?du);
+}
+.k2-icon-success{
+	background-image:url(k2-icon-success.png?du);
+}
+.k2-icon-error{
+	width:12px;
+	padding-left:17px;
+	background-image:url(k2-icon-error.png?du);
+}
+.k2-icon-fang{
+	background-image:url(k2-icon-fang.png?du);
+}
+.k2-icon-alipay{
+	width:12px;
+	padding-left:17px;
+	background-image:url(k2-icon-alipay.png?du);
+}
+.k2-icon-clock{
+	background-image:url(k2-icon-clock.png?du);
+}
+.k2-icon-tip{
+	width:9px;
+	padding-left:14px;
+	background-image:url(k2-icon-tip.png?du);
+}
+.k2-icon-say{
+	background-image:url(k2-icon-say.png?du);
+}
+.k2-icon-tk-card{
+	background-image:url(k2-icon-tk-card.png?du);
+}
+.k2-icon-mphone{
+	width:11px;
+	padding-left:16px;
+	background-image:url(k2-icon-mphone.png?du);
+}
+.k2-icon-notice{
+	width:11px;
+	padding-left:16px;
+	background-image:url(k2-icon-notice.png?du);
+}
+.k2-icon-tuan{
+	width:14px;
+	padding-left:19px;
+	background-image:url(k2-icon-tuan.png?du);
+}
+.k2-icon-bill{
+	background-image:url(k2-icon-bill.png?du);
+}
+.k2-icon-delivery{
+	width:19px;
+	padding-left:24px;
+	background-image:url(k2-icon-delivery.png?du);
+}
+.k2-icon-edit{
+	width:12px;
+	padding-left:17px;
+	background-image:url(k2-icon-edit.png?du);
+}
+.k2-icon-help{
+	width:14px;
+	padding-left:19px;
+	background-image:url(k2-icon-help.png?du);
+}
+.k2-icon-hb{
+	width:15px;
+	padding-left:20px;
+	background-image:url(k2-icon-hb.png?du);
+}
+.k2-icon-jifen{
+	width:14px;
+	padding-left:19px;
+	background-image:url(k2-icon-jifen.png?du);
+}
+.k2-icon-order{
+	width:12px;
+	padding-left:17px;
+	background-image:url(k2-icon-order.png?du);
+}
+.k2-icon-safe{
+	width:14px;
+	padding-left:19px;
+	height:17px;
+	background-image:url(k2-icon-safe.png?du);
+}
+.k2-icon-coupon{
+	width:15px;
+	padding-left:20px;
+	background-image:url(k2-icon-coupon.png?du);
+}
+.k2-icon-del{
+	width:11px;
+	padding-left:16px;
+	background-image:url(k2-icon-del.png?du);
+}
+.k2-icon-vip-1,
+.k2-icon-vip-2,
+.k2-icon-vip-3,
+.k2-icon-vip-w1,
+.k2-icon-vip-w2,
+.k2-icon-vip-w3{
+  height:17px;
+  vertical-align:baseline;
+  margin:0 0 0 2px;
+}
+.k2-icon-vip-1{
+  background-image:url(k2-icon-vip-1.gif?du);
+  width:20px;
+  padding-left:22px;
+}
+.k2-icon-vip-2{
+  background-image:url(k2-icon-vip-2.gif?du);
+  width:25px;
+  padding-left:27px;
+}
+.k2-icon-vip-3{
+  background-image:url(k2-icon-vip-3.gif?du);
+  width:32px;
+  padding-left:34px;
+}
+.k2-icon-vip-w1{
+  background-image:url(k2-icon-vip-w1.gif?du);
+  width:52px;
+}
+.k2-icon-vip-w2{
+  background-image:url(k2-icon-vip-w2.gif?du);
+  width:57px;
+}
+.k2-icon-vip-w3{
+  background-image:url(k2-icon-vip-w3.gif?du);
+  width:64px;
+}
+/*follow*/
+.k2-icon-follow-wide{
+  background-image:url(k2-icon-follow-wide.png?du);
+  width:66px;
+}
+.k2-icon-followed-wide{
+  background-image:url(k2-icon-followed-wide.png?du);
+  width:66px;
+  cursor:default;
+}
+/*li list-style*/
+.k2-icon-dot li{
+  background-image:url(k2-icon-dot.png?du);
+}
+.k2-icon-square li{
+  background-image:url(k2-icon-square.png?du);
+}
+.k2-icon-square-ccc li{
+  background-image:url(k2-icon-square-ccc.png?du);
+}
+/*rewrite*/
+.k2-icon-bg-m{
+  width:auto;
+  height:auto;
+}
+.k2-icon-node-m{
+  padding-left:0;
+}

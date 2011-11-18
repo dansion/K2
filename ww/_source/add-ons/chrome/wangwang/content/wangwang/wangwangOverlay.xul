@@ -1,0 +1,56 @@
+﻿<?xml version="1.0"?> 
+
+<!--
+	by Kong Wei (Qu Chao) @ Taobao UED Team
+	http://ued.taobao.com
+	Chappell.Wat{at}Gmail{dot}com
+-->
+
+<!DOCTYPE window [
+	<!ENTITY % wangwangDTD SYSTEM "chrome://wangwang/locale/wangwang.dtd" >
+	%wangwangDTD;
+]>
+
+<overlay id="wangwangOverlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+	<script type="application/x-javascript" src="wangwangOverlay.js"/>
+	<script type="application/x-javascript">
+		<![CDATA[
+			({
+				init: function () {
+					const pref = WangWang.Preference,
+					i18n = WangWang.I18N,
+					ver = '1.3'; // xpi version
+					if (ver !== pref.get('version')) {
+						const reg = new WangWang.Registry();
+						var clientArr = [];
+						['WangWang', 'AliIM', 'AliTalk'].forEach(function (clientId) {
+							var branch = clientId.toLowerCase() + '.path';
+							if (pref.isSet(branch)) {
+								clientArr.push('window.' + clientId + ' = {};');
+							} else {
+								var clientDir = reg.get(clientId);
+								if ('' !== clientDir) {
+									pref.set(branch, clientDir);
+									clientArr.push('window.' + clientId + ' = {};');
+								}
+							}
+						});
+						reg.end();
+						pref.set('version', ver);
+						if (0 < clientArr.length) {
+							// build api file
+							(new WangWang.Stream).write(clientArr.join('\n'));
+
+							// restart confirm
+							setTimeout(function () {
+								if (confirm(WangWang.I18N.get('comfirm.init'))) {
+									WangWang.Restart.fire();
+								}
+							}, 3000);
+						}
+					}
+				}
+			}).init();
+		]]>
+	</script>
+</overlay>

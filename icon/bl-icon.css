@@ -1,0 +1,124 @@
+/*!
+ * @revision:
+ */
+/*
+ * @author: <a href="youxiao@taobao.com">youxiao</a>
+ * @version:1-0-1
+ */
+.k2-icon-node-m{background-repeat:no-repeat;}
+.k2-icon-node-m{
+  margin-right:5px;
+  background-position:center center;
+}
+.k2-icon-node-m{
+  display:-moz-inline-stack;
+  display:inline-block;
+ *display:inline;
+ *zoom:1;
+  vertical-align:middle;
+  font-size:0;
+  line-height:9999px;
+  *line-height:1.5;
+  overflow:hidden;
+  position:relative;
+ *position:static;
+}
+.k2-icon-bl-10001,
+.k2-icon-bl-20001,
+.k2-icon-bl-30001,
+.k2-icon-bl-40001{
+  width:16px;
+  height:16px;
+}
+.k2-icon-bl-10002,
+.k2-icon-bl-20002,
+.k2-icon-bl-30002,
+.k2-icon-bl-40002{
+  width:34px;
+  height:16px;
+}
+.k2-icon-bl-10003,
+.k2-icon-bl-20003,
+.k2-icon-bl-30003,
+.k2-icon-bl-40003{
+  width:51px;
+  height:16px;
+}
+.k2-icon-bl-10004,
+.k2-icon-bl-20004,
+.k2-icon-bl-30004,
+.k2-icon-bl-40004{
+  width:67px;
+  height:16px;
+}
+.k2-icon-bl-10005,
+.k2-icon-bl-20005,
+.k2-icon-bl-30005,
+.k2-icon-bl-40005{
+  width:84px;
+  height:16px;
+}
+.k2-icon-bl-10001{
+  background-image:url(bl/k2-icon-bl-10001.png?du);
+}
+.k2-icon-bl-10002{
+  background-image:url(bl/k2-icon-bl-10002.png?du);
+}
+.k2-icon-bl-10003{
+  background-image:url(bl/k2-icon-bl-10003.png?du);
+}
+.k2-icon-bl-10004{
+  background-image:url(bl/k2-icon-bl-10004.png?du);
+}
+.k2-icon-bl-10005{
+  background-image:url(bl/k2-icon-bl-10005.png?du);
+}
+.k2-icon-bl-20001{
+  background-image:url(bl/k2-icon-bl-20001.gif?du);
+}
+.k2-icon-bl-20002{
+  background-image:url(bl/k2-icon-bl-20002.gif?du);
+}
+.k2-icon-bl-20003{
+  background-image:url(bl/k2-icon-bl-20003.gif?du);
+}
+.k2-icon-bl-20004{
+  background-image:url(bl/k2-icon-bl-20004.gif?du);
+}
+.k2-icon-bl-20005{
+  background-image:url(bl/k2-icon-bl-20005.gif?du);
+}
+.k2-icon-bl-30001{
+  background-image:url(bl/k2-icon-bl-30001.gif?du);
+}
+.k2-icon-bl-30002{
+  background-image:url(bl/k2-icon-bl-30002.gif?du);
+}
+.k2-icon-bl-30003{
+  background-image:url(bl/k2-icon-bl-30003.gif?du);
+}
+.k2-icon-bl-30004{
+  background-image:url(bl/k2-icon-bl-30004.gif?du);
+}
+.k2-icon-bl-30005{
+  background-image:url(bl/k2-icon-bl-30005.gif?du);
+}
+.k2-icon-bl-40001{
+  background-image:url(bl/k2-icon-bl-40001.gif?du);
+}
+.k2-icon-bl-40002{
+  background-image:url(bl/k2-icon-bl-40002.gif?du);
+}
+.k2-icon-bl-40003{
+  background-image:url(bl/k2-icon-bl-40003.gif?du);
+}
+.k2-icon-bl-40004{
+  background-image:url(bl/k2-icon-bl-40004.gif?du);
+}
+.k2-icon-bl-40005{
+  background-image:url(bl/k2-icon-bl-40005.gif?du);
+}
+/*rewrite*/
+.k2-icon-node-m{
+  padding-left:0;
+}

@@ -1,0 +1,42 @@
+/*!
+ * @revision:
+ */
+/*
+ * @author: <a href="youxiao@taobao.com">youxiao</a>
+ * @version:1-0-3
+ */
+.k2-icon-bg-m,
+.k2-icon-node-m,
+.k2-icon-bg-m li{ background-repeat:no-repeat; }
+.k2-icon-node-m{
+  width:16px;
+  height:16px;
+  margin-right:5px;
+  background-position:center center;
+}
+.k2-icon-bg-m{
+  padding-left:21px;
+  background-position:left center;
+}
+.k2-icon-bg-m li{
+  padding-left:8px;
+  background-position:0 0.67em;
+}
+ul.k2-icon-bg-m,
+ol.k2-icon-bg-m{
+  padding-left:0;
+  background:none;
+}
+.k2-icon-node-m{
+  display:-moz-inline-stack;
+  display:inline-block;
+ *display:inline;
+ *zoom:1;
+  vertical-align:middle;
+  font-size:0;
+  line-height:9999px;
+  *line-height:1.5;
+  overflow:hidden;
+  position:relative;
+ *position:static;
+}

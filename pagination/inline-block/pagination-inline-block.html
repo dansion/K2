@@ -1,0 +1,159 @@
+<!doctype html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=gbk">
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <title>k2 pagination - inline-block</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <link rel="stylesheet" type="text/css" href="../css/reset.css">
+  <link rel="stylesheet" type="text/css" href="../css/common.css">
+  <link rel="stylesheet" type="text/css" href="../css/color.css">
+  <link rel="stylesheet" type="text/css" href="pagination-inline-block.css">
+<style>
+h1{
+  font:100px "Courier New", Courier, monospace;
+  color:#eee;
+  text-align:center;
+  margin-bottom:10px;
+}
+body{
+  text-align:left;
+  width:950px;
+  margin:0 auto;
+  padding:20px 0;
+}
+section{
+  border:1px solid #ccc;
+  padding:20px;
+  margin-bottom:20px;
+  -moz-border-radius:4px;
+  -webkit-border-radius:4px;
+  border-radius:4px;
+  -moz-box-shadow:2px 2px 0 #eee;
+  -webkit-box-shadow:2px 2px 0 #eee;
+  box-shadow:2px 2px 0 #eee;
+  display:block;
+}
+footer{
+  color:#ccc;
+  text-align:center;
+  display:block;
+}
+</style>
+<script>
+(function(){if(!/*@cc_on!@*/0)return;var e = "abbr,article,aside,audio,canvas,datalist,details,dialog,eventsource,figure,footer,header,hgroup,mark,menu,meter,nav,output,progress,section,time,video".split(','),i=e.length;while(i--){document.createElement(e[i])}})()
+</script>
+</head>
+<body>
+<header><h1>K2-Pagination</h1></header>
+<section>
+  <div class='k2-pagination k2-pagination-right'>
+    <form action=''>
+      <span class='sum'>第<b>1</b>/335页</span><a href="#" class="pre">上一页</a><a href='#'>1</a><strong class='current'>2</strong><a href='#'>3</a><a href='#'>4</a><a href='#'>5</a><a href='#'>6</a><a href='#'>7</a><a href='#'>8</a><a href='#'>9</a><span class="more">…</span><a href="#" class="next">下一页</a>
+    </form>
+  </div>
+<pre>
+&lt;div class='k2-pagination k2-pagination-right'&gt;
+	&lt;form action=''&gt;
+		&lt;span class='sum'&gt;第&lt;b&gt;1&lt;/b&gt;/335页&lt;/span&gt;
+		&lt;a href="#" class="pre"&gt;上一页&lt;/a&gt;
+		&lt;a href='#'&gt;1&lt;/a&gt;
+		&lt;strong class='current'&gt;2&lt;/strong&gt;
+		&lt;a href='#'&gt;3&lt;/a&gt;
+		&lt;a href='#'&gt;4&lt;/a&gt;
+		&lt;a href='#'&gt;5&lt;/a&gt;
+		&lt;a href='#'&gt;6&lt;/a&gt;
+		&lt;a href='#'&gt;7&lt;/a&gt;
+		&lt;a href='#'&gt;8&lt;/a&gt;
+		&lt;a href='#'&gt;9&lt;/a&gt;
+		&lt;span class="more"&gt;…&lt;/span&gt;
+		&lt;a href="#" class="next"&gt;下一页&lt;/a&gt;
+	&lt;/form&gt;
+&lt;/div&gt;
+</pre>
+</section>
+<section>
+  <div class='k2-pagination'>
+    <form action=''>
+      <span class='sum'>第<b>1</b>/335页</span><a href="#" class="pre">上一页</a><a href='#'>1</a><strong class='current'>2</strong><a href='#'>3</a><a href='#'>4</a><a href='#'>5</a><a href='#'>6</a><a href='#'>7</a><a href='#'>8</a><a href='#'>9</a><span class="more">…</span><a href="#" class="next">下一页</a>
+    </form>
+  </div>
+<pre>
+&lt;div class='k2-pagination'&gt;
+	&lt;form action=''&gt;
+		&lt;span class='sum'&gt;第&lt;b&gt;1&lt;/b&gt;/335页&lt;/span&gt;
+		&lt;a href="#" class="pre"&gt;上一页&lt;/a&gt;
+		&lt;a href='#'&gt;1&lt;/a&gt;
+		&lt;strong class='current'&gt;2&lt;/strong&gt;
+		&lt;a href='#'&gt;3&lt;/a&gt;
+		&lt;a href='#'&gt;4&lt;/a&gt;
+		&lt;a href='#'&gt;5&lt;/a&gt;
+		&lt;a href='#'&gt;6&lt;/a&gt;
+		&lt;a href='#'&gt;7&lt;/a&gt;
+		&lt;a href='#'&gt;8&lt;/a&gt;
+		&lt;a href='#'&gt;9&lt;/a&gt;
+		&lt;span class="more"&gt;…&lt;/span&gt;
+		&lt;a href="#" class="next"&gt;下一页&lt;/a&gt;
+	&lt;/form&gt;
+&lt;/div&gt;
+</pre>
+</section>
+<section>
+  <div class='k2-pagination'>
+    <form action=''>
+      <a href="#" class="pre">上一页</a><a href='#'>1</a><strong class='current'>2</strong><a href='#'>3</a><a href='#'>4</a><a href='#'>5</a><a href='#'>6</a><a href='#'>7</a><a href='#'>8</a><a href='#'>9</a><span class="more">…</span><a href="#" class="next">下一页</a><span class='jump'>快速至第<input type='text' class='jump-inp' />页</span><button type='submit' class='submit'>跳转</button>
+    </form>
+  </div>
+<pre>
+&lt;div class='k2-pagination'&gt;
+	&lt;form action=''&gt;
+		&lt;a href="#" class="pre"&gt;上一页&lt;/a&gt;
+		&lt;a href='#'&gt;1&lt;/a&gt;
+		&lt;strong class='current'&gt;2&lt;/strong&gt;
+		&lt;a href='#'&gt;3&lt;/a&gt;
+		&lt;a href='#'&gt;4&lt;/a&gt;
+		&lt;a href='#'&gt;5&lt;/a&gt;
+		&lt;a href='#'&gt;6&lt;/a&gt;
+		&lt;a href='#'&gt;7&lt;/a&gt;
+		&lt;a href='#'&gt;8&lt;/a&gt;
+		&lt;a href='#'&gt;9&lt;/a&gt;
+		&lt;span class="more"&gt;…&lt;/span&gt;
+		&lt;a href="#" class="next"&gt;下一页&lt;/a&gt;
+		&lt;span class='jump'&gt;快速至第&lt;input type='text' class='jump-inp' /&gt;页&lt;/span&gt;
+		&lt;button type='submit' class='submit'&gt;跳转&lt;/button&gt;
+	&lt;/form&gt;
+&lt;/div&gt;
+</pre>
+</section>
+<section>
+  <div class='k2-pagination'>
+    <form action=''>
+      <a href="#" class="pre">上一页</a><a href='#'>1</a><strong class='current'>2</strong><a href='#'>3</a><a href='#'>4</a><a href='#'>5</a><a href='#'>6</a><a href='#'>7</a><a href='#'>8</a><a href='#'>9</a><span class="more">…</span><a href="#" class="next">下一页</a>
+    </form>
+  </div>
+<pre>
+&lt;div class='k2-pagination'&gt;
+	&lt;form action=''&gt;
+		&lt;a href="#" class="pre"&gt;上一页&lt;/a&gt;
+		&lt;a href='#'&gt;1&lt;/a&gt;&lt;strong class='current'&gt;2&lt;/strong&gt;
+		&lt;a href='#'&gt;3&lt;/a&gt;
+		&lt;a href='#'&gt;4&lt;/a&gt;
+		&lt;a href='#'&gt;5&lt;/a&gt;
+		&lt;a href='#'&gt;6&lt;/a&gt;
+		&lt;a href='#'&gt;7&lt;/a&gt;
+		&lt;a href='#'&gt;8&lt;/a&gt;
+		&lt;a href='#'&gt;9&lt;/a&gt;
+		&lt;span class="more"&gt;…&lt;/span&gt;
+		&lt;a href="#" class="next"&gt;下一页&lt;/a&gt;
+	&lt;/form&gt;
+&lt;/div&gt;
+</pre>
+</section>
+<footer>
+<p>Copyright (c)2010 koubei.com All rights reserved.</p>
+<p>author:youxiao@taobao.com</p>
+</footer>
+</body>
+</html>
+

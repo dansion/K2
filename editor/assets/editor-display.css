@@ -1,0 +1,40 @@
+/*!
+ * @revision:
+ */
+/**
+ * @author sanqi 
+ * @version:1-0-1
+ */
+
+/* start: yk-editor-display */
+.k2-editor-display{
+  line-height:1.5; 
+  font-size:14px;
+ }
+.k2-editor-display strong {font-weight:bold;}
+.k2-editor-display em {font-style:italic;}
+.k2-editor-display strong em {font-weight:bold;font-style:italic;}
+.k2-editor-display em strong {font-weight:bold;font-style:italic;}
+
+.k2-editor-display ul,
+.k2-editor-display ol {
+  margin : 13px 0;
+  padding-left : 30px;
+  list-style-type : disc;
+}
+.k2-editor-display ol {
+  list-style-type : decimal;
+}
+.k2-editor-display li {
+  list-style:inherit;
+  list-style-position : outside;
+}
+.k2-editor-display ul li{list-style-type:disc;}
+.k2-editor-display ol li{list-style-type : decimal;}
+.k2-editor-display p{
+*height:auto !important; 
+*height:16px;
+*overflow:visible;
+min-height:16px;
+}
+/* end: yk-editor-display */

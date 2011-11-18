@@ -1,0 +1,117 @@
+/*!
+ * @revision:
+ */
+
+/**
+ * @version:1-0-0
+ */
+
+/*
+ * 全部采用float布局，标题200px右对齐
+ */
+.k2-v-wrapper:after {content:"\0020";display:block;height:0;clear:both;}
+.k2-v-wrapper {*zoom:1;}
+
+.k2-v-wrapper {
+  padding-bottom : 10px;
+}
+
+.k2-v-content,
+.k2-v-holder {
+  float : left;
+}
+
+.k2-v-content:after {content:"\0020";display:block;height:0;clear:both;}
+.k2-v-content {*zoom:1;}
+
+.k2-v-content label,
+.k2-v-content input,
+.k2-v-content select,
+.k2-v-content textarea,
+.k2-v-holder {
+  float : left;
+}
+
+.k2-v-content label {
+  width : 90px;
+  text-align : right;
+}
+
+.k2-v-op:after {content:"\0020";display:block;height:0;clear:both;}
+.k2-v-op {*zoom:1;}
+
+.k2-v-op button {
+  float : left;
+  margin-left : 90px;
+  display : inline;
+}
+
+.k2-v-content input, 
+.k2-v-content textarea, 
+.k2-v-op button, 
+.k2-v-content label, 
+.k2-v-content select {
+  outline: medium none;
+  vertical-align: middle;
+}
+
+.k2-v-content input, 
+.k2-v-content label, 
+.k2-v-op button, 
+.k2-v-content select {
+  height : 24px;
+  line-height : 24px;
+  font-size : 14px;
+}
+
+.k2-v-text,
+.k2-v-textarea {
+  background: url("assets/input_text.png") no-repeat #FFFFFF;
+  border : 1px solid #BBBBBB;
+  color : #404040;
+}
+
+.k2-v-text {
+  padding : 0 4px;
+}
+
+.k2-v-textarea {
+  padding : 4px;
+}
+
+.k2-v-wrapper .k2-v-holder {
+  display : none;
+  height : 24px;
+  line-height : 24px;
+  margin-left : 5px;
+}
+
+.k2-v-failed .k2-v-holder {
+  display : inline;
+  background-color : #FEF1F0;
+  border : 1px solid #FFB3B6;
+  background : url(assets/holder_error.png) no-repeat 5px 50% #FEF1F0;
+  padding : 0 10px 0 25px;
+}
+
+.k2-v-succeed .k2-v-holder {
+  display : inline;
+  background:url(assets/holder_success.png) no-repeat center center;
+  width : 16px;
+}
+
+.k2-v-op button {
+  cursor: pointer;
+  height : 32px;
+  line-height : 32px;
+  padding-left : 10px;
+  padding-right : 10px;
+}
+
+.k2-v-required-failed .k2-v-holder {
+  display : none;
+}
+.k2-v-required-failed input,
+.k2-v-required-failed textarea {
+  border : 1px solid red;
+}

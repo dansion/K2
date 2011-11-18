@@ -1,0 +1,263 @@
+<!doctype html>
+<html>
+<head>
+<title>Popup模型</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="/k2/css/reset.css">
+<link rel="stylesheet" href="/k2/css/color.css">
+<link rel="stylesheet" href="/k2/css/common.css">
+<style>
+body{
+  text-align:left;
+  margin:20px;
+}
+h2{
+  color:#F50;
+  font-weight:bold;
+}
+table th{
+  background:#CAE8EA;
+  border:1px solid #CCC;
+  font-weight:bold;
+  padding:5px;
+}
+table td{
+  border:1px solid #CCC;
+  padding:10px;
+}
+</style>
+</head>
+<body>
+<h2>实例</h2>
+  <div id="demo">123</div>
+  <div id="demo2">
+    <p>第一行<a href="#" id="update-btn" onclick="test();">显示时更换内容</a></p>
+  </div>
+  <div id="demo3" style="width:150px;">
+    <p>第二个浮层</p>
+  </div>
+  <a href="#" id="reset-btn">隐藏后重设popup内容</a>
+  <a href="#" id="pop-btn1">显示pop1</a>
+  <a href="#" id="pop-btn2">显示pop2</a>
+  <a href="#" id="pop-btn3">显示pop3</a>
+  <a href="#" id="pop-btn4">显示换头的pop3</a>
+<hr/>
+<h2>Code</h2>
+
+<div>
+  构造一个popup对象，只接受一个构造配置对象，代码方式如下：
+<pre class="brush:javascript;">
+var objPopup = Y.createPop({
+  sTitle:'popup的头',
+  vContent:'&lt;div&gt; &lt;p&gt; popup里面的内容&lt;/p&gt; &lt;/div&gt;',
+  iWidth:'600',
+  iHeight:'400',
+  //是否为共享模式
+  share:true,
+  bShowAfterInit:false,
+  onOk:function(popobj){alert('初始化OK事件1');},
+  btnAlign:'left',
+  sOk:'OK按钮',
+  sCancel:'取消按钮',
+  onClose:false
+});
+objPopup.on('popup:close',function(e){alert('监听close事件');});
+</pre>
+</div>
+<hr/>
+<h2>说明</h2>
+  <table>
+    <tr>
+      <th>参数名</th><th>说明</th><th>可选值</th>
+    </tr>
+    <tr>
+      <td>bAutoAdjust</td><td>是否根据内容重置popup大小</td><td>true&nbsp;|&nbsp;false【默认true】</td>
+    </tr>
+      <td>bModal</td><td>是否需要遮挡层</td><td>true&nbsp;|&nbsp;false【默认true】</td>
+    </tr>
+    <tr>
+      <td>bShowAfterInit</td><td>在构造完成后是否直接显示</td><td>true&nbsp;|&nbsp;false【默认false】</td>
+    </tr>
+    <tr>
+      <td>iHeight</td><td>初始的高度</td><td>正整数</td>
+    </tr>
+    <tr>
+      <td>iWidth</td><td>初始的宽度</td><td>正整数</td>
+    </tr>
+    <tr>
+      <td>onCancel</td><td>点击取消按钮时执行的函数（不推荐，推荐监听popup:cancel事件）</td><td>Function【第一参数为popup对象】</td>
+    </tr>
+    <tr>
+      <td>onClose</td><td>点击取消按钮时执行的函数（不推荐，推荐监听popup:close事件）</td><td>Function【第一参数为popup对象】</td>
+    </tr>
+    <tr>
+      <td>onOk</td><td>点击确定按钮时执行的函数（不推荐，推荐监听popup:ok事件）</td><td>Function【第一参数为popup对象】</td>
+    </tr>
+    <tr>
+      <td>sCancel</td><td>设置取消按钮的文案</td><td>String【默认为‘取消’】</td>
+    </tr>
+    <tr>
+      <td>sOk</td><td>设置确定按钮的文案</td><td>String【默认为‘确定’】</td>
+    </tr>
+    <tr>
+      <td>sTitle</td><td>设置头的内容，设置为‘’时无头部</td><td>String【默认为‘’】</td>
+    </tr>
+    <tr>
+      <td>vContent</td><td>设置popup主体内容</td><td>String&nbsp;|&nbsp;HtmlElement&nbsp;|&nbsp;YUI.Node</td>
+    </tr>
+  </table>
+  <br/>
+  <table>
+    <tr>
+      <th>方法名</th><th>参数</th><th>说明</th>
+    </tr>
+    <tr>
+      <td>close</td><td>无</td><td>处罚popup:close事件，默认为隐藏popup对象</td>
+    </tr>
+    <tr>
+      <td>hide</td><td>无</td><td>隐藏popup对象</td>
+    </tr>
+    <tr>
+      <td>setContent</td><td>String&nbsp;|&nbsp;HtmlElement&nbsp;|&nbsp;YUI.Node，true&nbsp;|&nbsp;false（可选参数，设置是否按内容调整尺寸）</td><td>设置popup主体内容</td>
+    </tr>
+    <tr>
+      <td>setSize</td><td>(widthInt,heightInt)</td><td>设置popup的宽高</td>
+    </tr>
+    <tr>
+      <td>setTitle</td><td>String</td><td>设置头的内容，设置为‘’时无头部</td>
+    </tr>
+    <tr>
+      <td>show</td><td>Array（可选）</td><td>展示popup，参数可以设置出现的位置，默认为屏幕中间</td>
+    </tr>
+  </table>
+  <br/>
+  <table>
+    <tr>
+      <th>事件名</th><th>说明</th>
+    </tr>
+    <tr>
+      <td>popup:cancel</td><td>popup的cancel事件，点击cancel按钮时触发</td>
+    </tr>
+    <tr>
+      <td>popup:close</td><td>popup的close事件，点击close按钮时触发</td>
+    </tr>
+    <tr>
+      <td>popup:ok</td><td>popup的ok事件，点击ok按钮时触发</td>
+    </tr>
+    <tr>
+      <td>popup:show</td><td>popup的show事件，popup展现时触发</td>
+    </tr>
+  </table>
+
+<script charset="utf-8">
+//仅用于开发环境
+if(typeof K2_config === 'undefined'){
+  var K2_config = {
+    noCombine : true,//是否使用combo功能，开发环境下支持combo需要配置minfy，默认使用
+    noCache : true,//是否在js或css文件尾部增加随机函数来防止浏览器缓存，默认使用
+    console : true,//是否使用通用的console控制台，这样就可以在页面显示Y.log内容，默认使用
+                   //失效时，请查看对应的YUI实例需要使用event-custom-base模块
+    noVersion : true,//是否使用不带版本号的文件，这样就可以直接调用本地开发文件，因为这些文件都是不带版本号的，默认使用
+    syntaxHighlight : false,//是否格式化代码显示，默认使用
+    local : true //是否使用本地路径，即类似/k2/seed/seed.js这样的绝对路径，这样无论你是什么本地域名都可以使用，
+                 //否则使用类似http://k.kbcdn.com/k2/seed/seed.js这样的绝对路径，默认使用
+  }  
+}
+</script>
+<script charset="utf-8" src="/k2/seed/seed.js"></script>
+<script charset="utf-8" src="/k2/_assets/config.js"></script>
+
+<script>
+//这样处理没有问题，如果在插入到POP之前注册了事件。并用来处理POP。将在IE下出现内存泄漏问题
+function test(){
+  obj.setContent(Y.Node.create('<p>重设popup内容11</p>'),false);
+};
+YUI({
+/*
+  modules : {
+    'k2-popup' : {
+      fullpath : '/k2/popup/popup.js',
+      requires : ['dd-constrain','dd-ddm','stylesheet']
+    }
+  }
+ */
+
+}).use('k2-popup',function(Y){
+  var obj;
+  var obj2;
+  var obj3;
+
+  obj = Y.createPop({
+    sTitle:'头1',
+    vContent:document.getElementById('demo2'),
+    iWidth:'600',
+    iHeight:'400',
+    share:true,
+    bShowAfterInit:false,
+    onOk:function(popobj){alert('初始化OK事件1');},
+    //控制底部按钮的水平位置，但会影响所有的share对象
+    btnAlign:'left',
+    sOk:'ok1',
+    sCancel:'cancel2',
+    onClose:false
+  });
+  window.obj = obj;
+
+  obj.on('popup:show',function(){alert('自定义注册事件,show事件');});
+
+  obj2 = Y.createPop({
+    sTitle:'头2',
+    share:true,
+    bShowAfterInit:false,
+    vContent:document.getElementById('demo3'),
+    onOk:function(popobj){alert('初始化OK事件2');}
+  });
+
+  obj3 = Y.createPop({
+    sTitle:'头3',
+    share:false,
+    bShowAfterInit:false,
+    vContent:'独立的pop3',
+    onOk:false,
+    onCancel:false
+//    onOk:function(popobj){alert('初始化OK事件3');}
+  });
+  
+  obj3.on('popup:close',function(){alert('自定义注册事件，关闭事件');});
+  //obj3.on('popup:close',function(){alert('test2');});
+
+  Y.one('#pop-btn1').on('click',function(){
+    obj.setContent('pop1的内容',false);
+    //构造pop实例对象
+    obj.show();
+  });
+
+  Y.one('#pop-btn2').on('click',function(){
+    //构造pop2实例对象
+    obj2.setContent('pop2的内容');
+    obj2.setSize(500,300);
+    obj2.show();
+  });
+  
+  Y.one('#pop-btn3').on('click',function(){
+    obj3.setContent('<p style="width:200px;">pop3的内容</p>');
+    //构造pop实例对象
+    obj3.show();
+  });
+
+
+  Y.one('#reset-btn').on('click',function(){
+    obj.setContent('<p>我是隐藏后重设popup内容</p>',true);
+    obj.show();
+  });
+
+  Y.one('#pop-btn4').on('click',function(){
+    obj3.setTitle('');
+    obj3.show();
+  });
+
+  window.Y = Y;
+});
+</script>
+</body>
+</html>

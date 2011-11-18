@@ -1,0 +1,266 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta content="no-cache" http-equiv="Pragma"/>
+    <meta content="no-cache" http-equiv="Cache-Control"/>
+    <meta content="0" http-equiv="Expires"/>
+    <link rel="stylesheet" href="/k2/css/reset.css">
+    <link rel="stylesheet" charset="utf-8" href="/k2/_assets/demo.css">
+    <title>屏幕跟随</title>
+    <base target="_blank" />
+    <style type="text/css" rel="stylesheet">
+        #container{width:950px;margin:auto}
+        #container:after{  content:"\0020";display:block;height:0;clear:both;}
+        #left{float:left; height:2000px;width:600px;word-wrap:break-word;}
+        #right{float:left;width:auto;margin-top:100px;width:300px;}  
+        #map-main {height: 295px;}
+        #map-option-label{float:right;display:block;line-height:24px}
+        #map-option{display:block;float:right;margin:5px 2px 0 0 ;width:13px; height:13px}
+        #map-wrap{width:270px;padding:0;margin:auto;opacity:0.5;filter:Alpha(opacity=50);position:relative}
+        #map-contain {background: none repeat scroll 0 0 #333;height: 270px;color:#fff}
+        .hd{border:solid 1px #999;width:268px;height:24px;}
+        .occup-word{float:right;}        
+        body{line-height:30px;padding:0;margin:0;width:900px; border:solid 1px red;margin:auto}        
+        #after{height:200px;border:solid 1px red}
+        
+        .go-top {
+          background: url("/product/huangye/cate_list/img/store_list_icon_4.png") no-repeat scroll 0 -660px transparent;
+          bottom: 10%;
+          color: #727272;
+          cursor: pointer;
+          font-weight: bold;
+          height: 66px;
+          margin-top: 13px;
+          padding-top: 23px;
+          right: 120px;
+          text-align: center;
+          text-decoration: none;
+          width: 23px;
+          line-height:14px;
+      }        
+    </style>
+</head>
+<body>
+<div id="container">
+  <div id="left">
+  调用方法:
+<pre class="brush:javascript;">
+YUI().use('base-base','node','k2-scrollfollow','node-style',function(Y){
+    var mapCheck = Y.one('#map-option');
+    mapCheck.set('checked','true');
+    var mapfollow = new Y.k2Scrollfollow(
+    {'placeholder': true,'wrap':Y.one('#map-wrap'),"anim":"all"});
+    mapfollow.setSwitch(true);
+    Y.on('click',function(ev){
+      if(mapCheck.get('checked')){
+        mapfollow.setSwitch(true);
+      }else{
+        mapfollow.setSwitch(false);
+      }
+    },mapCheck);    
+  });
+</pre>
+
+      <h2>配置参数:</h2>
+      <table>
+      <tr>
+          <th>参数名:</th><th>说明</th><th>其他</th>
+      </tr>
+      <tr>
+          <td>placeholder</td>
+          <td>占位节点</td>
+          <td>
+              可选的值为true,false,Node.如果设置为true,则会自动创建一个与浮动节点高度宽度相同的visibility:hidden接点,用于占位<br/>
+              如果设置为false,则不会创建占位节点,浮动节点下面的内容会往上移动<br />
+              如果设置为Node,则需要将Node设置为visibility:hidden和display:none;当节点浮动的时候会将该节点设置为display:block<br />
+          </td>
+      </tr>
+      <tr>
+          <td>wrap</td>
+          <td>需要浮动的节点,Node</td>
+          <td></td>
+      </tr> 
+      <tr>
+          <td>anim</td>
+          <td>动画选项</td>
+          <td>可选的值:false,"all","ie6".如果设为false则不使用动画,选择"ie6"则只在ie6下使用动画,选择"all"则在所有浏览器下都使用动画</td>
+      </tr> 
+      <tr>
+          <td>switch</td>
+          <td>浮动开关</td>
+          <td>可选值:true,fasle.如果为true则浮动,否则不浮动</td>
+      </tr>
+      <tr>
+          <td>customPos</td>
+          <td>用户自定义位置</td>
+          <td>可以设置top,right,bottom,left,同时设置top和bottom或者right和left以后面一个为准.<br />
+          当其祖先节点中有position设置为relative或者absolute的元素时,对应的是这个设置了position的节点,否则对峙是相对于窗口的可视区域</td>
+      </tr>
+      <tr>
+          <td>fixedCondition</td>
+          <td>用户自定义函数,用户判断当前节点是否需要使用fixed功能</td>
+          <td>组件在调用时会给这个函数传递四个参数,<br />分别是元素的默认x坐标,元素的默认y坐标,滚动条的x坐标,滚动条的y坐标.<br />
+              用户用户未设置这个函数或者函数返回true,则表示会使用fixed功能,否则不使用fixed</td>
+      </tr>
+      <tr>
+          <td>refObj</td>
+          <td>对象定位的参考类型</td>
+          <td>可以设置为'win'或者'doc'.<br />win:相对于浏览器的边界进行定位.
+            doc:相对于浏览器的可见区域进行定位,计算方法为相对于的边界定位减去浏览器的滚动条的距离</td>
+      </tr>
+      <tr>
+          <td>animObject</td>
+          <td>动画对象</td>
+          <td>如果未设置这个值,则在使用动画的时候会创建一个默认的动画对象.否则使用传入的动画对象</td>
+      </tr>
+      </table>
+  </div>
+  <div id="right">
+      <div id="map-main">        
+          <div>
+              在浮动的内容前面
+          </div>
+          <div id="map-wrap" style="zoom:1;">
+            <div class="k2-mod-content">
+              <div class="hd">
+                <p class="k2-fix-float">
+                  <label id="map-option-label" for="map-option">跟随屏幕移动</label><input type="checkbox" id="map-option" checked="">
+              </p>
+              </div>
+              <div class="bd">
+                <div id="map-contain">
+                  跟随屏幕移动的内容                  
+                    <input type="button" value="切换高度" id="switch-height" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="after">
+              在浮动的内容后面
+          </div>
+      
+      </div>
+  </div>
+</div>
+<div>
+  <div style="width: 15px; padding-left: 2px;position:absolute;left:1px; top:1px;" id="xiaoer-say">
+    <a href="http://work.koubei-inc.com/projects/ue/boards" target="_blank">
+      <img width="35" height="130" src="http://k.kbcdn.com/images/bug.png">
+    </a>
+  </div>
+    
+  <div class="go-top" id="go-top" ><a href="javascript:;">返回顶部</a></div>
+  <div id="aaa" style="border:solid 1px #ccc;background-color:#000;position:absolute;top:20px; left:40px;">固定的元素，x位置确定</div>  
+</div>
+<script charset="utf-8">
+//仅用于开发环境
+
+if(typeof K2_config === 'undefined'){
+  var K2_config = {
+    noCombine : true,//是否使用combo功能，开发环境下支持combo需要配置minfy，默认使用
+    noCache : false,//是否在js或css文件尾部增加随机函数来防止浏览器缓存，默认使用
+    console : true,//是否使用通用的console控制台，这样就可以在页面显示Y.log内容，默认使用
+                   //失效时，请查看对应的YUI实例需要使用event-custom-base模块
+    noVersion : true,//是否使用不带版本号的文件，这样就可以直接调用本地开发文件，因为这些文件都是不带版本号的，默认使用
+    syntaxHighlight : true,//是否格式化代码显示，默认使用
+    local : true //是否使用本地路径，即类似/k2/seed/seed.js这样的绝对路径，这样无论你是什么本地域名都可以使用，
+                 //否则使用类似http://k.kbcdn.com/k2/seed/seed.js这样的绝对路径，默认使用
+  }  
+}
+
+</script>
+
+<!--<script charset="utf-8" src="http://k.kbcdn.com/k2/seed/seed-1-2-4.js"></script>-->
+<script charset="utf-8" src="/k2/seed/seed.js"></script>
+<script charset="utf-8" src="/k2/_assets/config.js"></script>
+<script>
+  if(YUI_config.groups){
+    YUI_config.groups.appScrollFollow = {
+       combine:false,
+       base :'../',
+       root :'',
+       modules:{
+         'k2-scrollfollow':{
+           path:'scroll-follow.js',
+           requires:['node-base','node-style','dom-base','anim-base']
+         }
+       }
+    };
+  }
+  
+  YUI().use('node','k2-scrollfollow','node-style',function(Y){
+  
+    Y.one("#switch-height").on("click",function(evt){
+      var height = parseInt((Math.random() + 1) * 1000);
+      Y.one("#left").setStyle("height",  height);
+    });
+  
+    var mapCheck = Y.one('#map-option');
+    mapCheck.set('checked','true');
+    var mapfollow = new Y.k2Scrollfollow({
+      'placeholder': true,
+      'wrap':Y.one('#map-wrap'),
+      'anim':'all',
+      'customPos':{top:20},
+      'refObj':{x:'doc',y:'win'},
+      'fixedCondition':function(nodex,nodey,scrollx,scrolly){
+          //Y.log(nodey + "," + scrolly);
+          //console.log(nodey + "<" + scrolly + "=" + (nodey < scrolly));
+          //console.log(mapfollow.bPos);
+          if(nodey < scrolly){
+            return true;
+          }
+          return false;
+      }
+    });
+    mapfollow.setSwitch(true);
+    Y.on('click',function(ev){
+      if(mapCheck.get('checked')){
+        mapfollow.setSwitch(true);
+      }else{
+        mapfollow.setSwitch(false);
+      }
+    },mapCheck);
+    
+    var say = new Y.k2Scrollfollow({
+      'placeholder' : false,
+      'wrap':Y.one('#xiaoer-say'),
+      'anim':'ie6',
+      'switch':true,
+      'customPos':{bottom:150,left:10},
+      'refObj':{x:'doc',y:'win'},
+      'fixedCondition':function(nodex,nodey,scrollx,scrolly){
+        //console.log(nodey,scrolly);
+        return true;
+      }
+    }); 
+    //say.setSwitch(true);
+    
+    var toTop = new Y.k2Scrollfollow({
+      'placeholder' : false,
+      'wrap':Y.one('#go-top'),
+      'anim':'ie6',
+      'switch':true,
+      'customPos':{bottom:150,right:40},
+      'refObj':{x:'doc',y:'win'},
+      'fixedCondition':function(nodex,nodey,scrollx,scrolly){
+        if(scrolly > 0){
+          Y.one('#go-top').setStyle('display','block');
+          return true;
+        }
+        Y.one('#go-top').setStyle('display','none');
+        return false;
+      }
+    });    
+    //toTop.setSwitch(true);
+    Y.one('#go-top').on("click",function(evt){
+      document.documentElement.scrollTop = 0;
+      evt.preventDefault();
+    });
+  });
+  
+</script>
+</body>
+</html>

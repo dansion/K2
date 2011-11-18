@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:em="http://www.mozilla.org/2004/em-rdf#">
+   	<Description about="urn:mozilla:install-manifest">
+		<em:id>{f91736d1-6083-4d22-af0e-38befb649cba}</em:id>
+		<em:name>WangWang Protocol Handler</em:name>
+		<em:version>1.4</em:version>
+		<em:type>2</em:type>
+		<em:description>An extension to handle wangwang-related protocols for Firefox.</em:description>
+		<em:creator>Taobao UED Team</em:creator>
+		<em:developer>Kong Wei (Chappell.Wat) @ QuChao.com</em:developer>
+		<em:contributor>All Members from Taobao UED Team</em:contributor>
+		<em:contributor>AliSoft</em:contributor>
+		<em:contributor>Mozilla Online</em:contributor>
+		<em:contributor>Poster Designer: Shu'an</em:contributor>
+		<em:homepageURL>http://ued.taobao.com/</em:homepageURL>
+		<em:iconURL>chrome://wangwang/skin/wangwang.png</em:iconURL>
+		<em:optionsURL>chrome://wangwang/content/wangwangSetting.xul</em:optionsURL>
+
+		<em:localized>
+			<Description>
+				<em:locale>zh-CN</em:locale>
+				<em:name>旺旺协议</em:name>
+				<em:creator>淘宝 UED 团队</em:creator>
+				<em:developer>空帷 (Chappell.Wat) @ QuChao.com</em:developer>
+				<em:contributor>淘宝 UED 全体成员</em:contributor>
+				<em:contributor>阿里软件</em:contributor>
+				<em:contributor>谋智网络</em:contributor>
+				<em:contributor>宣传图视觉设计：书安</em:contributor>
+				<em:description>一款为 Firefox 提供旺旺相关协议支持的扩展。</em:description>
+			</Description>
+		</em:localized>
+
+		<em:localized>
+			<Description>
+				<em:locale>zh-TW</em:locale>
+				<em:name>旺旺協議</em:name>
+				<em:creator>淘寶 UED 團隊</em:creator>
+				<em:developer>空帷 (Chappell.Wat) @ QuChao.com</em:developer>
+				<em:contributor>淘寶 UED 全體成員</em:contributor>
+				<em:contributor>阿里軟體</em:contributor>
+				<em:contributor>謀智網絡</em:contributor>
+				<em:contributor>宣傳圖視覺設計：書安</em:contributor>
+				<em:description>一款為 Firefox 提供旺旺相關協議支援的套件。</em:description>
+			</Description>
+		</em:localized>
+
+		<em:targetApplication>
+			<Description>
+				<em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
+				<em:minVersion>2.0</em:minVersion>
+				<em:maxVersion>3.6.*</em:maxVersion>
+			</Description>
+		</em:targetApplication>
+
+	</Description>
+</RDF>

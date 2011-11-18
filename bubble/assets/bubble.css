@@ -1,0 +1,44 @@
+/*
+ * @author: bangyan@taobao.com
+ * @version: 1-0-0
+ */
+.k2-bubble {
+	background:#e6e5e9;
+	position:absolute;
+	left:0;
+	top:0;
+	z-index:2012;
+	visibility:hidden;
+}
+.k2-bubble .bubble-content {
+	*display:inline-block;
+	background:#ffff90;
+	border:1px solid #ff8e42;
+	height:100%;
+	padding:5px 8px;
+	position:relative;
+	left:-2px;
+	top:-2px;
+}
+.k2-bubble .bubble-content {
+	_display:inline;
+}
+.k2-bubble .bubble-arrow {
+	position:absolute;
+	width:13px;
+	height:7px;
+	background:url(skins/arrow.png) no-repeat 0 -7px;
+	top:100%;
+	margin-top:-3px;
+	z-index:1024;
+	left:15px;
+}
+.k2-bubble .arrow-top {
+	background-position:0 0;
+	top:0;
+	margin-top:-8px;
+}
+.k2-bubble .arrow-right {
+	left:auto;
+	right:15px;
+}

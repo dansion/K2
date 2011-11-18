@@ -1,0 +1,532 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>K2 Components | Image Uploader Docs</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+	<link href="http://k.kbcdn.com/min/f=k2/css/reset-1-0-0.css,k2/css/grids-1-0-0.css,/product/common/header/v20100816/header-1-0-34.css" rel="stylesheet">
+  	<base target="_blank" />
+<style>
+body {
+	font: normal 11px auto "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+	color: #4f6b72;
+	text-align:left;
+}
+h1{
+	padding:10px 0;
+	color:#333;
+	font-size:28px;
+	text-shadow: #eef 1px 1px; 
+}
+h2{
+	padding:10px 0 0 0;
+	margin:0;
+	font-weight:bold;
+	color:#FF33CC;
+}
+pre{
+	background:#F2F2F2;
+	padding:2px;
+}
+#swf-uploader{
+	width:101px;
+	height:30px;
+}
+.demo-column{
+	margin-top:20px;
+	border:#C1DAD7 1px solid;
+}
+.demo-column h3{
+	font-size:14px;
+	font-weight:bold;
+	background:#C1DAD7;
+	color:#4f6b72;
+	padding:5px;
+}
+.demo-column .demo-canvas{
+	
+	padding:10px;
+	border:#C1DAD7 8px solid;
+}
+#upload-drop-zone{
+	font-size:108px;
+	position:absolute;
+	right:0;
+	opacity:0;
+}
+p{
+	margin:5px 0;
+}
+ol{
+	padding-left:10px;
+}
+ol em{
+	font-weight:bold;
+	margin-right:5px;
+}
+
+
+a {
+	color: #c75f3e;
+}
+
+
+table, caption {
+	width: 100%;	 
+}
+caption{
+	padding: 10px 0 0 0;
+	
+}
+tr{
+	border-left: 1px solid #C1DAD7;
+}
+th {
+	
+	color: #4f6b72;
+	border-right: 1px solid #C1DAD7;
+	border-bottom: 1px solid #C1DAD7;
+	border-top: 1px solid #C1DAD7;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	text-align: left;
+	padding: 6px 6px 6px 12px;
+	background: #CAE8EA;
+}
+
+th.nobg {
+	border-top: 0;
+	border-left: 0;
+	border-right: 1px solid #C1DAD7;
+	background: none;
+}
+
+td {
+	border-right: 1px solid #C1DAD7;
+	border-bottom: 1px solid #C1DAD7;
+	background: #fff;
+	padding: 6px 6px 6px 12px;
+	color: #4f6b72;
+}
+
+
+td.alt {
+	background: #F5FAFA;
+	color: #797268;
+}
+
+th.spec {
+	border-left: 1px solid #C1DAD7;
+	border-top: 0;
+	background: #fff url(images/bullet1.gif) no-repeat;
+	font: bold 10px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+}
+
+th.specalt {
+	border-left: 1px solid #C1DAD7;
+	border-top: 0;
+	background: #f5fafa url(images/bullet2.gif) no-repeat;
+	font: bold 10px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+	color: #797268;
+}
+</style>
+</head>
+<body>
+	<div class="k2-single k2-w48">
+		<h1>K2 Uploader docs</h1>
+
+<h2>简介</h2>
+<p class='summary'>
+K2 Uploader模块是用来实现文件上传的。YUI 3.2.0中的uploader是借用的Flash API来实现文件上传的，使用YUI 3.x中的io-iframe-upload模块可以实现简易的文件上传。考虑到客户端可能缺少Flash插件，并且高级浏览器提供了更友好的文件上传API，实现一个兼容性更强的文件上传模块是很有必要的。</p>
+
+<p>虽然YUI自带的uploader和io-iframe-upload都可以实现文件上传，但是它们的接口不一致。K2 Uploader提供了一致的文件上传接口，并增加了高级浏览器的支持。它提供了3种上传方式：
+<ol>
+	<li><em>借用iframe文件上传</em>支持所有主流浏览器，是K2 Uploader默认的上传方式。</li>
+	<li><em>借用Flash API</em>需要客户端安装Flash Player浏览器插件，有更好的用户体验，如多图上传，进度展示。</li>
+	<li><em>高级浏览器API</em>只被高级浏览器支持，有更好的用户体验，如多图上传，进度展示，拖曳上传。</li>
+</ol></p>
+
+<p>在Uploader架构中，UploaderAbstract是一个抽象基类，它定义了Uploader所开放的公有API，每个具体的Uploader子类都继承自UploadAbstract。例如，UploaderIO使用iframe通过form表单提交的方式来进行文件上传。UploaderFlash借用Flash API来上传文件，UploaderHtml5使用了高级浏览器的API，例如FormData、FileAPI。通过如下代码可以检测浏览器对具体实现的支持与否：</p>
+<pre><code>UploaderFlash.available();	//是否支持Flash API上传
+UploaderHtml5.available();	//是否支持HTML5 API文件上传
+</code></pre>
+<p>Uploader是一个Facade类，它在内部检测浏览器的特性，然后采用一个最佳的实例。如果浏览器具有FormData API或者File API, 那么会自动选择UploaderHtml5的实现。否则它会判断Flash插件是否存在，如果Flash插件可用，UploaderFlash这个子类会被选择。如果上述条件都不成立，那么会选择UploaderIO来实现文件上传功能。</p>
+<h2>版本</h2>
+<ol>
+	<li>
+		<h3>最新版本 1.0.0</h3>
+	</li>
+</ol>
+<h2>参数，事件和方法</h2>
+<div class='params'>
+	<table>
+		<caption>构造函数参数</caption>
+		<thead>
+			<tr>
+				<th>参数名</th>
+				<th>参数类型</th>
+				<th>参数说明</th>
+				<th>默认值</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>container</td>
+				<td>String或者YUI Node</td>
+				<td>DOM节点或CSS选择器</td>
+				<td>null</td>
+			</tr>
+			<tr>
+				<td>action</td>
+				<td>String</td>
+				<td>文件传输时，HTTP的请求地址</td>
+				<td>null</td>
+			</tr>
+			<tr>
+				<td>method</td>
+				<td>String</td>
+				<td>文件传输时，HTTP的请求方法</td>
+				<td>POST</td>
+			</tr>
+			<tr>
+				<td>timeout</td>
+				<td>Number</td>
+				<td>多少毫秒后，HTTP请求超时，超时后uploadtimeout事件会触发</td>
+				<td>20000</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<div class='events'>
+	<table>
+		<caption>支持的事件</caption>
+		<thead>
+			<tr>
+				<th>事件名</th>
+				<th>事件说明</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>fileselect</td>
+				<td>文件被选择</td>
+			</tr>
+			<tr>
+				<td>uploadstart</td>
+				<td>文件开始上传</td>
+			</tr>
+			<tr>
+				<td>uploadcancel</td>
+				<td>文件上传被取消</td>
+			</tr>
+			<tr>
+				<td>uploadprogress</td>
+				<td>文件正在上传</td>
+			</tr>
+			<tr>
+				<td>uploadcompletedata</td>
+				<td>文件上传成功</td>
+			</tr>
+			<tr>
+				<td>uploadtimeout</td>
+				<td>文件上传超时</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<div class='events'>
+	
+	<table>
+		<caption>公开方法</caption>
+		<thead>
+			<tr>
+				<th>方法名</th>
+				<th>参数</th>
+				<th>方法说明</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>enable</td>
+				<td>无</td>
+				<td>启用图片上传</td>
+			</tr>
+			<tr>
+				<td>disable</td>
+				<td>无</td>
+				<td>禁用图片上传</td>
+			</tr>
+			<tr>
+				<td>setAllowMultipleFiles</td>
+				<td>(value:Boolean)</td>
+				<td>文件上传被取消</td>
+			</tr>
+			<tr>
+				<td>setSimUploadLimit<em>&nbsp;&nbsp;<i>*该方法没有被实现</i></em></td>
+				<td>(value:Number)</td>
+				<td>同时上传数</td>
+			</tr>
+			
+			<tr>
+				<td>isAllowedExtension</td>
+				<td>(fileName:String, allowed:Array)</td>
+				<td>是否是允许的文件名, allowed是文件后缀名列表</td>
+			</tr>
+			<tr>
+				<td>upload</td>
+				<td>(fileID:String&lt;Optional&gt;)</td>
+				<td>上传指定的文件，如果参数为空，则上传所有选中的图片</td>
+			</tr>
+			<tr>
+				<td>available<em>&nbsp;&nbsp;<i>*静态方法</i></em></td>
+				<td>null</td>
+				<td>检测某个特定的uploader在该浏览器下是否可用</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<h2>示例</h2>
+<!-- uploader by uploader module -->		
+<div class='demo-column'>
+<h3>Uploader by uploader module</h3>
+
+	
+	<pre>
+<code>YUI().use('k2-uploader', 'k2-uploader-flash', 'k2-uploader-html5, function(Y){
+	
+	var uploader = new Y.Uploader({
+		container: '#uploader-container',
+		tag: 'form', //默认是div
+		inputFunction: function(node){
+			node.setAttribute("size", 1); //回调函数用来操作input框，便于修改input的size
+		}
+	});
+	uploader.setAllowMultipleFiles(true) //多文件选择
+	uploader.on('fileselect', function(e){
+		uploader.upload();
+	});
+	uploader.on('uploadstart', function(e){
+		 //开始上传
+	});
+	uploader.on('uploadprogress', function(e){
+		 //正在上传
+		 (e.bytesLoaded/e.bytesTotal) //上传进度
+	});
+	uploader.on('uploadtimeout', function(e){
+		 //超时
+	});
+	uploader.on('uploaderror', function(e){
+		 //上传中断
+	});
+	uploader.on('uploadcompletedata', function(e){
+		(e.responseText); //返回的响应
+	});
+});</code>
+</pre>
+<div class='demo-canvas'>
+	<div id='uploader-container'>
+	</div>
+</div>
+
+</div>
+
+<!-- uploader by uploader-io module -->		
+<div class='demo-column'>
+<h3>Uploader by uploader-io module</h3>
+<pre>
+<code>YUI().use('k2-uploader-io', function(Y){
+	var uploader = new Y.UploaderIO({
+		container: '#myForm'
+	});
+	uploader.on('fileselect', function(e){
+		uploader.upload();
+	});
+});</code>
+</pre>
+	<div class='demo-canvas'>
+		<form id='myForm'>
+			<ol>
+				<li><input type='file' name='uploadFile' /></li>
+				<li><input name='a' value='A'/></li>
+				<li><input name='b' value='B'/></li>
+			</ol>
+		</form>
+	</div>
+</div>
+
+<!-- uploader by uploader-flash module -->		
+<div class='demo-column'>
+<h3>Uploader by uploader-flash module</h3>
+<pre>
+<code>YUI().use('k2-uploader-flash', function(Y){
+	var uploader = new Y.UploaderFlash({
+		container: '#swf--uploader'
+	});
+	uploader.on('fileselect', function(e){
+		uploader.upload();
+	});
+});</code>
+</pre>
+
+	<div class='demo-canvas'>
+		<div id='swf-uploader'>
+		</div>
+	</div>
+</div>
+
+<!-- uploader by uploader-html5 module -->		
+<div class='demo-column'>
+<h3>Uploader by uploader-html5 module</h3>
+<pre>
+<code>YUI().use('k2-uploader-html5', function(Y){
+	var uploader = new Y.UploaderHtml5({
+		container: '#html5-uploader'
+	});
+	uploader.on('fileselect', function(e){
+		uploader.upload();
+	});
+});</code>
+</pre>
+
+	<div class='demo-canvas'>
+		<div id='html5-uploader'>
+			
+			<div  style='width:400px;height:100px;background:#fCC;position:relative;overflow:hidden'>
+				<input id='upload-drop-zone' type='file' name='uploadFile' size='1'/>
+			</div>
+		</div>
+	</div>
+</div>
+
+</div>
+<script>
+//仅用于开发环境
+if(typeof K2_config === 'undefined'){
+  var K2_config = {
+    noCombine : true,//是否使用combo功能，开发环境下支持combo需要配置minfy，默认使用
+    noCache : true,//是否在js或css文件尾部增加随机函数来防止浏览器缓存，默认使用
+    console : true,//是否使用通用的console控制台，这样就可以在页面显示Y.log内容，默认使用
+                   //失效时，请查看对应的YUI实例需要使用event-custom-base模块
+    noVersion : true,//是否使用不带版本号的文件，这样就可以直接调用本地开发文件，因为这些文件都是不带版本号的，默认使用
+    syntaxHighlight : true,//是否格式化代码显示，默认使用
+    local : false //是否使用本地路径，即类似/k2/seed/seed.js这样的绝对路径，这样无论你是什么本地域名都可以使用，
+                 //否则使用类似http://k.kbcdn.com/k2/seed/seed.js这样的绝对路径，默认使用
+  }  
+}
+</script>
+<script src='/k2/seed/seed.js' charset='utf-8'></script>
+<!--<script src="/k2/_assets/config.js" charset="utf-8"></script>-->
+<script>
+YUI().use('k2-uploader', 'k2-uploader-flash', 'k2-uploader-html5', 'node-style', function(Y){
+		
+	
+	var uploader = new Y.Uploader({
+		container: '#uploader-container',
+		tag: 'form',
+		inputFunction: function(node){
+			node.setAttribute("size", 1);
+		}
+	});
+	uploader.setAllowMultipleFiles(true) //多文件选择
+	uploader.on('fileselect', function(e){
+		//uploader.upload();
+	});
+	uploader.on('uploadstart', function(e){
+		 //开始上传
+	});
+	uploader.on('uploadprogress', function(e){
+		 //正在上传
+		 (e.bytesLoaded/e.bytesTotal) //上传进度
+	});
+	uploader.on('uploadtimeout', function(e){
+		 //超时
+	});
+	uploader.on('uploaderror', function(e){
+		 //上传中断
+	});
+	uploader.on('uploadcompletedata', function(e){
+		(e.responseText); //返回的响应
+	});
+
+		//UploaderIO
+		var uploaderIO = new Y.UploaderIO({
+			container: '#myForm',
+			width:256,
+			height:256,
+			action:'upload_simple.php'
+		});
+
+		uploaderIO.on('uploadtimeout', function(e){
+			alert('uploaderIO timeout');
+		});
+
+		uploaderIO.on('fileselect', function(e){
+			uploaderIO.upload(e.id, {m:1});
+		});
+
+		uploaderIO.on('uploadcompletedata', function(e){
+			Y.log(e);
+		});
+		//UploaderFlash
+		var uploaderFlash = new Y.UploaderFlash({
+			container:'#swf-uploader',
+			timeout:5000,
+			swfURL: 'http://k.kbcdn.com/k2/uploader/skinnable-uploader.swf',
+			action: 'http://www.koubei.com/common/marlineup.html'
+			
+		});
+		uploaderFlash.on('uploadtimeout', function(e){
+			alert('uploaderFlash timeout');
+		});
+		
+		uploaderFlash.on('ready', function(){
+			uploaderFlash.setAllowMultipleFiles(true);
+			//uploaderFlash.setFileFilters([{description:"Images", extensions:"*.jpg;*.png;*.gif"}]);
+		});
+		uploaderFlash.on('fileselect', function(e){
+			uploaderFlash.uploadAll();
+		});
+		uploaderFlash.on('uploadprogress', function(e){
+			//console.log(e);
+		});
+		uploaderFlash.on('uploadcompletedata', function(e){
+			Y.log(e.responseText);
+		});
+		//UploaderHtml5
+		var dropzone = Y.one('#upload-drop-zone');
+		var uploaderHtml5 = new Y.UploaderHtml5({
+			container:'#html5-uploader',
+			action:'upload_simple.php',
+			adapterClass: Y.UploaderHtml5,
+			dropzone:dropzone
+		});
+		dropzone.on('dragover', function(e){
+			e.halt();
+			dropzone.setStyle('background', '#a11111');
+		});
+		dropzone.on('dragleave', function(e){
+			e.halt();
+			dropzone.setStyle('background', '#fcc');
+		});
+		uploaderHtml5.on('uploadtimeout', function(e){
+			alert('timeout');
+		});
+		uploaderHtml5.on('fileselect', function(e){
+			uploaderHtml5.uploadAll({m:3});
+		});
+		uploaderHtml5.on('uploadprogress', function(e){
+			Y.log('uploadprogress:' + e.bytesLoaded/e.bytesTotal);
+		});
+		uploaderHtml5.on('uploadcompletedata', function(e){
+			Y.log('uploaderHtml5: uploadcompletedata:' +e.responseText);
+			Y.log('getLoaded:' +uploaderHtml5.getLoaded());
+		});
+		uploaderHtml5.setAllowMultipleFiles(true);
+
+
+});
+</script>
+</body>
+</html>

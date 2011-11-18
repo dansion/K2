@@ -1,0 +1,85 @@
+/*!
+ * @revision:
+ */
+/*
+ * @author: <a href="youxiao@taobao.com">youxiao</a>
+ * @version:1-0-3
+ */
+.k2-icon-bg-m,
+.k2-icon-node-m{background-repeat:no-repeat;}
+.k2-icon-node-m{
+  margin-right:5px;
+  background-position:center center;
+}
+.k2-icon-bg-m{
+  background-position:left center;
+}
+.k2-icon-node-m{
+  display:-moz-inline-stack;
+  display:inline-block;
+ *display:inline;
+ *zoom:1;
+  vertical-align:middle;
+  font-size:0;
+  line-height:9999px;
+  *line-height:1.5;
+  overflow:hidden;
+  position:relative;
+ *position:static;
+}
+.k2-icon-s-db,
+.k2-icon-s-mail,
+.k2-icon-s-kx,
+.k2-icon-s-msn,
+.k2-icon-s-rr,
+.k2-icon-s-sina,
+.k2-icon-s-tb,
+.k2-icon-s-kb,
+.k2-icon-s-qq,
+.k2-icon-s-ww{
+  width:16px;
+  height:16px;
+  padding-left:20px;
+}
+.k2-icon-s-db{
+  background-image:url(share/k2-icon-s-db.png?du);
+}
+.k2-icon-s-mail{
+  background-image:url(share/k2-icon-s-mail.png?du);
+}
+.k2-icon-s-kx{
+  background-image:url(share/k2-icon-s-kx.png?du);
+}
+.k2-icon-s-kb{
+  background-image:url(share/k2-icon-s-kb.png?du);
+  width:15px;
+  padding-left:17px;
+}
+.k2-icon-s-msn{
+  background-image:url(share/k2-icon-s-msn.png?du);
+}
+.k2-icon-s-qq{
+  background-image:url(share/k2-icon-s-qq.png?du);
+  width:13px;
+  padding-left:15px;
+}
+.k2-icon-s-rr{
+  background-image:url(share/k2-icon-s-rr.png?du);
+}
+.k2-icon-s-sina{
+  background-image:url(share/k2-icon-s-sina.png?du);
+}
+.k2-icon-s-tb{
+  background-image:url(share/k2-icon-s-tb.png?du);
+}
+.k2-icon-s-ww{
+  background-image:url(share/k2-icon-s-ww.png?du);
+}
+/*rewrite*/
+.k2-icon-bg-m{
+  width:auto;
+  height:auto;
+}
+.k2-icon-node-m{
+  padding-left:0;
+}

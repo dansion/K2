@@ -1,0 +1,54 @@
+/*!
+ * Copyright koubei.com All rights reserved.
+ * @file xiang.css
+ * @author dunan
+ * @modified yuanhuang
+ * @revision:
+ * @version:1-0-0
+ */
+
+/*圆角*/
+.k2-mod-rounded-corner{
+    text-align:left;
+    width:250px;
+    background:#fafafa;
+    border:1px solid #e6e6e6;
+}
+
+.k2-mod-content{
+    margin-top:-5px;
+}
+.k2-style-corner-t1 .k2-mod-content-hd {
+    background: none repeat scroll 0 0 #FB9101;
+    color: #FFFFFF;
+}
+.k2-style-corner-t1 {
+    border: 1px solid #FF9900;
+}
+.hd-d {
+    font: bold 14px/27px arial;
+    margin-left: 10px;
+}
+.k2-mod-content-bd {
+    padding: 10px 10px 5px;
+}
+
+.k2-list-news li {
+    background: url(../img/dot.png) no-repeat scroll 0 50% transparent;
+    padding-left: 10px;
+}
+.hd-m {
+    float: right;
+    margin-top: 5px;
+    padding-right: 20px;
+}
+.k2-x2a,.k2-x1a{width:5px;}
+.k2-x1,.k2-x2,.k2-x1a,.k2-x2a{height:5px;}
+
+.k2-x1{background:url(../img/k2-x1-t1.png) 100% 0 no-repeat;}
+.k2-x1a{background:url(../img/k2-x1a-t1.png) 0 0 no-repeat;}
+
+.k2-x2{background:url(../img/k2-x2-t1.png) 100% 0 no-repeat;}
+.k2-x2a{background:url(../img/k2-x2a-t1.png) 0 0 no-repeat;}
+
+

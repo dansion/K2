@@ -1,0 +1,56 @@
+/*!
+ * @revision:
+ */
+ 
+/* 
+ * @creator:lingyou
+ * @version:1-0-1
+ */
+ 
+.k2-v-default .k2-v-wrapper:after { content:"\0020";display:block;height:0;clear:both; }
+.k2-v-default .k2-v-wrapper { *zoom:1; }
+
+.k2-v-default .k2-v-wrapper .k2-v-content {
+  float : left;
+}
+
+.k2-v-default .k2-v-wrapper .k2-v-content label {
+  float : left;
+  width : 100px;
+  text-align : right;
+}
+
+.k2-v-default i,
+.k2-v-default u,
+.k2-v-default s,
+.k2-v-default b {
+  font-weight : normal;
+  font-style : normal;
+  text-decoration : none;
+}
+
+.k2-v-default .k2-v-required {
+  color : red;
+  font-size : 14px;
+  font-weight : bold;
+  padding-right : 5px;
+  line-height : 21px;
+}
+
+  
+.k2-v-default .k2-v-wrapper .k2-v-holder {
+  float : left;
+  height : 25px;
+  line-height : 25px;
+  margin-left : 5px;
+}
+
+.k2-v-failed .k2-v-holder {
+  background : url(assets/failed-16-16.png) no-repeat left center;
+  padding-left : 19px;
+}
+
+.k2-v-succeed .k2-v-holder {
+  background : url(assets/succeed-16-16.png) no-repeat left center;
+  padding-left : 19px;
+}

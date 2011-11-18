@@ -1,0 +1,74 @@
+﻿/*!
+ * @revision:
+ */
+/*
+ * @author: hesha@taobao.com
+ * @version:1-0-1
+ * 
+ */
+
+ /* grid main  */
+.k2-grids{width:100%}
+
+ /* clear both  */
+.k2-grids,.k2-w48,.k2-950px,.k2-clear,.k2-single{zoom:1}
+.k2-grids:after,.k2-w48:after,.k2-950px:after,.k2-clear:after,.k2-single:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+
+/* grids's width */
+
+.k2-w1,.k2-w2,.k2-w3,.k2-w4,.k2-w5,.k2-w6,.k2-w7,.k2-w8,.k2-w9,.k2-w10,.k2-w11,.k2-w12,.k2-w13,.k2-w14,.k2-w15,.k2-w16,.k2-w17,.k2-w18,.k2-w19,.k2-w20,.k2-w21,.k2-w22,.k2-w23,.k2-w24,.k2-w25,.k2-w26,.k2-w27,.k2-w28,.k2-w29,.k2-w29,.k2-w30,.k2-w31,.k2-w32,.k2-w33,.k2-w34,.k2-w35,.k2-w36,.k2-w37,.k2-w38,.k2-w39,.k2-w40,.k2-w41,.k2-w42,.k2-w43,.k2-w44,.k2-w45,.k2-w46,.k2-w47{float:left;margin-right:10px}
+.k2-10px, .k2-30px, .k2-50px, .k2-70px, .k2-90px, .k2-110px, .k2-130px, .k2-150px, .k2-170px, .k2-190px, .k2-210px, .k2-230px, .k2-250px, .k2-270px, .k2-290px, .k2-310px, .k2-330px, .k2-350px, .k2-370px, .k2-390px, .k2-410px, .k2-430px, .k2-450px, .k2-470px, .k2-490px, .k2-510px, .k2-530px, .k2-550px, .k2-570px, .k2-590px, .k2-610px, .k2-630px, .k2-650px, .k2-670px, .k2-690px, .k2-710px, .k2-730px, .k2-750px, .k2-770px, .k2-790px, .k2-810px, .k2-830px, .k2-850px, .k2-870px, .k2-890px, .k2-910px, .k2-930px, .k2-950px {float:left;margin-right:10px}
+.k2-10px, .k2-w1{width:10px}
+.k2-30px, .k2-w2{width:30px}
+.k2-50px, .k2-w3{width:50px}
+.k2-70px, .k2-w4{width:70px}
+.k2-90px, .k2-w5{width:90px}
+.k2-110px, .k2-w6{width:110px}
+.k2-130px, .k2-w7{width:130px}
+.k2-150px, .k2-w8{width:150px}
+.k2-170px, .k2-w9{width:170px}
+.k2-190px, .k2-w10{width:190px}
+.k2-210px, .k2-w11{width:210px}
+.k2-230px, .k2-w12{width:230px}
+.k2-250px, .k2-w13{width:250px}
+.k2-270px, .k2-w14{width:270px}
+.k2-290px, .k2-w15{width:290px}
+.k2-310px, .k2-w16{width:310px}
+.k2-330px, .k2-w17{width:330px}
+.k2-350px, .k2-w18{width:350px}
+.k2-370px, .k2-w19{width:370px}
+.k2-390px, .k2-w20{width:390px}
+.k2-410px, .k2-w21{width:410px}
+.k2-430px, .k2-w22{width:430px}
+.k2-450px, .k2-w23{width:450px}
+.k2-470px, .k2-w24{width:470px}
+.k2-490px, .k2-w25{width:490px}
+.k2-510px, .k2-w26{width:510px}
+.k2-530px, .k2-w27{width:530px}
+.k2-550px, .k2-w28{width:550px}
+.k2-570px, .k2-w29{width:570px}
+.k2-590px, .k2-w30{width:590px}
+.k2-610px, .k2-w31{width:610px}
+.k2-630px, .k2-w32{width:630px}
+.k2-650px, .k2-w33{width:650px}
+.k2-670px, .k2-w34{width:670px}
+.k2-690px, .k2-w35{width:690px}
+.k2-710px, .k2-w36{width:710px}
+.k2-730px, .k2-w37{width:730px}
+.k2-750px, .k2-w38{width:750px}
+.k2-770px, .k2-w39{width:770px}
+.k2-790px, .k2-w40{width:790px}
+.k2-810px, .k2-w41{width:810px}
+.k2-830px, .k2-w42{width:830px}
+.k2-850px, .k2-w43{width:850px}
+.k2-870px, .k2-w44{width:870px}
+.k2-890px, .k2-w45{width:890px}
+.k2-910px, .k2-w46{width:910px}
+.k2-930px, .k2-w47{width:930px}
+.k2-950px, .k2-w48{width:950px}
+
+/*last colum no margin-right*/
+.k2-last{margin-right:0}
+
+/*single line*/
+.k2-single{margin:0 auto;float:none}

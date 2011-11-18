@@ -1,0 +1,58 @@
+section,
+aside,
+footer,
+header{display:block;}
+body{
+  text-align:left;
+  padding:20px 0;
+}
+h1{
+  font:100px "Courier New", Courier, monospace;
+  color:#eee;
+  text-align:center;
+  margin-bottom:10px;
+}
+section{
+  border:1px solid #ccc;
+  padding:20px;
+  -moz-border-radius:4px;
+  -webkit-border-radius:4px;
+  border-radius:4px;
+  -moz-box-shadow:2px 2px 0 #eee;
+  -webkit-box-shadow:2px 2px 0 #eee;
+  box-shadow:2px 2px 0 #eee;
+  width:950px;
+  margin:0 auto 20px;
+}
+footer{
+  color:#ccc;
+  text-align:center;
+  margin-top:50px;
+}
+footer a:link,
+footer a:visited{
+  color:#ccc;
+  text-decoration:underline;
+}
+footer a:hover{
+  color:#f50;
+}
+aside{
+  color:#f00;
+  margin-bottom:15px;
+}
+aside:before{
+  content:"*";
+  margin-right:5px;
+  font-weight:bold;
+}
+code{
+  font-weight:bold;
+  color:#444;
+  border-bottom:1px dashed #ccc;
+  margin:0 4px;
+}
+.demo-important-info{
+  color:#f00;
+  float:right;
+}

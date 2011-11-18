@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>store flash test</title>
+	</head>
+	<body>
+
+		<script src="/k2/seed/seed.js"></script>
+		<script src="/k2/localstore/localstore.js"></script>
+		<script src="/k2/_assets/config.js" charset="utf-8"></script>
+		<script>
+		YUI().use('k2-local-store', 'test', function(Y){
+
+			var testcase = new Y.Test.Case({
+				 name: "k2 Storage Test Case",
+
+				testSetGetItem: function(){
+					var storage = new Y.k2LocalStore();
+					storage.on('ready', function(){
+						Y.log('创建存储引擎成功，模式为：' + storage.get('storageMode'));
+						storage.setItem('a', 'A');
+						Y.Assert.areEqual(storage.getItem('a'), 'A');
+						storage.clear();
+						Y.Assert.areEqual(storage.getItem('a'), undefined);
+					});
+				},
+				testRemoveItem: function(){
+					var storage = new Y.k2LocalStore();
+					storage.on('ready', function(){
+						Y.log('创建存储引擎成功，模式为：' + storage.get('storageMode'));
+						storage.setItem('a', 'A');
+						storage.setItem('b', 'B');
+						storage.removeItem('a');
+						Y.Assert.areEqual(storage.getItem('a'), undefined);
+						Y.Assert.areEqual(storage.getItem('b'), 'B');
+						storage.clear();
+					});
+				},
+				testClearItem: function(){
+					var storage = new Y.k2LocalStore();
+					storage.on('ready', function(){
+						Y.log('创建存储引擎成功，模式为：' + storage.get('storageMode'));
+						storage.setItem('a', 'A');
+						storage.setItem('b', 'B');
+						Y.Assert.areEqual(storage.getItem('a'), 'A');
+						Y.Assert.areEqual(storage.getItem('b'), 'B');
+						storage.clear();
+						Y.Assert.areEqual(storage.getItem('a'), undefined);
+						Y.Assert.areEqual(storage.getItem('b'), undefined);
+					});
+				}
+			});
+
+			
+			var suite = new Y.Test.Suite("k2 storage test suite");
+			suite.add(testcase);
+
+			Y.Test.Runner.add(suite);
+			Y.Test.Runner.run();
+		
+		});
+		</script>
+	</body>
+</html>

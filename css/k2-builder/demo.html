@@ -1,0 +1,703 @@
+<!--
+@author: youxiao@taobao.com
+@version: 1-0-0
+-->
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>K2 Builder</title>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<link href="http://kxt.koubei.com/k2/css/reset.css" rel="stylesheet">
+<link href="http://kxt.koubei.com/k2/css/common.css" rel="stylesheet">
+<link href="http://kxt.koubei.com/k2/css/grids-v2.css" rel="stylesheet">
+<style>
+#k2-builder-wrap{
+  background:url(img/b.png) repeat 0 0;
+  width:950px;
+  margin:0 auto;
+  min-height:400px;
+  padding:10px 0 1px;
+  margin-top:20px;
+  position:relative;
+}
+#k2-builder-wrap:after{
+  content:url(img/luler.png);
+  line-height:0;
+  border-bottom:1px solid #ccc;
+  position:absolute;
+  top:-11px;
+  left:0;
+}
+#k2-builder-wrap div{
+  -webkit-box-shadow:2px 2px 0 #0066CC inset,-2px -2px 0 #0066CC inset;
+  -moz-box-shadow:2px 2px 0 #0066CC inset,-2px -2px 0 #0066CC inset;
+  box-shadow:2px 2px 0 #0066CC inset,-2px -2px 0 #0066CC inset;
+  background-color:#B3D9FF;
+  min-height:40px;
+  line-height:40px;
+}
+#k2-builder-wrap .k2-single{
+  -webkit-box-shadow:none;
+  -moz-box-shadow:none;
+  box-shadow:none;
+  background:none;
+  margin-bottom:10px;
+}
+#k2-builder-wrap .k2-single.mouseover{
+  background-color:#ffcc00;
+  outline:2px solid #ffcc00;
+}
+.yui3-overlay {
+    background: #fff;
+    padding: 20px 10px 10px;
+    text-align:left;
+    border:1px solid #838383;
+    -webkit-box-shadow:3px 3px 0 rgba(0,0,0,0.12);
+    -moz-box-shadow:3px 3px 0 rgba(0,0,0,0.12);
+    -box-shadow:3px 3px 0 rgba(0,0,0,0.12);
+}
+.yui3-overlay .syntaxhighlighter{
+  margin-top:0 !important;
+}
+.yui3-overlay #overlay-close-btn{
+  	position:absolute;
+    right:2px;
+    top:2px;
+    text-decoration:underline;
+    background:url(img/close.png) no-repeat left center;
+    height:16px;
+    width:16px;
+}
+.yui3-overlay .yui3-widget-content-expanded{
+  overflow:auto;
+}
+
+
+#k2-builder{
+  font:12px/1.5 Arial, Helvetica, sans-serif;
+  text-align:left;
+  width:300px;
+  padding:5px;
+  border:1px solid #838383;
+  background-color:#f2f2f2;
+  position:fixed;
+  left:10px;
+  top:10px;
+  -webkit-box-shadow:3px 3px 0 rgba(0,0,0,0.12);
+  -moz-box-shadow:3px 3px 0 rgba(0,0,0,0.12);
+  -box-shadow:3px 3px 0 rgba(0,0,0,0.12);
+}
+#k2-builder a,
+#k2-builder a:visited{
+  color:#16b;
+}
+#k2-builder a:hover{
+  color:#f60;
+}
+#k2-builder button{
+  width:100%;
+  padding:5px 0;
+  margin-bottom:5px;
+}
+#k2-builder button:last-child{
+  margin:0;
+}
+#k2-builder button img{
+  vertical-align:text-top;
+  margin-right:5px;
+}
+#k2-builder .header{
+  margin-bottom:5px;
+}
+#k2-builder .header h1{
+  line-height:1;
+  cursor:move;
+}
+#k2-builder .header h1 em{
+  font-size:30px;
+  margin-right:5px;
+}
+#k2-builder .header .line{
+  color:#999;
+}
+#k2-builder .main{
+  border:1px solid #bbb;
+  background-color:#fff;
+  padding:5px;
+}
+#k2-builder .navigation{
+  border-bottom:1px solid #838383;
+  margin-bottom:5px;
+  padding-left:5px;
+}
+#k2-builder .navigation .yui3-tab-label{
+  padding:3px 10px;
+  outline:none;
+  text-decoration:none;
+  color:#000;
+}
+#k2-builder .navigation .yui3-tab{
+  float:left;
+  cursor:pointer;
+  border:1px solid #838383;
+  -moz-border-radius:4px 4px 0 0;
+  border-radius:4px 4px 0 0;
+  margin-bottom:-1px;
+  background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#ffffff), color-stop(0.35, #e6e6e6), color-stop(0.5, #e6e6e6), color-stop(0.65, #e6e6e6), to(#ffffff));
+  background:-moz-linear-gradient(top, #fff, #e6e6e6 35%, #e6e6e6 50%, #e6e6e6 65%, #fff);
+}
+#k2-builder .navigation .yui3-tab-selected{
+  background-image:none;
+  position:relative;
+}
+#k2-builder .navigation .yui3-tab-selected:after{
+  content:"\20";
+  width:100%;
+  background-color:#fff;
+  height:1px;
+  position:absolute;
+  bottom:-1px;
+  left:0;
+  overflow:hidden;
+}
+#k2-builder .navigation .yui3-tab:hover{
+  background:#e6e6e6;
+}
+#k2-builder .navigation .yui3-tab-selected:hover{
+  background:#fff;
+}
+#k2-builder fieldset{
+  background-color:#eee;
+  border:1px solid #bbb;
+  margin-bottom:5px;
+  padding:5px 0 0;
+}
+#k2-builder legend{
+  margin-left:5px;
+  font-weight:bold;
+}
+#k2-builder .table-wrap{
+  max-height:146px;
+  overflow:hidden;
+}
+#k2-builder .table-wrap:hover{
+  max-height:none;
+}
+#k2-builder table{
+  width:100%;
+  border-top:1px solid #ddd;
+}
+#k2-builder thead{
+  background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), color-stop(0.35, #e8e8e8), color-stop(0.5, #e8e8e8), color-stop(0.65, #e8e8e8), to(#fff));
+  background:-moz-linear-gradient(top, #fff 0%, #e8e8e8 35%, #e8e8e8 50%, #e8e8e8 65%, #fff 100%);
+}
+#k2-builder tbody tr:hover{
+  background-color:#f2f2f2;
+}
+#k2-builder th{
+  font-weight:normal;
+}
+#k2-builder td,
+#k2-builder th{
+  padding:1px 5px;
+  text-align:center;
+  border:1px solid #ddd;
+  border-width:0 1px 1px 0;
+}
+#k2-builder .fieldset-modify-grids td,
+#k2-builder .fieldset-modify-grids th{
+  padding:1px 0;
+}
+#k2-builder tr td:last-child,
+#k2-builder tr th:last-child{
+  border-right:none;
+}
+#k2-builder tr:last-child td,
+#k2-builder tr:last-child th{
+  border-bottom:none;
+}
+#k2-builder .grid-width{
+  width:40px;
+  text-align:right;
+  color:#444;
+  border:none;
+  margin-right:2px;
+  background:none;
+  border:1px solid #eee;
+}
+#k2-builder .grid-width:hover,
+#k2-builder .grid-width:focus{
+  background:url(img/editor.png) no-repeat 0 50%;
+  border:1px dashed #ddd;
+}
+#k2-builder .k2-inline-block{
+  padding:0;
+  vertical-align:middle;
+  font-size:0;
+  line-height:9999px;
+  overflow:hidden;
+  position:relative;
+  _position:static;
+  background-position:50% 50%;
+  background-repeat:no-repeat;
+  height:16px;
+  width:16px;
+}
+#k2-builder .grid-add{
+  background-image:url(img/add.png);
+}
+#k2-builder .grid-up{
+  background-image:url(img/up.png);
+}
+#k2-builder .grid-down{
+  background-image:url(img/down.png);
+}
+#k2-builder .grid-del{
+  background-image:url(img/del.png);
+}
+</style>
+</head>
+<body>
+<div id="k2-builder-wrap"></div>
+</body>
+<div id="k2-builder">
+	<div class="header">
+    <h1><em>K2</em>Builder</h1>
+    <div class="info">
+      <span class="version">V1.0.0</span>
+      <span class="copyrights">© 2011-2011 <a href="http://ued.koubei.com">Koubei UED</a></span>
+      <span class="line"> | </span>
+      <a href="" class="help">帮助</a>
+    </div>
+  </div>
+  <div class="main" id="tabview">
+    <ul class="navigation k2-fix-float">
+      <li class="current"><a href="#controls-grid">Grid</a></li>
+      <li><a href="#controls-moudles">Moudles</a></li>
+    </ul>
+    <div class="items-wrap">
+      <form class="items" id="controls-grid">
+        <fieldset>
+          <legend>Header</legend>
+          <table>
+            <thead>
+              <tr>
+                <th><label for="header-type">Header Type</label></th>
+                <th><label for="header-channel">Header Channel</label></th>
+                <th><label for="header-charset">Charset</label></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <select id="header-type" class="header-option" name="type">
+                    <option value="channel">channel</option>
+                    <option value="sample">sample</option>
+                    <option value="small">small</option>
+                    <option value="mini">mini</option>
+                  </select>
+                </td>
+                <td>
+                  <select id="header-channel" class="header-option" name="channel">
+                    <option value="business">商道</option>
+										<option value="hp">首页</option>
+										<option value="login">登录</option>
+                    <option value="ka">口碑卡</option>
+                    <option value="my">我的口碑</option>
+										<option value="mobile">手机口碑</option>
+										<option value="order">外卖</option>
+										<option value="shanghu">推荐商户</option>
+										<option value="tuijian">鲜辣点评</option>
+                    <option value="tuan">团购</option>
+										<option value="youhui">优惠券</option>
+                  </select>
+                </td>
+                <td>
+                  <select id="header-charset" class="header-option" name="charset">
+                    <option value="utf-8">utf-8</option>
+                    <option value="gbk">gbk</option>
+                  </select>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </fieldset>
+        <fieldset>
+          <legend>Add Grids</legend>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Preview</th>
+                  <th>Grids</th>
+                  <th>Stuff</th>
+                  <th>Option</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><img src="img/grid.png" width="16" height="16"></td>
+                  <td>665px | 270px</td>
+                  <td>15px</td>
+                  <td><a href="#" class="grid-add k2-inline-block" title="添加" data-grid="665,270" data-stuff="15">添加</a></td>
+                </tr>
+                <tr>
+                  <td><img src="img/grid.png" width="16" height="16"></td>
+                  <td>705px | 230px</td>
+                  <td>15px</td>
+                  <td><a href="#" class="grid-add k2-inline-block" title="添加" data-grid="705,230" data-stuff="15">添加</a></td>
+                </tr>
+                <tr>
+                  <td><img src="img/grid.png" width="16" height="16"></td>
+                  <td>230px | 705px</td>
+                  <td>15px</td>
+                  <td><a href="#" class="grid-add k2-inline-block" title="添加" data-grid="230,705" data-stuff="15">添加</a></td>
+                </tr>
+                <tr>
+                  <td><img src="img/grid.png" width="16" height="16"></td>
+                  <td>745px | 190px</td>
+                  <td>15px</td>
+                  <td><a href="#" class="grid-add k2-inline-block" title="添加" data-grid="745,190" data-stuff="15">添加</a></td>
+                </tr>
+                <tr>
+                  <td><img src="img/grid.png" width="16" height="16"></td>
+                  <td>190px | 745px</td>
+                  <td>15px</td>
+                  <td><a href="#" class="grid-add k2-inline-block" title="添加" data-grid="190,745" data-stuff="15">添加</a></td>
+                </tr>
+                <tr>
+                  <td><img src="img/grid.png" width="16" height="16"></td>
+                  <td>150px | 580px | 200px</td>
+                  <td>10px</td>
+                  <td><a href="#" class="grid-add k2-inline-block" title="添加" data-grid="150,580,200" data-stuff="10">添加</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </fieldset>
+        <fieldset class="fieldset-modify-grids">
+          <legend>Modify Grids</legend>
+          <table>
+            <thead>
+              <tr>
+                <th width="50">Col1</th>
+                <th width="50">Col2</th>
+                <th width="50">Col3</th>
+                <th width="60">stuff</th>
+                <th>Option</th>
+              </tr>
+            </thead>
+            <tbody id="modify-grids-wrap">
+            </tbody>
+          </table>
+        </fieldset>
+        <div class="options">
+          <button id="preview"><img src="img/preview.png" width="16" height="16">Preview</button>
+          <button id="get-code"><img src="img/code.png" width="16" height="16">Get Code</button>
+        </div>
+      </form>
+      <form class="items" id="controls-moudles">
+          开发中...
+      </form>
+    </div>
+  </div>
+</div>
+<script src="http://kxt.koubei.com/k2/seed/seed.js" charset="utf-8"></script>
+<script>
+YUI({
+		base: "http://k.kbcdn.com/yui/3.3.0/",
+		modules: {
+				"escape": {
+						path: "escape/escape-min.js"
+				}
+		},
+		groups : {
+				sh : {
+						base : 'http://kxt.koubei.com/k2/_assets/syntaxhighlighter/',    
+						modules : {
+								'sh-core' : {
+										path : 'scripts/shCore.js'  
+								},
+								'sh-style' : {
+										path : 'styles/shCore.css',
+										type : 'css'  
+								},
+								'sh-theme-style' : {
+										path : 'styles/shThemeDefault.css',  
+										type : 'css'  
+								},
+								'sh-css' : {
+										path : 'scripts/shBrushCss.js'
+								},
+								'sh-js' : {
+										path : 'scripts/shBrushJScript.js'
+								},
+								'sh-java' : {
+										path : 'scripts/shBrushJava.js'
+								},
+								'sh-xml' : {
+										path : 'scripts/shBrushXml.js'
+								},
+								'sh-php' : {
+										path : 'scripts/shBrushPhp.js'
+								},
+								'sh-all' : {
+										path : 'scripts/shBrushPhp.js',
+										requires: ["sh-core","sh-style","sh-theme-style","sh-xml","sh-js","sh-css","sh-java","sh-php"]
+								}    
+						}
+				}
+		}
+}).use("node-base","dd","overlay","escape","sh-all","tabview",function(Y){
+//grid data
+var Grids = [];
+
+//tabview
+var Tabview = new Y.TabView({
+		srcNode: '#tabview'
+});
+Tabview.render();
+
+//showCode overlay
+var Overlay = new Y.Overlay({
+		visible: false,
+		zIndex: 9999,
+		width: '80%',
+		height: '80%',
+		headerContent: '<a href="#" id="overlay-close-btn" title="close"></a>',
+		clipboardSwf: "http://kxt.koubei.com/k2/_assets/syntaxhighlighter/scripts/clipboard.swf"
+}).render(document.body);
+Overlay.after("bodyContentChange", function(e) {
+		SyntaxHighlighter.highlight();
+});
+Y.one("#overlay-close-btn").on("click",function(e){
+		e.preventDefault();
+		Overlay.set("visible", false);
+});
+
+//common functions
+var Grid = {};
+Grid.updateGrids = function(){
+		var wrap = Y.one("#k2-builder-wrap");
+		wrap.set("innerHTML","");
+		Y.Array.each(Grids,function(grid,index){
+				if(!grid){return;}
+				var single = Y.Node.create('<div class="k2-single k2-w190" data-index='+index+'></div>'),
+						s = grid["stuff"],
+						g = grid["grid"],
+						c = "";
+				Y.Array.each(g,function(_g,_i){
+						if(s == "10"){
+								c = " k2-s10"; 
+						}
+						if(_i == g.length - 1){
+								c = " k2-last";
+						}
+						var w = _g/5;
+						single.append('<div class="k2-w'+w+c+'">'+_g+'px</div>');
+						wrap.append(single);
+				});
+		});
+};
+Grid.findGrid = function(index){
+		return Y.one("div[data-index="+index+"]");
+		
+};
+Grid.addModifyGrids = function(cGrid){
+		var index = Grids.length - 1,
+				grid = cGrid["grid"],
+				stuff = cGrid["stuff"];
+		var html = Y.Node.create(
+				'<table>'+
+					'<tbody>'+
+						'<tr data-index="'+index+'">'+
+							'<td><input type="text" value="'+grid[0]+'" class="grid-width"></td>'+
+							'<td><input type="text" value="'+grid[1]+'" class="grid-width"></td>'+
+							'<td><input type="text" value="'+(grid[2]?grid[2]:"--")+'" class="grid-width"></td>'+
+							'<td><select class="grid-stuff"><option value="15"'+(stuff==15?"selected=\"selected\"":"")+'>15</option><option value="10"'+(stuff==10?"selected=\"selected\"":"")+'>10</option></select></td>'+
+							'<td>'+
+							'	<a href="#" class="grid-up grid-move k2-inline-block" title="上移">上移</a>'+
+							'	<a href="#" class="grid-down grid-move k2-inline-block" title="下移">下移</a>'+
+							'	<a href="#" class="grid-del k2-inline-block" title="删除">删除</a>'+
+							'</td>'+
+						'</tr>'+
+					'</tbody>'+
+				'</table>'
+		);
+		html.one(".grid-del").on("click",function(e){
+				e.preventDefault();
+				var parent = this.ancestor("tr");
+				Grids[parseInt(parent.getAttribute("data-index"),10)] = null;
+				Grid.updateGrids();
+				parent.remove();
+		});
+		html.all(".grid-move").each(function(node){
+				node.on("click",function(e){
+						e.preventDefault();
+						var tr = this.ancestor("tr"),
+								oTr,
+								ifUp = this.hasClass("grid-up");
+						if(ifUp){
+								oTr = tr.previous("tr");
+						}else{
+								oTr = tr.next("tr");
+						}
+						if(!oTr){return;}
+						var index = parseInt(tr.getAttribute("data-index"),10),
+								temp = Grids[index],
+								oIndex = oTr.getAttribute("data-index");
+						Grids[index] = Grids[oIndex];
+						Grids[oIndex] = temp;
+						Grid.updateGrids();
+						oTr.setAttribute("data-index",index);
+						tr.setAttribute("data-index",oIndex);
+						if(ifUp){
+								Y.one("#modify-grids-wrap").insertBefore(tr,oTr);
+						}else{
+								Y.one("#modify-grids-wrap").insertBefore(oTr,tr);
+						}
+				});
+		});
+		html.all(".grid-width").each(function(node){
+				node.on("keyup",function(e){
+						var v = parseInt(this.get("value"),10),
+								tr = this.ancestor("tr"),
+								inputs = tr.all("input"),
+								dIndex = parseInt(tr.getAttribute("data-index"),10),
+								index = inputs.indexOf(this);
+						if(v % 5 != 0 || v/5 > 190 || v < 5){
+								this.setStyle("color","red");
+								return;
+						}
+						Grids[dIndex]["grid"][index] = v;
+						this.setStyle("color","#444");
+						Grid.updateGrids();
+				});
+		});
+		html.one(".grid-stuff").on("change",function(e){
+				var v = parseInt(this.get("value"),10),
+						tr = this.ancestor("tr"),
+						selects = this.ancestor("tr").all("select"),
+						dIndex = parseInt(tr.getAttribute("data-index"),10),
+						index = selects.indexOf(this);
+				Grids[dIndex]["stuff"] = v;
+				Grid.updateGrids();
+		});
+		html.one("tr").on("mouseover",function(e){
+				Grid.findGrid(this.getAttribute("data-index")).addClass("mouseover");
+		});
+		html.one("tr").on("mouseout",function(e){
+				Grid.findGrid(this.getAttribute("data-index")).removeClass("mouseover");
+		});
+		Y.one("#modify-grids-wrap").append(html.one("tr"));
+};
+Grid.getHeader = function(){
+		var type = Y.one("#header-type").get("value"),
+				channel = Y.one("#header-channel").get("value"),
+				charset = Y.one("#header-charset").get("value");
+		return  '<!doctype html>\n'+
+						'<html>\n'+
+						'<head>\n'+
+						'<meta charset="'+charset+'">\n'+
+						'<meta http-equiv="X-UA-Compatible" content="IE=Edge">\n'+
+						'<title>K2 Builder</title>\n'+
+						'<link rel="stylesheet" href="http://kxt.koubei.com/k2/css/reset.css">\n'+
+						'<link rel="stylesheet" href="http://kxt.koubei.com/k2/css/grids-v2.css">\n'+
+						'<link rel="stylesheet" href="http://kxt.koubei.com/k2/css/color.css">\n'+
+						'<link rel="stylesheet" href="http://kxt.koubei.com/k2/css/common.css">\n'+
+						'<link rel="stylesheet" href="http://kxt.koubei.com/product/common/header/v20100816/header.css">\n'+
+						'</head>\n'+
+						'<body>\n'+
+						'<div class="k2-single k2-w190">\n'+
+						'	<script charset="utf-8" src="http://www.koubei.com/CMS/headers/090119/js_header.jsp?withCss=1&type='+type+'&channel='+channel+'"><\/script>\n'+
+						'</div>\n'+
+						'<!--doctype+css+header-后端开发时请更新SVN中CMS最新版本，设置host(10.252.71.111 k.kbcdn.com u.kbcdn.com)，然后启用下面的代码，替换前面的所有代码\n'+
+						'<%@ include file="/CMS/frontend/common/k2_css.jsp" %>\n'+
+						'<%@ include file="/CMS/frontend/business/business_css.jsp" %>\n'+
+						'<jsp:include page="/CMS/headers/wrap/header.jsp">\n'+
+						'	<jsp:param name="title" value="<%=$title%>"/>\n'+
+						'	<jsp:param name="mKeywords" value=""/>\n'+
+						'	<jsp:param name="description" value=""/>\n'+
+						'	<jsp:param name="css" value="<%=$css%>"/>\n'+
+						'	<jsp:param name="type" value="'+type+'"/>\n'+
+						'	<jsp:param name="channel" value="'+channel+'"/>\n'+
+						'	<jsp:param name="width" value="950"/>\n'+
+						'	<jsp:param name="charset" value="'+charset+'" />\n'+
+						'	<jsp:param name="city" value="<%=request.getParameter("city") %>" />\n'+
+						'</jsp:include>\n'+
+						'-->\n';
+};
+Grid.getFooter = function(){
+		return  '<!--\n'+
+						'<div class="k2-single k2-w190">\n'+
+						'	<%@ include file="/CMS/headers/new/footer_950.jsp" %>\n'+
+						'</div>\n'+
+						'<%@ include file="/CMS/frontend/common/k2/k2_js.jsp" %>\n'+
+						'<%@ include file="/CMS/frontend/business/business_js.jsp" %>\n'+
+						'-->\n'+
+						'<div class="k2-single k2-w190">\n'+
+						'	<script charset="utf-8" src="http://www.koubei.com/CMS/headers/new/js_footer.jsp"><\/script>\n'+
+						'</div>\n'+
+						'<script src="http://kxt.koubei.com/k2/seed/seed.js"><\/script>\n'+
+						'</body>\n'+
+						'</html>\n';
+};
+Grid.getGrids = function(){
+		var content = '';
+		Y.Array.each(Grids,function(grid){
+				if(!grid){return;}
+				var s = grid["stuff"],
+						g = grid["grid"],
+						c = "";
+				content += '<div class="k2-single k2-w190">\n';
+				Y.Array.each(g,function(_g,_i){
+						if(s == "10"){
+								c = " k2-s10"; 
+						}
+						if(_i == g.length - 1){
+								c = " k2-last";
+						}
+						var w = _g/5;
+						content += '	<div class="k2-w'+w+c+'">\n		'+_g+'px\n	</div>\n';
+				});
+				content += "</div>\n";
+		});
+		return content;
+};
+Grid.getCode = function(){
+		return  Grid.getHeader() + Grid.getGrids() + Grid.getFooter();
+};
+//events
+Y.all(".grid-add").each(function(node){
+		node.on("click",function(e){
+				e.preventDefault();
+				var grid = {
+						"grid" : node.getAttribute("data-grid").split(","),
+						"stuff" : node.getAttribute("data-stuff"),
+				};
+				Grids.push(grid);
+				Grid.updateGrids();
+				Grid.addModifyGrids(grid);
+		});
+});
+Y.one("#get-code").on("click",function(e){
+		e.preventDefault();
+		Overlay.set("bodyContent", '<pre id="k2-builder-show-code" class="brush:php">' + Y.Escape.html(Grid.getCode()) + '</pre>');
+		Overlay.set("visible", true);
+		Overlay.set("centered", true);
+});
+Y.one("#preview").on("click",function(e){
+		e.preventDefault();
+		Overlay.set("bodyContent", '<iframe width="100%" height="99%" id="preview-iframe" style="border:none;"></iframe>');
+		var doc = Y.one("#preview-iframe")._node.contentWindow.document;
+		doc.open();
+		doc.write(Grid.getCode());
+		doc.close();
+		Overlay.set("visible", true);
+		Overlay.set("centered", true);
+});
+new Y.DD.Drag({node:'#k2-builder'});
+});
+</script>
+</html>

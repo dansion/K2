@@ -1,0 +1,62 @@
+/*!
+ * 
+ * @version:1-0-0
+ */
+
+/* start: yk-validate-category selector */
+.k2-validate-category {
+  zoom:1;
+  clear:both;
+  -moz-user-select : none;
+}
+.k2-validate-cateogy:after {
+  content:".";
+  display:block;
+  height:0;
+  clear:both;
+  visibility:hidden;
+}
+.k2-validate-category ul {
+  border:1px solid #CCCCCC;
+  background-color:#FFFFFF;
+  float:left;
+  height:230px;
+  width:200px;
+  margin:0 2px 0 0;
+  overflow:auto;
+  overflow-y:scroll;
+  padding:4px;
+}
+.k2-validate-category ul li{border:1px solid #FFFFFF;color:#444444;cursor:default;height:20px;line-height:20px;list-style-type:none;margin:0pt 1px;padding:0pt;text-indent:3px;width:180px;*width:170px;}
+.k2-validate-category ul li.k2-validate-category-selected {color:#444;background-color:#ffdfe0;border-color:#ff8081;/*background-color:#CAFFC0;border:1px solid #0A9800;color:#006623;*/}
+.k2-validate-category ul li.k2-validate-category-parent {background-image:url(http://cn.yimg.com/ncp/i315/img/yn_category_right_arrow.gif);background-repeat:no-repeat;background-position:98% 50% ;}
+.k2-validate-category ul.k2-validate-category-level0 {}
+.k2-validate-category select {
+  margin-right : .5em;
+ }
+.k2-validate-category span.k2-validate-bts {
+  margin-right : .5em;
+}
+.k2-validate-category .k2-cds-multi-ctn {
+  margin-top : 5px;
+}
+.k2-validate-category .k2-cds-multi-ctn ul {
+  float : none;
+  height : auto;
+  width : auto;
+  overflow : auto;
+  padding : 0;
+  zoom:1;
+}
+.k2-validate-category .k2-cds-multi-ctn ul li {
+  float : left;
+  width : auto;
+}
+.k2-validate-category .k2-cds-multi-ctn ul li input {
+  vertical-align : middle;
+  margin : 0 3px 3px 0;
+}
+.k2-validate-category .k2-cds-multi-ctn ul li label {
+  padding-right : 5px;
+}
+/* end: k2-validate-category selector */

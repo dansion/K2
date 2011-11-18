@@ -1,0 +1,147 @@
+Amos apache接口目前提供的功能有：
+
+（1）         取用户在线状态：
+
+http://amos.im.alisoft.com/online.aw?uid=用户名&site=网站前缀&s=4
+
+返回在线或不在线的图标
+
+其中site网站前缀包括
+
+cnalichn – 阿里巴巴中文站
+
+cntaobao –淘宝网
+
+cnwujing –全球五金网
+
+glbfoods – 中国食品网
+
+（2）         与用户洽谈：
+
+http://amos.im.alisoft.com/msg.aw?uid=用户名&site=网站前缀
+
+若用户已安装阿里旺旺，则弹出聊天对话框，否则提示下载
+
+（3）         取单个用户状态
+
+http://amos.im.alisoft.com/userstatus.aw?uid=用户短ID&site=网站前缀
+
+返回：
+
+用户长ID＝0;         表示用户不在线
+
+用户长ID＝1;         表示用户在线
+
+（4）         取单个用户状态2
+
+http://amos.im.alisoft.com/userstatus2.aw?uid=用户短ID&site=网站前缀
+
+返回：
+
+Online＝0;         表示用户不在线
+
+Online＝1;         表示用户在线
+
+Online＝2;         表示非有效用户ID
+
+Online＝3;         表示隐身
+
+ 
+
+（5）         取单个用户状态3
+
+http://amos.im.alisoft.com/userstatus3.aw?uid=用户短ID&site=网站前缀
+
+返回：
+
+Online＝0;         表示用户不在线
+
+Online＝1;         表示用户在线
+
+Online＝2;         表示非有效用户ID
+
+Online＝3;         表示隐身
+
+Online＝4;         表示手机在线
+
+Online=5;          手机在线，且设置了离线消息转手机
+
+Online=6;          离线，且设置了离线消息转手机
+
+
+（6）         取多个用户状态
+
+http://amos.im.alisoft.com/muliuserstatus.aw?beginnum=起始编号&site=网站前缀&uids=用户短ID1;用户短ID2;...;用户短IDn
+
+返回：
+
+Online[0]=X
+
+Online[1]=X
+
+…
+
+Online[n]=X
+
+其中状态x的定义同前（5）
+
+（7）         取用户最后登录时间
+
+http://amos.im.alisoft.com/userslltime.aw?beginnum=起始编号&site=网站前缀&uids=用户短ID1;用户短ID2;...;用户短IDn
+
+返回：
+
+Online[0]＝登录时间
+
+Online[1]＝登录时间
+
+…
+
+Online[n]＝登录时间
+
+登录时间的格式为：
+
+年-月-日 时:分:秒 或 Unknow未知
+
+（8）         取在线用户数
+
+http://amos.im.alisoft.com/getusercount.aw?type=类型&netcode=网站编号
+
+其中：
+
+Type类型包括：
+
+0 － 取所有用户的
+
+1 － 取实际在线的（不含手机在线）
+
+2 － 取指定网站的所有在线用户
+
+3 － 取指定网站的实际在线用户（不含手机在线）
+
+Netcode网站编号为：
+
+0 － 中文站
+
+1 － 淘宝网
+
+2 － 五金网
+
+3 － 食品网
+
+（9）         取多个用户(长ID)状态
+
+http://amos.im.alisoft.com/mullidstatus.aw?beginnum=起始编号&uids=用户长ID1;用户长ID2;...;用户长IDn
+
+返回：
+
+Online[0]=X
+
+Online[1]=X
+
+…
+
+Online[n]=X
+
+其中状态x的定义同前（5）
+ 

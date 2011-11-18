@@ -1,0 +1,34 @@
+骆华君 onlyjava
+俞小浩 yuxh73
+
+
+直接下载下面的js
+http://www.im.alisoft.com/webim/js/website.js
+
+js源文件:
+http://www.im.alisoft.com/webim/js/website.source.js
+
+
+
+主要提供以下接口：
+１、添加好友　　addContact(fromSite,fromUid,toSite,toUid,gid,verify,moreProperties);
+２、发消息  
+    sendClientMsg(fromSite,fromUid,toSite,toUid,imstatus,moreProperties);
+３、启动旺旺：　startWW(fromSite,fromUid);
+
+参数说明　　（红色部分为必填项）
+fromSite：自己网站　　　　
+fromUid:　登录短ID
+toSite：　对方网站
+toUid：　对方短ID
+gid：   　组ID   (可不填用空字符串代替) 
+verify:  是否需要验证  (可不填)
+moreProperties：其他属性，格式（key1=value1&key2=value2）(可不填)
+imstatus:   在线状态 (可不填 默认用1替换)
+
+
+网站前缀   淘宝:cntaobao   中文站:cnalichn 口碑:cnkoubei 
+
+内网测试页面:
+http://10.2.226.108/test/shelltest/testWebsite.htm
+

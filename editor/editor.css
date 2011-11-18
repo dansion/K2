@@ -1,0 +1,499 @@
+/*
+ * @revision:
+ */
+/*
+ * @author:wulong@taobao.com
+ * @version:1-0-6
+ */
+
+
+.k2-editor-wrap{
+	border:1px solid #CED5E0;
+}
+.k2-editor-toolbar {
+	background-color: rgb(245, 247, 250);
+	background: -webkit-gradient(linear, left top, left bottom, from(#f8fafd), to(#f2f5f8));
+	background: -moz-linear-gradient(center top, #f8fafd, #f2f5f8) repeat scroll 0 0 transparent;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#f8fafd', endColorstr = '#f2f5f8');
+	zoom: 1;
+	border-bottom: 1px solid #CED5E0;
+}
+.k2-editor-status{
+	position:relative;
+	height:20px;
+	border-top: 1px solid #CED5E0;
+}
+
+.k2-editor-button {
+		color: black;
+		display: inline-block;
+		zoom: 1;
+		*display: inline;
+		margin: 2px 2px;
+		_margin:2px 0;
+		-moz-border-radius: 2px;
+		-webkit-border-radius: 2px;
+		border-radius: 2px;
+		text-decoration: none;
+		border: 1px solid transparent;
+		_border-color: tomato;
+		_filter: chroma(color = tomato);
+		vertical-align: middle;
+		white-space: nowrap;
+		outline: none;
+		cursor: pointer;
+		*zoom:expression(function(self){self.style.zoom=1;self.href='javascript:void(0)';}(this));
+}
+
+
+.k2-editor-button:hover {
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+
+.k2-editor-button-on {
+		border: 1px solid rgb(206, 213, 224);
+		background-color: rgb(252, 252, 252);
+}
+.k2-editor-button:hover {
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+
+.k2-editor-button-off:hover {
+    border: 1px solid rgb(206, 213, 224);
+    background-color: rgb(252, 252, 252);
+}
+.k2-editor-button-disabled {
+		opacity: 0.3;
+		filter: chroma(color = tomato) alpha(opacity = 30);
+		cursor: default;
+}
+
+.k2-editor-item ,
+.k2-editor-item-text{
+		float:left;
+		background: none no-repeat scroll center center transparent;
+		display: block;
+		height: 16px;
+		margin: 2px 4px;
+		overflow: hidden;
+		text-indent: -999999px;
+		vertical-align: middle;
+		width: 16px;
+		font-size:12px;
+		line-height:19px;
+}
+.k2-editor-item-text{
+		margin-left:0px;
+		text-indent: 0;
+		width:auto;
+}
+
+.k2-editor-tools-bold{
+	background-image: url("assets/skins/bold.png?du");
+}
+.k2-editor-tools-italic{
+	background-image: url("assets/skins/italic.png?du");
+}
+.k2-editor-tools-image{
+	background-image: url("assets/skins/image.png?du");
+}
+.k2-editor-tools-link{
+	background-image: url("assets/skins/link8.png?du");
+}
+.k2-editor-tools-ol{
+	background-image: url("assets/skins/ol.png?du");
+}
+.k2-editor-tools-ul{
+	background-image: url("assets/skins/ul.png?du");
+}
+.k2-editor-tools-ul{
+	background-image: url("assets/skins/ul.png?du");
+}
+.k2-editor-tools-color{
+	width: 24px;
+	background-image: url("assets/skins/color.png?du");
+}
+.k2-editor-tools-bgcolor{
+	width: 24px;
+	background-image: url("assets/skins/bgcolor.png?du");
+}
+.k2-menu {
+	background: none repeat scroll 0 0 #fcfcfc;
+	border-color: rgb(206, 213, 224);
+	border-style: solid;
+	border-width: 1px;
+	cursor: default;
+	font: 13px Arial, sans-serif;
+	margin: 0;
+	outline: medium none;
+	/*padding: 4px 0;*/
+	position: absolute;
+	overflow: hidden;
+	zoom: 1;
+	-moz-box-shadow: 0px 1px 1px rgb(228, 228, 228);
+	-webkit-box-shadow: 0px 1px 1px rgb(228, 228, 228);
+	/*
+	有了阴影，就hover失效？
+	filter: progid:DXImageTransform.Microsoft.Shadow(color = '#e4e4e4', Direction = 135, Strength = 3);
+	*/
+	box-shadow: 0px 1px 1px rgb(228, 228, 228);
+}
+
+.k2-menu a, .k2-menu-title {
+		display: block;
+		color: rgb(102, 102, 102);
+		margin: 0;
+		border-width: 0;
+		padding: 4px 7em 4px 28px;
+		white-space: nowrap;
+		zoom: 1;
+		text-decoration: none;
+		color:black;
+}
+
+.k2-menu-title {
+		background-color: #dcdcdc;
+		padding: 3px;
+		display: none;
+		color:black;
+}
+
+.k2-menu a:hover, .k2-menu-selected {
+		background: #D6E9F8;
+		text-decoration: none;
+		color:black;
+}
+
+
+
+.k2-select-text,
+.k2-select-drop-wrap,
+.k2-select-drop,
+.k2-select-wrap,
+.k2-select {
+		display: inline-block;
+		zoom: 1; /* zoom and *display = ie7 hack for display:inline-block */
+		*display: inline;
+}
+
+.k2-select-wrap {
+		margin: 0 2px;
+		cursor: pointer;
+		line-height: 0;
+		vertical-align: middle;
+}
+
+.k2-select {
+		border: 1px solid rgb(193, 200, 209);
+		height: 20px;
+		margin: 2px 0;
+		color: #000;
+		-moz-border-radius: 2px;
+		-webkit-border-radius: 2px;
+		border-radius: 2px;
+		text-decoration: none;
+		white-space: nowrap;
+		overflow: hidden;
+}
+
+.k2-select:hover {
+		color: black;
+		text-decoration: none;
+}
+
+.k2-select:active {
+		color: #000;
+}
+
+.k2-select-drop {
+		background: no-repeat scroll center center transparent;
+		background-image: url("assets/skins/arrow.png?du");
+		width: 7px;
+		height: 20px;
+		vertical-align: middle;
+		font-size: 0;
+}
+
+.k2-select-active {
+		background-color: #ffffff;
+}
+
+.k2-select-disabled,
+.k2-select-disabled .k2-select:hover,
+.k2-select-disabled .k2-select {
+		cursor: default;
+		opacity: 0.7;
+		filter: alpha(opacity = 70);
+		color: gray;
+}
+
+.k2-menu .k2-select-menu-item {
+		padding-left: 12px;
+		padding-right: 20px;
+}
+
+.k2-select-text {
+		padding-left: 4px;
+		height: 20px;
+		line-height: 20px;
+		position: relative;
+}
+
+.k2-combox .k2-select {
+		height: 24px;
+}
+
+.k2-combox .k2-select-drop,
+.k2-combox .k2-select-text {
+		height: 24px;
+		line-height: 24px;
+}
+
+.ie8 .k2-combox .k2-select-text {
+		top: -2px;
+}
+
+.ie7 .k2-combox .k2-select-text {
+		top: -3px;
+}
+
+.ie6 .k2-combox .k2-select-text {
+/*odd ie ,字错位*/
+		position: static;
+		/*
+		top: -2px;
+		*/
+		padding-top: 2px;
+}
+
+.k2-select-drop-wrap {
+		padding-right: 4px;
+}
+
+.ie6 .k2-combox .k2-select-drop-wrap {
+		position: relative;
+		top: -2px;
+		vertical-align: middle;
+		padding-top: 0;
+}
+
+.k2-combox .k2-select-drop-wrap {
+		padding-left: 6px;
+		padding-right: 6px;
+		border-left: 1px solid rgb(193, 200, 209);
+		background: #e8ebee repeat-x left top;
+		background-image: url("assets/skins/k2-button-bg.png?du");
+		height: 24px;
+		padding-top: 1px;
+}
+
+.ie8 .k2-combox .k2-select-drop-wrap {
+		top: 0;
+}
+
+.k2-combox .k2-select-text {
+		background: #FFFFFF repeat-x scroll 0 0;
+		background-image: url("assets/skins/text-bg.gif?du");
+}.k2-tabs {
+		padding-left: 10px;
+		margin-top: 10px;
+		border-bottom: 1px solid #CED5E0;
+}
+
+.k2-tabs li {
+		background-color: #F2F2F2;
+		border-color: #CED5E0;
+		border-style: solid solid none;
+		border-width: 1px 1px medium;
+		cursor: pointer;
+		float: left;
+		height: 24px;
+		line-height: 24px;
+		margin-left: 10px;
+		margin-right: 10px;
+		position: relative;
+		text-align: center;
+		width: 120px;
+}
+
+li.k2-tab-selected {
+		background-color: #FCFCFC;
+		border-color: #CED5E0 #CED5E0 #FCFCFC;
+		cursor: default;
+		margin-bottom: -1px;
+		padding-bottom: 1px;
+}
+
+.k2-color-panel th,
+.k2-color-panel td {
+    border: 0;
+    padding: 0;
+}
+.k2-color-panel{
+    background-color: #FBFBFB;
+    border: 1px solid #ACB4BE;
+    color: #000000;
+    font-size: 12px;
+    position: absolute;
+	
+}
+
+a.k2-color-a, a.k2-color-remove {
+    display: block;
+    text-align: center;
+    color:black;
+    text-decoration: none;
+    padding: 2px;
+    border: 1px solid white;
+}
+
+a.k2-color-remove {
+    padding: 3px 0;
+    margin: 5px;
+}
+a.k2-color-remove:hover{
+    color:black;
+    text-decoration:none;
+}
+a.k2-color-a:hover, a.k2-color-remove:hover, a.k2-color-selected {
+    background-color: #dff1ff;
+    border: 1px solid #316ac5;
+}
+
+a.k2-color-a span {
+    display: block;
+    height: 10px;
+    width: 10px;
+    font-size: 0;
+    line-height: 0;
+}
+
+.k2-color-wrap {
+    height:136px;
+    width:130px;
+}
+.k2-editor-tools-table{
+  background-image:url("assets/skins/table.png?du");
+}
+.k2-editor-popup-table{
+  margin:0 auto;
+  width:90%;
+}
+.k2-editor-popup-table td{
+  border:none;
+  padding:6px 0 4px;
+}
+.k2-editor-popup-table input{
+  border:1px solid #B5B8C8;
+  height:17px;
+  line-height:19px;
+  margin-left:2px;
+  vertical-align:middle;
+  *height:19px;
+}
+
+.k2-resizer {
+    background: no-repeat 0 9px;
+    background-image: url("assets/skins/resizer.png?du");
+    height: 20px;
+    width: 11px;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    cursor: se-resize;
+}
+
+.k2-editor-tools-alignleft {
+    background-image: url("assets/skins/align-left.png?du");
+}
+
+.k2-editor-tools-aligncenter {
+    background-image: url("assets/skins/align-center.png?du");
+}
+
+.k2-editor-tools-alignright {
+    background-image: url("assets/skins/align-right.png?du");
+}
+.k2-editor-tools-source {
+    background-image: url("assets/skins/sourcearea.png?du");
+}
+
+.k2-editor-tools-outdent {
+    background-image: url("assets/skins/outdent.png?du");
+}
+
+.k2-editor-tools-indent {
+    background-image: url("assets/skins/indent.png?du");
+}
+
+.k2-editor-insert-link p{
+	padding:10px 0 0 0;
+	line-height:23px;
+}
+.k2-editor-insert-link .k2-editor-insert-link-input{
+	height:20px;
+	width:150px;
+}
+.k2-editor-insert-link-notice{
+	padding:20px 0 0 0;
+	color:#999;
+}
+.k2-editor-tools-emotion{
+	width:19px;
+	height:18px;
+	background:url("assets/skins/faceicon.png?du");
+}
+.k2-editor-emotion-canvas{
+	background:url("assets/skins/icon_bg.png") no-repeat scroll 5px 5px #fff;
+	border: 1px solid #CCCCCC;
+    height: 272px;
+    padding-left: 2px;
+    padding-top: 1px;
+    width: 333px;
+}
+.k2-editor-emotion-canvas a{
+	 border: 1px solid #FFFFFF;
+    cursor: pointer;
+    float: left;
+    height: 28px;
+    width: 28px;
+}
+.k2-editor-emotion-canvas a:hover{
+	border-color:#ccc #666 #666 #ccc;
+}
+.k2-editor-tools-flash{
+	width:16px;
+	height:16px;
+	background:url("assets/skins/swf-icon.png?du");
+}
+.k2-editor-flash-userselect{
+	font-size:12px;
+}
+.k2-editor-flash-popup p.info{
+	border:#ffb3b6 1px solid;
+	background:#fef1f0;
+	font-size:12px;
+	padding:2px 0 2px 8px;
+	margin-top:8px;
+	 width: 310px;
+}
+.k2-editor-flash-userselect li{
+	float:left;
+	padding-right:10px;
+	margin-top:10px;
+}
+.k2-editor-flash-userselect input{
+	 width: 60px;
+}
+.k2-editor-flash-userselect .k2-editor-flash-website{
+	 width: 280px;
+}
+.k2-editor-tools-preview{
+	width:16px;
+	height:16px;
+	background:url("assets/skins/preview.png?du");
+}

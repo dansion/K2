@@ -1,0 +1,149 @@
+/*!
+ * @revision:
+ */
+/*
+ * @author: <a href="youxiao@taobao.com">youxiao</a>
+ * @version:1-0-0
+ */
+.k2-icon-bg-m,.k2-icon-bg-l,
+.k2-icon-node-m,k2-icon-node-l,
+.k2-icon-bg-m li,.k2-icon-bg-l li{ background-repeat:no-repeat; }
+.k2-icon-node-m,.k2-icon-node-l{
+  width:16px;
+  height:16px;
+  margin-right:5px;
+  background-position:center center;
+
+}
+
+
+.k2-icon-node-l{
+  height:22px;
+  width:31px;
+}
+.k2-icon-bg-m,.k2-icon-bg-l{
+  padding-left:21px;
+  background-position:left center;
+}
+.k2-icon-bg-l{
+  padding-left:31px;
+}
+.k2-icon-bg-m li,.k2-icon-bg-l li{
+  padding-left:8px;
+  background-position:0 0.67em;
+}
+ul.k2-icon-bg-m,
+ol.k2-icon-bg-m,ul.k2-icon-bg-l,
+ol.k2-icon-bg-l{
+  padding-left:0;
+  background:none;
+}
+.k2-icon-node-m,.k2-icon-node-l{
+  display:-moz-inline-stack;
+  display:inline-block;
+ *display:inline;
+ *zoom:1;
+  vertical-align:middle;
+  font-size:0;
+  line-height:99999px;
+  *line-height:0;
+  overflow:hidden;
+  position:relative;
+ *position:static;
+}
+
+
+
+
+.k2-icon-bg-m{
+  width:auto;
+  height:auto;
+}
+.k2-icon-node-m{
+  padding-left:0;
+}
+
+
+
+/* fang */
+.k2-icon-f-new{
+  background-image:url(k2-icon-f-new.png);
+}
+.k2-icon-f-new-l{
+  background-image:url(k2-icon-f-new-l.png);
+  width:32px;
+}
+
+.k2-icon-f-hui{
+  background-image:url(k2-icon-f-hui.png);
+}
+
+.k2-icon-f-hui-l{
+  background-image:url(k2-icon-f-hui-l.png);
+}
+.k2-icon-f-ji{
+  background-image:url(k2-icon-f-ji.png);
+}
+
+.k2-icon-f-ji-l{
+  background-image:url(k2-icon-f-ji-l.png);
+}
+.k2-icon-f-ji-gray{
+  background-image:url(k2-icon-f-ji-gray.png);
+}
+.k2-icon-f-jian{
+  background-image:url(k2-icon-f-jian.png);
+}
+
+.k2-icon-f-golden-window{
+  background-image:url(k2-icon-f-golden-window.png);
+}
+
+.k2-icon-f-window{
+  background-image:url(k2-icon-f-window.png);
+}
+
+.k2-icon-f-share-a{
+    background-image:url(k2-icon-f-share-a.png);
+}
+.k2-icon-f-share-b{
+    background-image:url(k2-icon-f-share-b.png);
+}
+.k2-icon-f-share-c{
+    background-image:url(k2-icon-f-share-c.png);
+}
+.k2-icon-f-share-d{
+    background-image:url(k2-icon-f-share-d.png);
+}
+.k2-icon-f-share-e{
+    background-image:url(k2-icon-f-share-e.png);
+}
+.k2-icon-f-share-f{
+    background-image:url(k2-icon-f-share-f.png);
+}
+.k2-icon-f-share-g{
+    background-image:url(k2-icon-f-share-g.png);
+}
+.k2-icon-f-share-h{
+    background-image:url(k2-icon-f-share-h.png);
+}
+.k2-icon-f-share-i{
+    background-image:url(k2-icon-f-share-i.png);
+}
+.k2-icon-f-share-j{
+    background-image:url(k2-icon-f-share-j.png);
+}
+
+
+.k2-icon-f-auth-a{
+   background-image:url(k2-icon-f-auth-a.png);
+   width:18px;
+}
+.k2-icon-f-auth-b{
+   background-image:url(k2-icon-f-auth-b.png);
+      width:20px;
+}
+.k2-icon-f-auth-b-gray{
+   background-image:url(k2-icon-f-auth-b-gray.png);
+   width:18px;
+}
